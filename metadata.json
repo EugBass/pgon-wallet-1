@@ -1,0 +1,8 @@
+{
+  "name": "PGON Wallet",
+  "description": "Официальный сайт криптокошелька PGON — Оплата криптой по QR-коду через СБП в РФ и виртуальная карта для ChatGPT, App Store, Netflix",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
