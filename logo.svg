@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Rounded Purple Hexagon with vertical gradient -->
+  <defs>
+    <linearGradient id="pgonIconGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B14F7"/>
+      <stop offset="100%" stop-color="#6B05D6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagon Container with rounded corners -->
+  <path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="url(#pgonIconGrad)"/>
+
+  <!-- Inside Silhouette of Pigeon in Dark Indigo/Black (#110026) -->
+  
+  <!-- Upper Wing Blade -->
+  <path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/>
+
+  <!-- Lower Wing Blade -->
+  <path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/>
+
+  <!-- Main Body + Round Head + Beak -->
+  <path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/>
+
+  <!-- Eye Dot in bright lavender (#C084FC) -->
+  <circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/>
+</svg>
