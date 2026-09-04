@@ -15,9 +15,10 @@
   <link rel="canonical" href="https://pgon.pro/">
 
   <!-- Favicon and Brand Icons -->
-  <link rel="icon" type="image/svg+xml" href="./logo.svg">
-  <link rel="alternate icon" href="./logo.svg">
-  <link rel="apple-touch-icon" href="./logo.svg">
+  <link rel="icon" type="image/png" href="./assets/pgon-icon.png">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="alternate icon" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/pgon-icon.png">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -33,10 +34,10 @@
   <meta property="twitter:description" content="Официальный криптокошелек PGON в Telegram: оплата по СБП QR в РФ и виртуальная карта для зарубежных подписок ChatGPT, Claude, App Store, Netflix, Spotify.">
   <meta property="twitter:image" content="https://pgon.pro/hero-bg.png">
 
-  <!-- Google Fonts: Futuristic Web3 Font Trio (Syne, Plus Jakarta Sans, Space Grotesk, Unbounded) -->
+  <!-- Google Fonts: Futuristic Web3 Typography (Unbounded, Manrope, JetBrains Mono, Noto Sans SC) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@600;700;800;900&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Schema.org JSON-LD Structured Data with Rich Products & Features -->
   <script type="application/ld+json">
@@ -45,8 +46,8 @@
     "@type": "FinancialService",
     "name": "PGON Wallet",
     "url": "https://pgon.pro/",
-    "logo": "https://pgon.pro/hero-bg.png",
-    "image": "https://pgon.pro/hero-bg.png",
+    "logo": "https://pgon.pro/assets/pgon-icon.png",
+    "image": "https://pgon.pro/assets/pgon-icon.png",
     "description": "Платежный Web3-криптокошелек в Telegram для моментальной оплаты покупок в РФ по QR-кодам СБП и выпуска виртуальных карт для оплаты ChatGPT, Claude, App Store, Google Play, Netflix, Spotify и зарубежных подписок.",
     "sameAs": [
       "https://t.me/pgon_wallet_bot",
@@ -95,10 +96,10 @@
       --text-muted: #A39BB5;
       --border-glass: rgba(157, 78, 221, 0.22);
       --border-glass-hover: rgba(157, 78, 221, 0.55);
-      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-display: 'Syne', system-ui, -apple-system, sans-serif;
-      --font-heading: 'Syne', system-ui, -apple-system, sans-serif;
-      --font-mono-tech: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+      --font-body: 'Manrope', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+      --font-display: 'Unbounded', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+      --font-heading: 'Unbounded', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+      --font-mono-tech: 'JetBrains Mono', 'Space Grotesk', monospace;
     }
 
     /* Reset & Base Setup */
@@ -209,65 +210,110 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
+      width: 100%;
     }
 
     .brand-logo {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      font-family: var(--font-display);
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: #FFFFFF;
+      padding: 0.3rem 1.15rem 0.3rem 0.35rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(34, 12, 68, 0.75) 0%, rgba(18, 6, 38, 0.85) 100%);
+      border: 2px solid #8A14F7;
+      box-shadow: 0 0 16px rgba(138, 20, 247, 0.45), inset 0 0 12px rgba(138, 20, 247, 0.25);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
     }
-
-    .brand-logo svg {
+    .brand-logo:hover {
+      border-color: #A855F7;
+      box-shadow: 0 0 24px rgba(168, 85, 247, 0.75), inset 0 0 16px rgba(168, 85, 247, 0.35);
+      transform: translateY(-1px) scale(1.02);
+    }
+    .brand-logo-img {
       width: 36px;
       height: 36px;
-      border-radius: 10px;
-      filter: drop-shadow(0 0 12px rgba(139, 20, 247, 0.7));
+      background: transparent;
+      border: none;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.6));
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
     }
-
-    .brand-logo span.dot-pro {
-      color: var(--accent-orange);
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(-3deg) scale(1.05);
+    }
+    .brand-logo-text {
+      font-family: var(--font-display), 'Unbounded', sans-serif;
+      font-size: 1.4rem;
       font-weight: 900;
+      letter-spacing: 0.04em;
+      background: linear-gradient(180deg, #A855F7 0%, #7E22CE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
     }
-
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: clamp(0.5rem, 1.2vw, 1.35rem);
       list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-shrink: 1;
+    }
+
+    .nav-links li {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .nav-links a {
-      font-size: 0.92rem;
-      font-weight: 500;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
       color: var(--text-muted);
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.55rem;
+      border-radius: 8px;
+      line-height: 1;
+      transition: all 0.2s ease;
     }
 
     .nav-links a:hover {
       color: #FFFFFF;
-      text-shadow: 0 0 12px rgba(224, 170, 255, 0.6);
+      background: rgba(157, 78, 221, 0.12);
+      text-shadow: 0 0 10px rgba(224, 170, 255, 0.7);
     }
 
     .btn-header-cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.65rem 1.4rem;
+      gap: 0.55rem;
+      padding: 0.6rem 1.25rem;
       background: linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 100%);
       border: 1px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
       font-family: var(--font-heading);
-      font-size: 0.92rem;
+      font-size: 0.84rem;
       font-weight: 700;
       color: #FFFFFF;
       box-shadow: 0 0 20px rgba(157, 78, 221, 0.45);
       transition: all 0.3s ease;
       white-space: nowrap;
       flex-shrink: 0;
+      line-height: 1;
     }
 
     .btn-text-mobile {
@@ -306,7 +352,7 @@
       left: -3%;
       width: 106%;
       height: 106%;
-      background-image: url('./hero-bg.png');
+      background-image: url('./assets/hero-bg-CgF-noal.png');
       background-size: cover;
       background-position: center top;
       background-repeat: no-repeat;
@@ -382,14 +428,14 @@
       z-index: 12;
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      background: rgba(24, 10, 48, 0.72);
-      border: 1px solid rgba(192, 132, 252, 0.45);
+      background: rgba(20, 10, 40, 0.85);
+      border: 1px solid rgba(157, 78, 221, 0.3);
       border-radius: 9999px;
-      padding: 8px 18px 8px 14px;
+      padding: 7px 16px 7px 10px;
       display: flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 22px rgba(157, 78, 221, 0.35);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 2px 10px rgba(157, 78, 221, 0.15);
       pointer-events: auto;
       cursor: default;
       transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease;
@@ -397,49 +443,33 @@
     }
 
     .floating-hero-pill:hover {
-      border-color: #E0AAFF;
-      background: rgba(45, 16, 85, 0.88);
-      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.7), 0 0 35px rgba(192, 132, 252, 0.6);
-      transform: scale(1.06) translateY(-4px) !important;
+      border-color: rgba(224, 170, 255, 0.6);
+      background: rgba(30, 14, 60, 0.95);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.7), 0 0 24px rgba(192, 132, 252, 0.25);
+      transform: scale(1.04) translateY(-3px) !important;
     }
 
-    .pill-pulse-dot {
-      width: 9px;
-      height: 9px;
+    .pill-fintech-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
       border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(157, 78, 221, 0.18);
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      color: #E0AAFF;
       flex-shrink: 0;
     }
 
-    .pill-pulse-dot.dot-green {
-      background: #10B981;
-      box-shadow: 0 0 10px #10B981, 0 0 18px rgba(16, 185, 129, 0.6);
-      animation: pulseGreenDot 2.2s infinite;
+    .pill-fintech-icon svg {
+      width: 14px;
+      height: 14px;
+      display: block;
     }
 
-    .pill-pulse-dot.dot-gold {
-      background: #F59E0B;
-      box-shadow: 0 0 10px #F59E0B, 0 0 18px rgba(245, 158, 11, 0.6);
-      animation: pulseGoldDot 2.2s infinite 0.5s;
-    }
-
-    .pill-pulse-dot.dot-purple {
-      background: #C084FC;
-      box-shadow: 0 0 10px #C084FC, 0 0 18px rgba(192, 132, 252, 0.6);
-      animation: pulsePurpleDot 2.2s infinite 1s;
-    }
-
-    @keyframes pulseGreenDot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.65; }
-    }
-    @keyframes pulseGoldDot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.65; }
-    }
-    @keyframes pulsePurpleDot {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.35); opacity: 0.65; }
-    }
+    .pill-pulse-dot { display: none !important; }
 
     .pill-text-group {
       display: flex;
@@ -465,21 +495,32 @@
 
     /* Positions & Floating Motion Paths */
     .pill-pos-left {
-      top: 18%;
-      left: max(4%, calc(50% - 470px));
+      top: 16%;
+      left: max(2.5%, calc(50% - 490px));
       animation: floatPillA 5.4s ease-in-out infinite;
     }
 
     .pill-pos-right {
-      top: 26%;
-      right: max(4%, calc(50% - 480px));
+      top: 18%;
+      right: max(2.5%, calc(50% - 490px));
       animation: floatPillB 6.2s ease-in-out infinite 0.7s;
     }
 
     .pill-pos-bottom-left {
-      top: 36%;
-      left: max(3%, calc(50% - 500px));
+      top: 32%;
+      left: max(2%, calc(50% - 520px));
       animation: floatPillC 5.8s ease-in-out infinite 1.3s;
+    }
+
+    .pill-pos-bottom-right {
+      top: 34%;
+      right: max(2%, calc(50% - 520px));
+      animation: floatPillD 6.4s ease-in-out infinite 1.1s;
+    }
+
+    @keyframes floatPillD {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-11px) rotate(1.2deg); }
     }
 
     @keyframes floatPillA {
@@ -564,7 +605,7 @@
 
     .hero-title-main {
       display: inline-block;
-      font-family: 'Unbounded', 'Syne', sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(2.4rem, 5.2vw, 4.4rem);
       font-weight: 900;
       line-height: 1.05;
@@ -933,35 +974,129 @@
        SECTION 2.7: VIRTUAL CARD SHOWCASE (AI & INTERNATIONAL SUBSCRIPTIONS)
        ========================================================================== */
     .card-showcase-section {
-      padding: 6.5rem 0;
+      padding: 5.5rem 0;
       position: relative;
-      background: radial-gradient(circle at 50% 30%, rgba(139, 20, 247, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle at 50% 30%, rgba(139, 20, 247, 0.16) 0%, transparent 68%);
     }
 
-    .card-showcase-grid {
+    /* Side-by-Side Card Stage (Wings Layout) */
+    .card-wings-stage {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
-      gap: 3.5rem;
+      grid-template-columns: 1fr minmax(360px, 470px) 1fr;
+      gap: 2rem;
       align-items: center;
+      margin: 0 auto 3rem auto;
+      max-width: 1200px;
+      position: relative;
     }
 
-    /* 3D Holographic Card Container */
-    .card-visual-wrapper {
+    @media (max-width: 1080px) {
+      .card-wings-stage {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .card-wings-center {
+        grid-column: 1 / -1;
+        order: -1;
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .card-wings-stage {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+    }
+
+    /* Left & Right Wings */
+    .card-wing-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .card-feat-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.95rem;
+      background: rgba(18, 9, 36, 0.65);
+      border: 1px solid var(--border-glass);
+      border-radius: 18px;
+      padding: 1.25rem 1.35rem;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-feat-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(224, 170, 255, 0.3), transparent);
+      opacity: 0.7;
+    }
+    .card-feat-item:hover {
+      border-color: rgba(192, 132, 252, 0.55);
+      background: rgba(28, 14, 52, 0.85);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(157, 78, 221, 0.25);
+    }
+    .card-feat-icon {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(123, 44, 191, 0.35) 0%, rgba(90, 24, 154, 0.2) 100%);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E0AAFF;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    .card-feat-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+    .card-feat-text h4 {
+      font-family: var(--font-heading);
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+    .card-feat-text p {
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    /* Center Visual Stage */
+    .card-wings-center {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
+      position: relative;
+      width: 100%;
     }
 
     .virtual-card-3d {
       width: 100%;
-      max-width: 440px;
+      max-width: 460px;
       aspect-ratio: 1.586 / 1;
-      border-radius: 20px;
-      padding: 1.75rem 2rem;
-      background: linear-gradient(135deg, rgba(36, 16, 70, 0.95) 0%, rgba(16, 7, 34, 0.98) 50%, rgba(55, 20, 105, 0.92) 100%);
+      border-radius: 22px;
+      padding: 1.85rem 2.2rem;
+      background: linear-gradient(135deg, rgba(38, 16, 75, 0.95) 0%, rgba(18, 8, 38, 0.98) 50%, rgba(58, 22, 112, 0.92) 100%);
       border: 1px solid rgba(192, 132, 252, 0.45);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 35px rgba(157, 78, 221, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 45px rgba(157, 78, 221, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.35);
       position: relative;
       display: flex;
       flex-direction: column;
@@ -969,8 +1104,8 @@
       overflow: hidden;
       transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
       cursor: pointer;
+      text-align: left;
     }
-
     .virtual-card-3d::before {
       content: '';
       position: absolute;
@@ -978,16 +1113,14 @@
       left: -50%;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle at 50% 50%, rgba(224, 170, 255, 0.15), transparent 60%);
+      background: radial-gradient(circle at 50% 50%, rgba(224, 170, 255, 0.18), transparent 60%);
       pointer-events: none;
     }
-
     .virtual-card-3d:hover {
       transform: translateY(-8px) scale(1.02);
-      border-color: rgba(224, 170, 255, 0.75);
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(157, 78, 221, 0.45);
+      border-color: rgba(224, 170, 255, 0.8);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), 0 0 60px rgba(157, 78, 221, 0.55);
     }
-
     .card-top-row {
       display: flex;
       justify-content: space-between;
@@ -995,24 +1128,30 @@
       position: relative;
       z-index: 2;
     }
-
     .card-brand-tag {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       font-family: var(--font-heading);
       font-weight: 800;
-      font-size: 1.15rem;
+      font-size: 1.18rem;
       letter-spacing: 0.05em;
       color: #FFFFFF;
     }
-
+    .card-brand-tag img,
+    .card-brand-img {
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.65));
+    }
     .card-chip-contactless {
       display: flex;
       align-items: center;
       gap: 0.85rem;
     }
-
     .emv-chip {
       width: 42px;
       height: 32px;
@@ -1023,7 +1162,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .emv-chip::after {
       content: '';
       position: absolute;
@@ -1033,19 +1171,17 @@
       height: 1px;
       background: rgba(0,0,0,0.25);
     }
-
     .card-number-display {
-      font-family: var(--font-mono-tech), monospace;
-      font-size: 1.35rem;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: clamp(1.25rem, 2vw, 1.55rem);
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       color: #F3E8FF;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-      margin: 0.8rem 0;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 14px rgba(224, 170, 255, 0.4);
+      margin: 1rem 0;
       position: relative;
       z-index: 2;
     }
-
     .card-bottom-row {
       display: flex;
       justify-content: space-between;
@@ -1053,153 +1189,249 @@
       position: relative;
       z-index: 2;
     }
-
     .card-holder-info {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 3px;
     }
-
     .card-holder-label {
       font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--text-muted);
-      font-family: var(--font-mono-tech);
+      color: #C084FC;
+      font-family: var(--font-mono-tech), monospace;
+      font-weight: 600;
     }
-
     .card-holder-name {
-      font-family: var(--font-mono-tech);
+      font-family: 'Courier New', Courier, monospace;
       font-size: 0.95rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.1em;
       color: #FFFFFF;
+      text-transform: uppercase;
     }
-
     .card-network-logo {
       display: flex;
       align-items: center;
       gap: 0.4rem;
     }
-
     .card-badge-live {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 0.45rem 1.1rem;
+      gap: 7px;
+      padding: 0.5rem 1.25rem;
+      margin-top: 1.25rem;
       background: rgba(16, 185, 129, 0.12);
       border: 1px solid rgba(16, 185, 129, 0.35);
       border-radius: 9999px;
-      font-family: var(--font-mono-tech);
-      font-size: 0.82rem;
+      font-family: var(--font-mono-tech), monospace;
+      font-size: 0.84rem;
       font-weight: 600;
       color: #34D399;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
     }
 
-    /* Features list on right side */
-    .card-features-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-bottom: 1.75rem;
-    }
-
-    .card-feat-item {
+    .card-center-cta {
       display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      background: var(--bg-card);
-      border: 1px solid var(--border-glass);
-      border-radius: 14px;
-      padding: 1rem;
-      transition: all 0.25s ease;
-    }
-
-    .card-feat-item:hover {
-      border-color: var(--border-glass-hover);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-    }
-
-    .card-feat-icon {
-      width: 36px;
-      height: 36px;
-      min-width: 36px;
-      border-radius: 10px;
-      background: rgba(123, 44, 191, 0.25);
-      display: flex;
-      align-items: center;
       justify-content: center;
-      color: #E0AAFF;
+      width: 100%;
+      margin: 2.25rem 0 3rem 0;
     }
 
-    .card-feat-text h4 {
-      font-family: var(--font-heading);
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      margin-bottom: 2px;
+    /* Clean 2-column SEO informative layout at bottom of section */
+    .card-seo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .card-seo-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    .card-feat-text p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
-    /* Service matrix pills */
+    /* ==========================================================================
+       PREMIUM BENTO SERVICE MATRIX (Option 1 - Clean Vectors & Fintech Polish)
+       ========================================================================== */
     .services-matrix-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-glass);
-      border-radius: 18px;
-      padding: 1.5rem;
+      background: rgba(14, 7, 28, 0.75);
+      border: 1px solid rgba(157, 78, 221, 0.22);
+      border-radius: 16px;
+      padding: 1.25rem 1.35rem;
       margin-bottom: 1.75rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     .services-matrix-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.95rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .services-matrix-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .services-live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 8px #10B981;
+      animation: pulseGreen 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulseGreen {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .services-matrix-title {
       font-family: var(--font-mono-tech);
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: #E0AAFF;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-weight: 700;
     }
 
-    .service-tags-wrap {
+    .services-matrix-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.2rem 0.6rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 9999px;
+      font-family: var(--font-mono-tech);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #34D399;
+      letter-spacing: 0.03em;
+    }
+
+    .services-bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.55rem;
+    }
+
+    .service-bento-tile {
       display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.55rem 0.65rem;
+      background: rgba(22, 12, 44, 0.6);
+      border: 1px solid rgba(157, 78, 221, 0.16);
+      border-radius: 10px;
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-bento-tile:hover {
+      border-color: rgba(224, 170, 255, 0.5);
+      background: rgba(38, 18, 74, 0.85);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(123, 44, 191, 0.25);
+    }
+
+    .service-tile-icon {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      border-radius: 7px;
+      background: rgba(123, 44, 191, 0.22);
+      border: 1px solid rgba(192, 132, 252, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      transition: all 0.22s ease;
+    }
+
+    .service-bento-tile:hover .service-tile-icon {
+      background: rgba(157, 78, 221, 0.4);
+      border-color: #E0AAFF;
+      color: #F8F9FA;
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.4);
+    }
+
+    .service-tile-icon svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .service-tile-content {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .service-tile-name {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .service-tile-meta {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono-tech);
+      font-size: 0.65rem;
+      color: #C084FC;
+      line-height: 1.2;
+      margin-top: 1px;
+      white-space: nowrap;
+    }
+
+    .service-tile-dot {
+      width: 4px;
+      height: 4px;
+      min-width: 4px;
+      border-radius: 50%;
+      background: #34D399;
+    }
+
+    /* Bento Footer Security Banner */
+    .services-matrix-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.85rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.12);
+      font-family: var(--font-mono-tech);
+      font-size: 0.72rem;
+      color: var(--text-muted);
       flex-wrap: wrap;
       gap: 0.5rem;
     }
 
-    .service-tag {
-      display: inline-flex;
+    .services-matrix-footer-item {
+      display: flex;
       align-items: center;
       gap: 0.4rem;
-      padding: 0.4rem 0.85rem;
-      background: rgba(11, 5, 24, 0.7);
-      border: 1px solid rgba(157, 78, 221, 0.22);
-      border-radius: 8px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      color: #F3E8FF;
-      transition: all 0.2s ease;
-      white-space: nowrap;
     }
 
-    .service-tag:hover {
-      border-color: #E0AAFF;
-      background: rgba(123, 44, 191, 0.35);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(157, 78, 221, 0.2);
-    }
-
-    .service-tag-ai {
-      border-color: rgba(255, 183, 3, 0.4);
-      color: #FFE082;
-      background: rgba(255, 145, 0, 0.08);
+    .services-matrix-footer-item svg {
+      color: #34D399;
     }
 
     /* ==========================================================================
@@ -1258,6 +1490,11 @@
       align-items: center;
       justify-content: space-between;
       margin-bottom: 1.25rem;
+    }
+
+    .case-icon-box svg {
+      width: 24px;
+      height: 24px;
     }
 
     .case-icon-box {
@@ -1332,6 +1569,9 @@
         grid-template-columns: 1fr;
         gap: 2.5rem;
       }
+      .services-bento-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
       .cases-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1340,6 +1580,13 @@
     @media (max-width: 640px) {
       .card-showcase-section, .cases-section {
         padding: 4.5rem 0;
+      }
+      .services-bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .services-matrix-footer {
+        flex-direction: column;
+        align-items: flex-start;
       }
       .cases-grid {
         grid-template-columns: 1fr;
@@ -1445,6 +1692,16 @@
       font-weight: 600;
     }
 
+    .method-name-cell img,
+    .method-brand-img {
+      width: 22px;
+      height: 22px;
+      background: transparent;
+      border: none;
+      object-fit: contain;
+      filter: drop-shadow(0 0 6px rgba(157, 78, 221, 0.6));
+    }
+
     .method-badge {
       display: inline-flex;
       align-items: center;
@@ -1520,6 +1777,220 @@
       display: flex;
       align-items: center;
       gap: 0.6rem;
+    }
+
+        /* Master Collapsible FAQ Category Panels */
+
+    /* SEO Narrative Blocks in Hero Section */
+    .seo-article-block {
+      width: 100%;
+      margin: 1.25rem 0;
+      padding: 1.25rem 1.4rem;
+      background: rgba(18, 9, 36, 0.65);
+      border: 1px solid rgba(157, 78, 221, 0.22);
+      border-radius: 16px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .seo-article-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+      line-height: 1.35;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .seo-article-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.1rem;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .seo-article-paragraph {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(248, 249, 250, 0.82);
+      margin-bottom: 0.65rem;
+      font-weight: 400;
+    }
+
+    .seo-article-paragraph:last-child {
+      margin-bottom: 0;
+    }
+
+    .seo-article-paragraph strong {
+      color: #E0AAFF;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .seo-article-block {
+        padding: 1rem 1.1rem;
+        margin: 1rem 0;
+      }
+      .seo-article-title {
+        font-size: 0.95rem;
+      }
+      .seo-article-paragraph {
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+    }
+    .faq-categories-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    details.faq-category-card {
+      background: rgba(18, 9, 36, 0.7);
+      border: 1px solid rgba(157, 78, 221, 0.22);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    details.faq-category-card:hover {
+      border-color: rgba(224, 170, 255, 0.45);
+      box-shadow: 0 8px 24px rgba(123, 44, 191, 0.2);
+    }
+
+    details.faq-category-card[open] {
+      border-color: rgba(192, 132, 252, 0.5);
+      background: rgba(22, 11, 45, 0.88);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35), 0 0 20px rgba(157, 78, 221, 0.15);
+    }
+
+    .faq-category-header {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      user-select: none;
+      list-style: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .faq-category-header::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-category-header:hover {
+      background: rgba(157, 78, 221, 0.08);
+    }
+
+    .faq-category-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      min-width: 0;
+    }
+
+    .faq-category-icon {
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
+      max-width: 40px;
+      border-radius: 10px;
+      background: rgba(123, 44, 191, 0.2);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #E0AAFF;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+
+    .faq-category-icon svg {
+      width: 20px;
+      height: 20px;
+      max-width: 20px;
+      max-height: 20px;
+      display: block;
+    }
+
+    details.faq-category-card[open] .faq-category-icon {
+      background: rgba(157, 78, 221, 0.4);
+      border-color: #E0AAFF;
+      box-shadow: 0 0 12px rgba(192, 132, 252, 0.4);
+      color: #FFFFFF;
+    }
+
+    .faq-category-titles h3 {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+
+    .faq-category-titles p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .faq-category-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    
+
+    .faq-category-chevron {
+      width: 20px !important;
+      height: 20px !important;
+      min-width: 20px !important;
+      max-width: 20px !important;
+      min-height: 20px !important;
+      max-height: 20px !important;
+      color: #E0AAFF;
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+      flex-shrink: 0;
+      display: block;
+    }
+
+    details.faq-category-card[open] .faq-category-chevron {
+      transform: rotate(180deg);
+      color: #FFFFFF;
+    }
+
+    .faq-category-body {
+      padding: 0.75rem 1.5rem 1.25rem 1.5rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.12);
+    }
+
+    @media (max-width: 640px) {
+      .faq-category-header {
+        padding: 1rem;
+      }
+      .faq-category-body {
+        padding: 0.5rem 0.75rem 1rem 0.75rem;
+      }
+      .faq-category-titles h3 {
+        font-size: 0.95rem;
+      }
+      
     }
 
     details.faq-item {
@@ -1683,6 +2154,24 @@
     /* ==========================================================================
        RESPONSIVE DESIGN (FLUID MEDIA QUERIES)
        ========================================================================== */
+    @media (max-width: 1240px) {
+      .nav-links {
+        gap: 0.4rem;
+      }
+      .nav-links a {
+        font-size: 0.73rem;
+        padding: 0.28rem 0.35rem;
+      }
+      .btn-header-cta {
+        padding: 0.55rem 0.95rem;
+        font-size: 0.78rem;
+        gap: 0.4rem;
+      }
+      .brand-logo {
+        font-size: 1.25rem;
+      }
+    }
+
     @media (max-width: 992px) {
       .hero-section {
         padding-top: clamp(300px, 42vh, 440px);
@@ -1706,19 +2195,49 @@
       }
     }
 
-    @media (max-width: 1080px) {
+    @media (max-width: 1180px) {
       .pill-pos-left {
         top: 14%;
         left: 2%;
-        transform: scale(0.85);
+        transform: scale(0.88);
       }
       .pill-pos-right {
-        top: 22%;
+        top: 16%;
         right: 2%;
-        transform: scale(0.85);
+        transform: scale(0.88);
       }
       .pill-pos-bottom-left {
-        display: none;
+        top: 28%;
+        left: 2%;
+        transform: scale(0.88);
+      }
+      .pill-pos-bottom-right {
+        top: 30%;
+        right: 2%;
+        transform: scale(0.88);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .pill-pos-left {
+        top: 12%;
+        left: 2%;
+        transform: scale(0.8);
+      }
+      .pill-pos-right {
+        top: 14%;
+        right: 2%;
+        transform: scale(0.8);
+      }
+      .pill-pos-bottom-left {
+        top: 26%;
+        left: 2%;
+        transform: scale(0.8);
+      }
+      .pill-pos-bottom-right {
+        top: 28%;
+        right: 2%;
+        transform: scale(0.8);
       }
     }
 
@@ -1741,12 +2260,17 @@
         height: 60px;
       }
       .brand-logo {
-        font-size: 1.18rem;
-        gap: 0.5rem;
+        gap: 0.55rem;
+        padding: 0.25rem 0.85rem 0.25rem 0.3rem;
       }
-      .brand-logo svg {
-        width: 28px;
-        height: 28px;
+      .brand-logo-text {
+        font-size: 1.15rem;
+      }
+      .brand-logo svg,
+      .brand-logo img,
+      .brand-logo-img {
+        width: 30px;
+        height: 30px;
       }
       .btn-header-cta {
         padding: 0.45rem 0.85rem;
@@ -1857,7 +2381,7 @@
     }
 
     /* ==========================================================================
-       FLUID ELASTIC CURSOR & INTERACTIVE ANIMATIONS
+       PGON CYBER-HEXAGON CROSSHAIR CURSOR (Option 4)
        ========================================================================== */
     /* Hide native cursor only when custom cursor is active on non-touch devices */
     @media (hover: hover) and (pointer: fine) {
@@ -1870,62 +2394,134 @@
       .custom-cursor-active [data-cursor] {
         cursor: none;
       }
+      .custom-cursor-active input,
+      .custom-cursor-active textarea,
+      .custom-cursor-active select,
+      .custom-cursor-active [contenteditable="true"] {
+        cursor: text !important;
+      }
     }
 
     .cursor-dot {
       position: fixed;
       top: 0;
       left: 0;
-      width: 8px;
-      height: 8px;
+      width: 4px;
+      height: 4px;
       background: #FFFFFF;
       border-radius: 50%;
       pointer-events: none;
       z-index: 99999;
       transform: translate(-50%, -50%);
-      transition: opacity 0.25s ease, width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
-      box-shadow: 0 0 10px #FFFFFF, 0 0 20px var(--neon-glow);
+      transition: opacity 0.15s ease, transform 0.1s ease, background-color 0.2s ease;
+      box-shadow: 0 0 6px #FFFFFF, 0 0 12px var(--neon-glow);
     }
 
     .cursor-ring {
       position: fixed;
       top: 0;
       left: 0;
-      width: 38px;
-      height: 38px;
-      border: 1.5px solid rgba(192, 132, 252, 0.75);
-      background: rgba(157, 78, 221, 0.08);
-      border-radius: 50%;
+      width: 26px;
+      height: 26px;
       pointer-events: none;
       z-index: 99998;
       transform: translate(-50%, -50%);
-      transition: width 0.28s cubic-bezier(0.25, 1, 0.5, 1), 
-                  height 0.28s cubic-bezier(0.25, 1, 0.5, 1), 
-                  border-color 0.25s ease, 
-                  background-color 0.25s ease,
-                  border-radius 0.25s ease;
-      backdrop-filter: blur(1px);
-      -webkit-backdrop-filter: blur(1px);
+      transition: width 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.2), 
+                  height 0.24s cubic-bezier(0.2, 0.9, 0.3, 1.2), 
+                  opacity 0.2s ease,
+                  filter 0.25s ease;
+      filter: drop-shadow(0 0 6px rgba(192, 132, 252, 0.5));
     }
 
+    .cursor-ring svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .cursor-ring .hex-path {
+      stroke: rgba(192, 132, 252, 0.75);
+      stroke-width: 1.5;
+      fill: rgba(157, 78, 221, 0.06);
+      transition: stroke 0.2s ease, fill 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .cursor-ring .hex-tick {
+      stroke: rgba(224, 170, 255, 0.65);
+      stroke-width: 1.2;
+      stroke-linecap: round;
+      transition: stroke 0.2s ease, stroke-width 0.2s ease;
+    }
+
+    .cursor-ring .hex-corner {
+      fill: rgba(243, 208, 255, 0.9);
+      transition: fill 0.2s ease;
+    }
+
+    /* Target lock state when hovering links & interactive cards */
     .cursor-ring.cursor-hover {
-      width: 64px;
-      height: 64px;
-      border-color: #E0AAFF;
-      background: rgba(123, 44, 191, 0.25);
-      box-shadow: 0 0 25px rgba(157, 78, 221, 0.5);
+      width: 36px;
+      height: 36px;
+      filter: drop-shadow(0 0 10px rgba(192, 132, 252, 0.85));
     }
 
+    .cursor-ring.cursor-hover svg {
+      transform: rotate(30deg);
+    }
+
+    .cursor-ring.cursor-hover .hex-path {
+      stroke: #E0AAFF;
+      stroke-width: 1.8;
+      fill: rgba(157, 78, 221, 0.2);
+    }
+
+    .cursor-ring.cursor-hover .hex-tick {
+      stroke: #FFFFFF;
+      stroke-width: 1.5;
+    }
+
+    /* Target acquisition state for CTA buttons */
     .cursor-ring.cursor-cta {
-      width: 76px;
-      height: 76px;
-      border-color: var(--accent-orange);
-      background: rgba(255, 145, 0, 0.2);
-      box-shadow: 0 0 30px rgba(255, 145, 0, 0.45);
+      width: 44px;
+      height: 44px;
+      filter: drop-shadow(0 0 14px rgba(255, 158, 0, 0.75));
+    }
+
+    .cursor-ring.cursor-cta svg {
+      transform: rotate(60deg);
+    }
+
+    .cursor-ring.cursor-cta .hex-path {
+      stroke: var(--accent-orange);
+      stroke-width: 2;
+      fill: rgba(255, 145, 0, 0.16);
+    }
+
+    .cursor-ring.cursor-cta .hex-tick {
+      stroke: #FFD166;
+      stroke-width: 1.8;
+    }
+
+    .cursor-ring.cursor-cta .hex-corner {
+      fill: #FFD166;
+    }
+
+    /* Tactile snap on mouse click */
+    .cursor-ring.cursor-click {
+      transform: translate(-50%, -50%) scale(0.72) !important;
+      transition: transform 0.08s ease;
+    }
+
+    .cursor-dot.cursor-click {
+      transform: translate(-50%, -50%) scale(1.6) !important;
+      background: #E0AAFF;
+      box-shadow: 0 0 12px #FFFFFF, 0 0 24px #C084FC;
     }
 
     .cursor-hidden {
       opacity: 0 !important;
+      pointer-events: none !important;
     }
 
     /* Scroll Reveal System (SEO Safe: visible by default if JS/reduced motion) */
@@ -1985,6 +2581,69 @@
       }
     }
 
+  
+    /* ==========================================
+       SEREGA TEXT ANIMATION STYLES
+       ========================================== */
+    .serega-emotional {
+      display: inline-block;
+      background: none !important;
+      -webkit-background-clip: initial !important;
+      -webkit-text-fill-color: initial !important;
+    }
+    .serega-emotional__word {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .serega-emotional__unit {
+      display: inline-block;
+      transform-origin: 50% 55%;
+      white-space: pre;
+      color: #FFFFFF;
+      background: linear-gradient(
+        135deg,
+        #FFFFFF 0%,
+        #FFFFFF 35%,
+        #E0AAFF 55%,
+        #FFFFFF 75%,
+        #C084FC 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.9)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.95));
+      will-change: opacity, filter, transform;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .serega-emotional__unit {
+        will-change: auto;
+      }
+    }
+
+    .serega-gentle {
+      display: inline-block;
+      perspective: 900px;
+      transform-style: preserve-3d;
+      min-height: 1.35em;
+    }
+    .serega-gentle__word {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .serega-gentle__unit {
+      display: inline-block;
+      backface-visibility: hidden;
+      transform-origin: 50% 55%;
+      white-space: pre;
+      color: #FFFFFF;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 18px rgba(168, 85, 247, 0.4);
+      will-change: opacity, transform;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .serega-gentle__unit {
+        will-change: auto;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -1995,20 +2654,8 @@
   <header class="site-header">
     <div class="container nav-inner">
       <a href="#hero" class="brand-logo" aria-label="PGON Wallet Главная">
-        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="pgon-brand-svg">
-          <defs>
-            <linearGradient id="headerPgonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#8B14F7"/>
-              <stop offset="100%" stop-color="#6B05D6"/>
-            </linearGradient>
-          </defs>
-          <path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="url(#headerPgonGrad)"/>
-          <path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/>
-          <path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/>
-          <path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/>
-          <circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/>
-        </svg>
-        <span>PGON<span class="dot-pro">.pro</span></span>
+        <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
+        <span class="brand-logo-text">PGON</span>
       </a>
 
       <nav aria-label="Основная навигация">
@@ -2049,7 +2696,9 @@
 
       <!-- Floating Web3 Live Status Pills -->
       <div class="floating-hero-pill pill-pos-left" data-parallax="0.04">
-        <span class="pill-pulse-dot dot-green"></span>
+        <div class="pill-fintech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><line x1="7" y1="7" x2="7.01" y2="7"/><line x1="17" y1="7" x2="17.01" y2="7"/><line x1="17" y1="17" x2="17.01" y2="17"/><line x1="7" y1="17" x2="7.01" y2="17"/></svg>
+        </div>
         <div class="pill-text-group">
           <span class="pill-label">СБП QR Оплата</span>
           <span class="pill-sub">0% комиссия · Любой чек в РФ</span>
@@ -2057,7 +2706,9 @@
       </div>
 
       <div class="floating-hero-pill pill-pos-right" data-parallax="-0.03">
-        <span class="pill-pulse-dot dot-gold"></span>
+        <div class="pill-fintech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h14"/><path d="M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H3"/></svg>
+        </div>
         <div class="pill-text-group">
           <span class="pill-label">USDT → Рубли</span>
           <span class="pill-sub">Автоконвертация · 1.8 сек</span>
@@ -2065,10 +2716,22 @@
       </div>
 
       <div class="floating-hero-pill pill-pos-bottom-left" data-parallax="0.05">
-        <span class="pill-pulse-dot dot-purple"></span>
+        <div class="pill-fintech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
         <div class="pill-text-group">
           <span class="pill-label">100% Защита</span>
           <span class="pill-sub">Без 115-ФЗ и P2P-дропов</span>
+        </div>
+      </div>
+
+      <div class="floating-hero-pill pill-pos-bottom-right" data-parallax="-0.04">
+        <div class="pill-fintech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div class="pill-text-group">
+          <span class="pill-label">Виртуальная карта</span>
+          <span class="pill-sub">Visa · Mastercard · Apple Pay</span>
         </div>
       </div>
 
@@ -2083,8 +2746,8 @@
         </div>
         
         <h1>
-          <span class="hero-title-main">PGON WALLET</span>
-          <span class="hero-title-sub">
+          <span id="hero-title-emotional" class="hero-title-main">PGON WALLET</span>
+          <span id="hero-title-gentle" class="hero-title-sub">
             Оплата криптой по QR-коду через СБП в России
           </span>
         </h1>
@@ -2124,11 +2787,9 @@
             <div class="step-number">
               <span>01</span>
               <div class="step-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
-                  <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
-                  <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.8385 3H6.16146C5.63433 2.99998 5.17954 2.99997 4.80497 3.03057C4.40963 3.06287 4.01641 3.13419 3.63803 3.32698C3.07355 3.6146 2.6146 4.07354 2.32698 4.63803C2.13419 5.01641 2.06287 5.40963 2.03057 5.80497C1.99997 6.17954 1.99998 6.63429 2 7.16142V16.8385C1.99998 17.3657 1.99997 17.8205 2.03057 18.195C2.06287 18.5904 2.13419 18.9836 2.32698 19.362C2.6146 19.9265 3.07354 20.3854 3.63803 20.673C4.01641 20.8658 4.40963 20.9371 4.80497 20.9694C5.17954 21 5.6343 21 6.16144 21H17.8386C18.3657 21 18.8205 21 19.195 20.9694C19.5904 20.9371 19.9836 20.8658 20.362 20.673C20.9265 20.3854 21.3854 19.9265 21.673 19.362C21.8658 18.9836 21.9371 18.5904 21.9694 18.195C22 17.8205 22 17.3657 22 16.8386V11.1614C22 10.6343 22 10.1795 21.9694 9.80498C21.9371 9.40963 21.8658 9.01641 21.673 8.63803C21.3854 8.07355 20.9265 7.6146 20.362 7.32698C19.9836 7.13419 19.5904 7.06287 19.195 7.03057C19.1323 7.02544 19.0672 7.02118 19 7.01762C18.9998 6.5512 18.9972 6.14504 18.9694 5.80497C18.9371 5.40963 18.8658 5.01641 18.673 4.63803C18.3854 4.07355 17.9265 3.6146 17.362 3.32698C16.9836 3.13419 16.5904 3.06287 16.195 3.03057C15.8205 2.99997 15.3657 2.99998 14.8385 3ZM16.9761 5.96784C16.9964 6.21698 16.9995 6.5349 16.9999 7H4.00007C4.00052 6.5349 4.00357 6.21698 4.02393 5.96784C4.04613 5.69618 4.0838 5.59546 4.109 5.54601C4.20487 5.35785 4.35785 5.20487 4.54601 5.109C4.59546 5.0838 4.69618 5.04613 4.96784 5.02393C5.25118 5.00078 5.62345 5 6.2 5H14.8C15.3766 5 15.7488 5.00078 16.0322 5.02393C16.3038 5.04613 16.4046 5.0838 16.454 5.109C16.6422 5.20487 16.7951 5.35785 16.891 5.54601C16.9162 5.59546 16.9539 5.69618 16.9761 5.96784ZM17.5 12.5C16.6716 12.5 16 13.1716 16 14C16 14.8284 16.6716 15.5 17.5 15.5H20V12.5H17.5Z" fill="currentColor"/>
+</svg>
               </div>
             </div>
             <h3 class="step-title">Пополнение счета</h3>
@@ -2142,12 +2803,17 @@
             <div class="step-number">
               <span>02</span>
               <div class="step-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="7" height="7"/>
-                  <rect x="14" y="3" width="7" height="7"/>
-                  <rect x="14" y="14" width="7" height="7"/>
-                  <rect x="3" y="14" width="7" height="7"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.5 3H7.16146C6.63433 2.99998 6.17954 2.99997 5.80497 3.03057C5.40963 3.06287 5.01641 3.13419 4.63803 3.32698C4.07354 3.6146 3.6146 4.07354 3.32698 4.63803C3.13419 5.01641 3.06287 5.40963 3.03057 5.80497C2.99997 6.17954 2.99998 6.63429 3 7.16142V8.5C3 9.05229 3.44772 9.5 4 9.5C4.55229 9.5 5 9.05229 5 8.5V7.2C5 6.62345 5.00078 6.25118 5.02393 5.96784C5.04613 5.69618 5.0838 5.59546 5.109 5.54601C5.20487 5.35785 5.35785 5.20487 5.54601 5.109C5.59546 5.0838 5.69618 5.04613 5.96784 5.02393C6.25118 5.00078 6.62345 5 7.2 5H8.5C9.05229 5 9.5 4.55229 9.5 4C9.5 3.44772 9.05229 3 8.5 3Z" fill="currentColor"/>
+<path d="M16.8 5C17.3766 5 17.7488 5.00078 18.0322 5.02393C18.3038 5.04613 18.4045 5.0838 18.454 5.109C18.6422 5.20487 18.7951 5.35785 18.891 5.54601C18.9162 5.59546 18.9539 5.69618 18.9761 5.96784C18.9992 6.25118 19 6.62345 19 7.2V8.5C19 9.05229 19.4477 9.5 20 9.5C20.5523 9.5 21 9.05229 21 8.5V7.16144C21 6.6343 21 6.17954 20.9694 5.80497C20.9371 5.40963 20.8658 5.01641 20.673 4.63803C20.3854 4.07354 19.9265 3.6146 19.362 3.32698C18.9836 3.13419 18.5904 3.06287 18.195 3.03057C17.8205 2.99997 17.3657 2.99998 16.8386 3H15.5C14.9477 3 14.5 3.44772 14.5 4C14.5 4.55229 14.9477 5 15.5 5H16.8Z" fill="currentColor"/>
+<path d="M4 14.5C3.44772 14.5 3 14.9477 3 15.5V16.8385C2.99998 17.3657 2.99997 17.8205 3.03057 18.195C3.06287 18.5904 3.13419 18.9836 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.01641 20.8658 5.40963 20.9371 5.80497 20.9694C6.17954 21 6.6343 21 7.16144 21H8.5C9.05229 21 9.5 20.5523 9.5 20C9.5 19.4477 9.05229 19 8.5 19H7.2C6.62345 19 6.25118 18.9992 5.96784 18.9761C5.69618 18.9539 5.59546 18.9162 5.54601 18.891C5.35785 18.7951 5.20487 18.6422 5.109 18.454C5.0838 18.4045 5.04613 18.3038 5.02393 18.0322C5.00078 17.7488 5 17.3766 5 16.8V15.5C5 14.9477 4.55229 14.5 4 14.5Z" fill="currentColor"/>
+<path d="M21 15.5C21 14.9477 20.5523 14.5 20 14.5C19.4477 14.5 19 14.9477 19 15.5V16.8C19 17.3766 18.9992 17.7488 18.9761 18.0322C18.9539 18.3038 18.9162 18.4045 18.891 18.454C18.7951 18.6422 18.6422 18.7951 18.454 18.891C18.4045 18.9162 18.3038 18.9539 18.0322 18.9761C17.7488 18.9992 17.3766 19 16.8 19H15.5C14.9477 19 14.5 19.4477 14.5 20C14.5 20.5523 14.9477 21 15.5 21H16.8386C17.3657 21 17.8205 21 18.195 20.9694C18.5904 20.9371 18.9836 20.8658 19.362 20.673C19.9265 20.3854 20.3854 19.9265 20.673 19.362C20.8658 18.9836 20.9371 18.5904 20.9694 18.195C21 17.8205 21 17.3657 21 16.8386V15.5Z" fill="currentColor"/>
+<path d="M4 13C4.55229 13 5 12.5523 5 12C5 11.4477 4.55229 11 4 11C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13Z" fill="currentColor"/>
+<path d="M8 13C8.55229 13 9 12.5523 9 12C9 11.4477 8.55229 11 8 11C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13Z" fill="currentColor"/>
+<path d="M13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12Z" fill="currentColor"/>
+<path d="M16 13C16.5523 13 17 12.5523 17 12C17 11.4477 16.5523 11 16 11C15.4477 11 15 11.4477 15 12C15 12.5523 15.4477 13 16 13Z" fill="currentColor"/>
+<path d="M21 12C21 12.5523 20.5523 13 20 13C19.4477 13 19 12.5523 19 12C19 11.4477 19.4477 11 20 11C20.5523 11 21 11.4477 21 12Z" fill="currentColor"/>
+</svg>
               </div>
             </div>
             <h3 class="step-title">Сканирование QR-кода</h3>
@@ -2161,10 +2827,9 @@
             <div class="step-number">
               <span>03</span>
               <div class="step-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <polyline points="22 4 12 14.01 9 11.01"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C13.0628 22 14.0306 21.5842 14.7462 20.9084C15.0142 20.6552 15.2081 20.4721 15.3448 20.3461C15.3763 20.3171 15.4033 20.2925 15.4262 20.2718C15.4571 20.2702 15.4936 20.2685 15.5364 20.2668C15.7222 20.2592 15.9888 20.2516 16.3573 20.241C17.3411 20.213 18.3195 19.8226 19.0711 19.0711C19.8226 18.3196 20.2129 17.3412 20.241 16.3573C20.2515 15.9888 20.2591 15.7222 20.2667 15.5365C20.2685 15.4936 20.2702 15.4571 20.2717 15.4263C20.2924 15.4033 20.3171 15.3764 20.3461 15.3448C20.4721 15.2081 20.6552 15.0142 20.9083 14.7462C21.5842 14.0306 22 13.0628 22 12C22 10.9372 21.5842 9.96936 20.9083 9.25381C20.6552 8.98579 20.4721 8.79187 20.3461 8.65518C20.3171 8.62365 20.2924 8.59667 20.2717 8.57373C20.2702 8.54287 20.2685 8.50638 20.2667 8.46354C20.2591 8.27781 20.2515 8.0112 20.241 7.64268C20.2129 6.65881 19.8226 5.68041 19.0711 4.9289C18.3195 4.17738 17.3411 3.78703 16.3573 3.75896C15.9888 3.74845 15.7222 3.74082 15.5364 3.73324C15.4936 3.73149 15.4571 3.72982 15.4262 3.72823C15.4033 3.70754 15.3763 3.68292 15.3448 3.65386C15.2081 3.5279 15.0142 3.34478 14.7462 3.09164C14.0306 2.41581 13.0628 2 12 2C10.9372 2 9.96939 2.4158 9.25384 3.09162C8.98581 3.34477 8.79189 3.52789 8.6552 3.65386C8.62366 3.68292 8.59668 3.70754 8.57374 3.72823C8.54288 3.72982 8.5064 3.73149 8.46355 3.73324C8.27782 3.74082 8.01121 3.74845 7.64269 3.75896C6.6588 3.78703 5.68039 4.17737 4.92886 4.9289C4.17733 5.68043 3.78699 6.65885 3.75892 7.64274C3.74841 8.01126 3.74079 8.27786 3.73321 8.46359C3.73146 8.50643 3.72979 8.54291 3.7282 8.57377C3.70751 8.59671 3.68289 8.62369 3.65383 8.65522C3.52787 8.79191 3.34475 8.98583 3.09161 9.25385C2.4158 9.9694 2 10.9372 2 12C2 13.0628 2.4158 14.0306 3.09161 14.7462C3.34475 15.0142 3.52787 15.2081 3.65384 15.3448C3.68289 15.3763 3.70751 15.4033 3.7282 15.4262C3.72979 15.4571 3.73146 15.4936 3.73321 15.5364C3.74079 15.7221 3.74841 15.9887 3.75892 16.3573C3.78699 17.3412 4.17733 18.3196 4.92886 19.0711C5.68039 19.8226 6.6588 20.213 7.64269 20.241C8.01121 20.2516 8.27782 20.2592 8.46355 20.2668C8.5064 20.2685 8.54288 20.2702 8.57374 20.2718C8.59668 20.2925 8.62366 20.3171 8.6552 20.3461C8.79189 20.4721 8.98581 20.6552 9.25384 20.9084C9.96939 21.5842 10.9372 22 12 22ZM16.5182 9.64021C16.8718 9.21593 16.8145 8.58537 16.3902 8.2318C15.9659 7.87824 15.3353 7.93556 14.9818 8.35984L10.8791 13.2831C10.7999 13.378 10.7376 13.4528 10.6827 13.5166C10.6223 13.4581 10.5534 13.3892 10.466 13.3018L8.95711 11.7929C8.56658 11.4024 7.93342 11.4024 7.54289 11.7929C7.15237 12.1834 7.15237 12.8166 7.54289 13.2071L9.07376 14.738C9.22641 14.8907 9.38172 15.0461 9.52501 15.167C9.68333 15.3006 9.899 15.4564 10.1868 15.5413C10.5728 15.6552 10.9858 15.6365 11.3599 15.4881C11.6388 15.3774 11.8395 15.2028 11.9851 15.0554C12.1168 14.922 12.2574 14.7532 12.3956 14.5873L16.5182 9.64021Z" fill="currentColor"/>
+</svg>
               </div>
             </div>
             <h3 class="step-title">Моментальный расчет</h3>
@@ -2192,9 +2857,14 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 2H6.7587C5.95374 1.99999 5.28937 1.99998 4.74818 2.04419C4.18608 2.09012 3.66937 2.18868 3.18404 2.43598C2.43139 2.81947 1.81947 3.43139 1.43598 4.18404C1.18868 4.66937 1.09012 5.18608 1.04419 5.74818C0.999978 6.28937 0.999988 6.95372 1 7.75869V8C1 8.55229 1.44772 9 2 9C2.55229 9 3 8.55229 3 8V7.8C3 6.94342 3.00078 6.36113 3.03755 5.91104C3.07337 5.47262 3.1383 5.24842 3.21799 5.09202C3.40974 4.7157 3.7157 4.40973 4.09202 4.21799C4.24842 4.1383 4.47262 4.07337 4.91104 4.03755C5.36113 4.00078 5.94342 4 6.8 4H7C7.55229 4 8 3.55229 8 3C8 2.44772 7.55229 2 7 2Z" fill="currentColor"/>
+<path d="M17.2 4C18.0566 4 18.6389 4.00078 19.089 4.03755C19.5274 4.07337 19.7516 4.1383 19.908 4.21799C20.2843 4.40973 20.5903 4.7157 20.782 5.09202C20.8617 5.24842 20.9266 5.47262 20.9624 5.91104C20.9992 6.36113 21 6.94342 21 7.8V8C21 8.55229 21.4477 9 22 9C22.5523 9 23 8.55229 23 8V7.75868C23 6.95372 23 6.28937 22.9558 5.74818C22.9099 5.18608 22.8113 4.66937 22.564 4.18404C22.1805 3.43139 21.5686 2.81947 20.816 2.43598C20.3306 2.18868 19.8139 2.09012 19.2518 2.04419C18.7106 1.99998 18.0463 1.99999 17.2413 2H17C16.4477 2 16 2.44772 16 3C16 3.55229 16.4477 4 17 4H17.2Z" fill="currentColor"/>
+<path d="M14.8385 6H9.16146C8.63431 5.99998 8.17955 5.99997 7.80497 6.03057C7.40963 6.06287 7.01641 6.13419 6.63803 6.32698C6.07354 6.6146 5.6146 7.07354 5.32698 7.63803C5.13419 8.01641 5.06287 8.40963 5.03057 8.80497C5.00314 9.14075 5.00031 9.54097 5.00003 10H19C18.9997 9.54097 18.9969 9.14075 18.9694 8.80497C18.9371 8.40963 18.8658 8.01641 18.673 7.63803C18.3854 7.07354 17.9265 6.6146 17.362 6.32698C16.9836 6.13419 16.5904 6.06287 16.195 6.03057C15.8205 5.99997 15.3657 5.99998 14.8385 6Z" fill="currentColor"/>
+<path d="M19 12H5V13.8385C4.99998 14.3657 4.99997 14.8205 5.03057 15.195C5.06287 15.5904 5.13419 15.9836 5.32698 16.362C5.6146 16.9265 6.07354 17.3854 6.63803 17.673C7.01641 17.8658 7.40963 17.9371 7.80497 17.9694C8.17952 18 8.63425 18 9.16136 18H14.8385C15.3656 18 15.8205 18 16.195 17.9694C16.5904 17.9371 16.9836 17.8658 17.362 17.673C17.9265 17.3854 18.3854 16.9265 18.673 16.362C18.8658 15.9836 18.9371 15.5904 18.9694 15.195C19 14.8205 19 14.3657 19 13.8386V12Z" fill="currentColor"/>
+<path d="M3 16C3 15.4477 2.55229 15 2 15C1.44772 15 1 15.4477 1 16V16.2413C0.999988 17.0463 0.999978 17.7106 1.04419 18.2518C1.09012 18.8139 1.18868 19.3306 1.43598 19.816C1.81947 20.5686 2.43139 21.1805 3.18404 21.564C3.66937 21.8113 4.18608 21.9099 4.74818 21.9558C5.28937 22 5.95372 22 6.75868 22H7C7.55229 22 8 21.5523 8 21C8 20.4477 7.55229 20 7 20H6.8C5.94342 20 5.36113 19.9992 4.91104 19.9624C4.47262 19.9266 4.24842 19.8617 4.09202 19.782C3.7157 19.5903 3.40973 19.2843 3.21799 18.908C3.1383 18.7516 3.07337 18.5274 3.03755 18.089C3.00078 17.6389 3 17.0566 3 16.2V16Z" fill="currentColor"/>
+<path d="M23 16C23 15.4477 22.5523 15 22 15C21.4477 15 21 15.4477 21 16V16.2C21 17.0566 20.9992 17.6389 20.9624 18.089C20.9266 18.5274 20.8617 18.7516 20.782 18.908C20.5903 19.2843 20.2843 19.5903 19.908 19.782C19.7516 19.8617 19.5274 19.9266 19.089 19.9624C18.6389 19.9992 18.0566 20 17.2 20H17C16.4477 20 16 20.4477 16 21C16 21.5523 16.4477 22 17 22H17.2413C18.0463 22 18.7106 22 19.2518 21.9558C19.8139 21.9099 20.3306 21.8113 20.816 21.564C21.5686 21.1805 22.1805 20.5686 22.564 19.816C22.8113 19.3306 22.9099 18.8139 22.9558 18.2518C23 17.7106 23 17.0463 23 16.2413V16Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge badge-accent">Любой чек в РФ</span>
             </div>
@@ -2208,10 +2878,9 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  <path d="m9 12 2 2 4-4"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.7142 2.08843C11.9039 2.06102 12.0966 2.06102 12.2863 2.08843C12.5049 2.12002 12.7084 2.19688 12.8699 2.2579L12.9132 2.27422L18.4056 4.33374C19.0234 4.56439 19.566 4.76695 19.9838 5.13517C20.3493 5.45729 20.6309 5.86358 20.8041 6.31893C21.0022 6.83944 21.0014 7.41855 21.0004 8.07799L21.0003 11.9999C21.0003 14.6468 19.3892 16.8184 17.7138 18.3757C16.0171 19.9529 14.0881 21.0568 13.1038 21.5697L13.0658 21.5895C12.8939 21.6797 12.6713 21.7964 12.3822 21.8527C12.1451 21.8988 11.8554 21.8988 11.6184 21.8527C11.3293 21.7964 11.1066 21.6797 10.9347 21.5895L10.8968 21.5697C9.91241 21.0568 7.98341 19.9529 6.28673 18.3757C4.61132 16.8183 3.00026 14.6468 3.00026 11.9999L3.00013 8.078C2.99918 7.41856 2.99834 6.83944 3.19641 6.31893C3.36968 5.86358 3.65124 5.45729 4.01675 5.13517C4.43457 4.76694 4.97712 4.56439 5.59491 4.33374L11.0873 2.27422L11.1306 2.2579C11.2922 2.19688 11.4956 2.12002 11.7142 2.08843ZM13.0001 7.5C13.0001 6.94772 12.5524 6.5 12.0001 6.5C11.4478 6.5 11.0001 6.94771 11.0001 7.5V7.93596C10.6395 8.00237 10.2647 8.13095 9.93063 8.36106C9.36036 8.75391 9.0015 9.38318 9.00011 10.1857C8.99851 11.1092 9.49588 11.7524 10.1513 12.1045C10.7371 12.4191 11.4295 12.4999 12.0001 12.4999C12.4588 12.4999 12.7609 12.5593 12.9176 12.6399C12.9492 12.6561 12.9663 12.6691 12.9742 12.676C12.9781 12.6794 12.9809 12.6826 12.9809 12.6826L12.982 12.6839L12.9837 12.6874C12.9847 12.6898 12.9867 12.6949 12.989 12.7033C12.9934 12.7201 13.0001 12.7545 13.0001 12.8124C13.0001 12.8169 13 12.8204 12.9998 12.8232C12.9912 12.8319 12.9731 12.8478 12.9396 12.8688C12.8016 12.9553 12.5369 13.0459 12.1247 13.099C12.0193 13.0992 11.9222 13.0997 11.8308 13.1001C11.2535 13.1032 10.9034 13.105 10.1241 13.0076C9.57612 12.9391 9.07633 13.3279 9.00783 13.8759C8.93932 14.4239 9.32805 14.9237 9.87607 14.9922C10.3417 15.0504 10.6905 15.0782 11.0001 15.091V15.5C11.0001 16.0523 11.4478 16.5 12.0001 16.5C12.5524 16.5 13.0001 16.0523 13.0001 15.5V14.969C13.3495 14.883 13.6958 14.7551 14.0015 14.5636C14.5628 14.2119 15.0001 13.6266 15.0001 12.8124C15.0001 12.3826 14.8987 11.9746 14.6745 11.6184C14.4519 11.2647 14.1464 11.023 13.8326 10.8615C13.2393 10.5562 12.5414 10.4999 12.0001 10.4999C11.5707 10.4999 11.2622 10.4309 11.0976 10.3425C11.0624 10.3236 11.0409 10.3075 11.0289 10.2969C11.0175 10.2868 11.0131 10.2801 11.0131 10.2801C11.0131 10.2801 11.0106 10.2763 11.0081 10.2672C11.0053 10.257 11 10.2327 11.0001 10.1891C11.0003 10.0935 11.0191 10.0565 11.0225 10.0501C11.0259 10.0436 11.0339 10.0297 11.0652 10.0081C11.1464 9.95218 11.3308 9.88507 11.6292 9.87547C11.7029 9.87353 11.7442 9.8728 11.7687 9.87261L11.7893 9.8726L11.793 9.87269L11.8131 9.87354C11.8258 9.87407 11.8414 9.87464 11.8608 9.8751C11.8985 9.87599 11.9437 9.87629 12.0068 9.87587C12.7341 9.87102 13.4075 9.88323 13.7594 9.9705C14.2954 10.1035 14.8377 9.77668 14.9707 9.24064C15.1037 8.7046 14.7769 8.16227 14.2408 8.02932C13.8857 7.94123 13.438 7.90234 13.0001 7.88587V7.5Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge badge-success">Без P2P-рисков</span>
             </div>
@@ -2225,11 +2894,9 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 3h12l4 6-10 12L2 9z"/>
-                  <path d="M11 3 8 9l4 12 4-12-3-6"/>
-                  <path d="M2 9h20"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.7462 20.9084C14.0306 21.5842 13.0628 22 12 22C10.9372 22 9.96939 21.5842 9.25384 20.9084C8.98581 20.6552 8.79189 20.4721 8.6552 20.3461C8.62366 20.3171 8.59668 20.2925 8.57374 20.2718C8.54288 20.2702 8.5064 20.2685 8.46355 20.2668C8.27782 20.2592 8.01121 20.2516 7.64269 20.241C6.6588 20.213 5.68039 19.8226 4.92886 19.0711C4.17733 18.3196 3.78699 17.3412 3.75892 16.3573C3.74841 15.9887 3.74079 15.7221 3.73321 15.5364C3.73146 15.4936 3.72979 15.4571 3.7282 15.4262C3.70751 15.4033 3.68289 15.3763 3.65384 15.3448C3.52787 15.2081 3.34475 15.0142 3.09161 14.7462C2.4158 14.0306 2 13.0628 2 12C2 10.9372 2.4158 9.9694 3.09161 9.25385C3.34475 8.98583 3.52787 8.79191 3.65383 8.65522C3.68289 8.62369 3.70751 8.59671 3.7282 8.57377C3.72979 8.54291 3.73146 8.50643 3.73321 8.46359C3.74079 8.27786 3.74841 8.01126 3.75892 7.64274C3.78699 6.65885 4.17733 5.68043 4.92886 4.9289C5.68039 4.17737 6.6588 3.78703 7.64269 3.75896C8.01121 3.74845 8.27782 3.74082 8.46355 3.73324C8.5064 3.73149 8.54288 3.72982 8.57374 3.72823C8.59668 3.70754 8.62366 3.68292 8.6552 3.65386C8.79189 3.52789 8.98581 3.34477 9.25384 3.09162C9.96939 2.4158 10.9372 2 12 2C13.0628 2 14.0306 2.41581 14.7462 3.09164C15.0142 3.34478 15.2081 3.5279 15.3448 3.65386C15.3763 3.68292 15.4033 3.70754 15.4262 3.72823C15.4571 3.72982 15.4936 3.73149 15.5364 3.73324C15.7222 3.74082 15.9888 3.74845 16.3573 3.75896C17.3411 3.78703 18.3195 4.17738 19.0711 4.9289C19.8226 5.68041 20.2129 6.65881 20.241 7.64268C20.2515 8.0112 20.2591 8.27781 20.2667 8.46354C20.2685 8.50638 20.2702 8.54287 20.2717 8.57373C20.2924 8.59667 20.3171 8.62365 20.3461 8.65518C20.4721 8.79187 20.6552 8.98579 20.9083 9.25381C21.5842 9.96936 22 10.9372 22 12C22 13.0628 21.5842 14.0306 20.9083 14.7462C20.6552 15.0142 20.4721 15.2081 20.3461 15.3448C20.3171 15.3764 20.2924 15.4033 20.2717 15.4263C20.2702 15.4571 20.2685 15.4936 20.2667 15.5365C20.2591 15.7222 20.2515 15.9888 20.241 16.3573C20.2129 17.3412 19.8226 18.3196 19.0711 19.0711C18.3195 19.8226 17.3411 20.213 16.3573 20.241C15.9888 20.2516 15.7222 20.2592 15.5364 20.2668C15.4936 20.2685 15.4571 20.2702 15.4262 20.2718C15.4033 20.2925 15.3763 20.3171 15.3448 20.3461C15.2081 20.4721 15.0142 20.6552 14.7462 20.9084ZM16.2071 7.79289C15.8166 7.40237 15.1834 7.40237 14.7929 7.79289L7.79289 14.7929C7.40237 15.1834 7.40237 15.8166 7.79289 16.2071C8.18342 16.5976 8.81658 16.5976 9.20711 16.2071L16.2071 9.20711C16.5976 8.81658 16.5976 8.18342 16.2071 7.79289ZM9.5 8C8.67157 8 8 8.67157 8 9.5C8 10.3284 8.67157 11 9.5 11C10.3284 11 11 10.3284 11 9.5C11 8.67157 10.3284 8 9.5 8ZM14.5 13C13.6716 13 13 13.6716 13 14.5C13 15.3284 13.6716 16 14.5 16C15.3284 16 16 15.3284 16 14.5C16 13.6716 15.3284 13 14.5 13Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge">0% скрытых наценок</span>
             </div>
@@ -2243,10 +2910,9 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="m22 2-7 20-4-9-9-4Z"/>
-                  <path d="M22 2 11 13"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M20.4776 2.09212C20.6755 2.00461 20.8981 1.97739 21.1165 2.01933C21.3338 2.06105 21.5222 2.1662 21.6662 2.30589C21.8091 2.44459 21.9044 2.61268 21.9551 2.78524C22.0057 2.95768 22.0134 3.13914 21.9788 3.31367L21.9778 3.31877L18.4604 20.5913C18.403 20.8736 18.2796 21.1458 18.092 21.3769C17.9037 21.6088 17.654 21.7951 17.3593 21.9022C17.0633 22.0098 16.7429 22.0296 16.4344 21.9567C16.1275 21.8843 15.8564 21.7262 15.6427 21.5135L15.6415 21.5123L12.4398 18.3391L10.4907 20.6254C10.2673 20.8874 9.96411 21.0855 9.61079 21.1709C9.25565 21.2567 8.88691 21.2191 8.55849 21.0696C8.23248 20.9213 7.97357 20.6759 7.79981 20.3855C7.62648 20.0958 7.53949 19.7655 7.53906 19.436L7.53906 13.8662L3.20857 12.9062C2.85568 12.8253 2.55899 12.6225 2.35063 12.3578C2.14347 12.0947 2.02831 11.7783 2.00462 11.4591C1.98094 11.1398 2.04822 10.8133 2.2077 10.5256C2.3671 10.2381 2.61824 9.99218 2.94292 9.84992L2.94645 9.84837L20.4776 2.09212ZM9.53906 18.6588V15.4628L11.0157 16.9267L9.53906 18.6588ZM10.0371 13.1158L16.6122 19.6325L19.4945 5.47864L10.0371 13.1158Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge badge-accent">1 клик в Telegram</span>
             </div>
@@ -2260,11 +2926,9 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/>
-                  <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/>
-                  <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.16146 3H14.8385C15.3657 2.99998 15.8205 2.99997 16.195 3.03057C16.5904 3.06287 16.9836 3.13419 17.362 3.32698C17.9265 3.6146 18.3854 4.07355 18.673 4.63803C18.8658 5.01641 18.9371 5.40963 18.9694 5.80498C18.9972 6.14504 18.9998 6.5512 19 7.01762C19.0672 7.02118 19.1323 7.02544 19.195 7.03057C19.5904 7.06287 19.9836 7.13419 20.362 7.32698C20.9265 7.6146 21.3854 8.07355 21.673 8.63803C21.8658 9.01641 21.9371 9.40963 21.9694 9.80498C22 10.1795 22 10.6343 22 11.1614V16.8386C22 17.3657 22 17.8205 21.9694 18.195C21.9371 18.5904 21.8658 18.9836 21.673 19.362C21.3854 19.9265 20.9265 20.3854 20.362 20.673C19.9836 20.8658 19.5904 20.9371 19.195 20.9694C18.8205 21 18.3657 21 17.8386 21H6.16144C5.6343 21 5.17954 21 4.80498 20.9694C4.40963 20.9371 4.01641 20.8658 3.63803 20.673C3.07355 20.3854 2.6146 19.9265 2.32698 19.362C2.13419 18.9836 2.06287 18.5904 2.03057 18.195C1.99997 17.8205 1.99998 17.3657 2 16.8386V7.16142C1.99998 6.63431 1.99997 6.17953 2.03057 5.80498C2.06287 5.40963 2.13419 5.01641 2.32698 4.63803C2.6146 4.07355 3.07355 3.6146 3.63803 3.32698C4.01641 3.13419 4.40963 3.06287 4.80498 3.03057C5.17953 2.99997 5.63434 2.99998 6.16146 3ZM16.9999 7C16.9995 6.5349 16.9964 6.21699 16.9761 5.96784C16.9539 5.69618 16.9162 5.59546 16.891 5.54601C16.7951 5.35785 16.6422 5.20487 16.454 5.109C16.4046 5.0838 16.3038 5.04613 16.0322 5.02393C15.7488 5.00078 15.3766 5 14.8 5H6.2C5.62345 5 5.25118 5.00078 4.96784 5.02393C4.69618 5.04613 4.59546 5.0838 4.54601 5.109C4.35785 5.20487 4.20487 5.35785 4.109 5.54601C4.0838 5.59546 4.04613 5.69618 4.02393 5.96784C4.00357 6.21699 4.00052 6.5349 4.00008 7H16.9999ZM16 14C16 13.1716 16.6716 12.5 17.5 12.5H20V15.5H17.5C16.6716 15.5 16 14.8284 16 14ZM10 12C10 11.4477 9.55229 11 9 11C8.44772 11 8 11.4477 8 12V13.0001L7.00014 13C6.44785 12.9999 6.00008 13.4476 6 13.9999C5.99993 14.5521 6.44758 14.9999 6.99986 15L8 15.0001V16C8 16.5523 8.44772 17 9 17C9.55229 17 10 16.5523 10 16V15.0004L10.9999 15.0005C11.5521 15.0006 11.9999 14.553 12 14.0007C12.0001 13.4484 11.5524 13.0006 11.0001 13.0005L10 13.0004V12Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge">USDT / TON / СБП</span>
             </div>
@@ -2278,12 +2942,9 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="m16 3 4 4-4 4"/>
-                  <path d="M20 7H4"/>
-                  <path d="m8 21-4-4 4-4"/>
-                  <path d="M4 17h16"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6.29289 3.29289C6.68342 2.90237 7.31658 2.90237 7.70711 3.29289L10.7071 6.29289C11.0976 6.68342 11.0976 7.31658 10.7071 7.70711L7.70711 10.7071C7.31658 11.0976 6.68342 11.0976 6.29289 10.7071C5.90237 10.3166 5.90237 9.68342 6.29289 9.29289L7.56733 8.01846C5.00848 8.23779 3 10.3843 3 13C3 15.7614 5.23858 18 8 18H15.9992C18.7606 18 20.9992 15.7614 20.9992 13C20.9992 10.2386 18.7606 8 15.9992 8H14C13.4477 8 13 7.55228 13 7C13 6.44772 13.4477 6 14 6H15.9992C19.8652 6 22.9992 9.13401 22.9992 13C22.9992 16.866 19.8652 20 15.9992 20H8C4.13401 20 1 16.866 1 13C1 9.26921 3.91863 6.2201 7.59718 6.0114L6.29289 4.70711C5.90237 4.31658 5.90237 3.68342 6.29289 3.29289Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge badge-accent">Мгновенный Swap</span>
             </div>
@@ -2297,10 +2958,9 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 8C6 4.68629 8.68629 2 12 2C15.3137 2 18 4.68629 18 8V9.15032C18.2826 9.21225 18.5539 9.30243 18.816 9.43597C19.5686 9.81947 20.1805 10.4314 20.564 11.184C20.8113 11.6694 20.9099 12.1861 20.9558 12.7482C21 13.2894 21 13.9537 21 14.7587V16.2413C21 17.0463 21 17.7106 20.9558 18.2518C20.9099 18.8139 20.8113 19.3306 20.564 19.816C20.1805 20.5686 19.5686 21.1805 18.816 21.564C18.3306 21.8113 17.8139 21.9099 17.2518 21.9558C16.7106 22 16.0463 22 15.2413 22H8.75868C7.95372 22 7.28936 22 6.74817 21.9558C6.18608 21.9099 5.66937 21.8113 5.18404 21.564C4.43139 21.1805 3.81947 20.5686 3.43597 19.816C3.18868 19.3306 3.09012 18.8139 3.04419 18.2518C2.99998 17.7106 2.99999 17.0463 3 16.2413V14.7587C2.99999 13.9537 2.99998 13.2894 3.04419 12.7482C3.09012 12.1861 3.18868 11.6694 3.43597 11.184C3.81947 10.4314 4.43139 9.81947 5.18404 9.43597C5.44614 9.30243 5.71739 9.21225 6 9.15032V8ZM8 9.00163C8.23771 8.99999 8.4904 9 8.7587 9H15.2413C15.5096 9 15.7623 8.99999 16 9.00163V8C16 5.79086 14.2091 4 12 4C9.79086 4 8 5.79086 8 8V9.00163Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge badge-success">Multi-Sig Security</span>
             </div>
@@ -2314,9 +2974,10 @@
           <div class="benefit-card">
             <div class="benefit-card-header">
               <div class="benefit-icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                </svg>
+                <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.37127 17.2224L2.3791 17.2158C2.38884 17.2075 2.40647 17.1921 2.43061 17.1701C2.47901 17.1258 2.55266 17.0552 2.64069 16.9603C2.8183 16.7689 3.04537 16.4883 3.24315 16.135C3.62354 15.4556 3.88854 14.5315 3.50961 13.3987C3.50036 13.3773 3.49178 13.3555 3.4839 13.3332C3.17022 12.4458 2.99998 11.4917 2.99998 10.5C2.99998 5.80558 6.80556 2 11.5 2C15.6451 2 19.0972 4.96703 19.8483 8.89316C18.3877 7.70929 16.5267 7 14.5 7C9.80558 7 6 10.8056 6 15.5C6 16.7477 6.26883 17.9326 6.75174 19H2.99998C2.57529 19 2.19693 18.7318 2.05635 18.331C1.9164 17.932 2.04294 17.4881 2.37127 17.2224Z" fill="currentColor"/>
+<path d="M21 15.5C21 16.4087 20.813 17.2759 20.4747 18.0634C20.7212 18.7847 21.021 19.3337 21.2648 19.708C21.404 19.9218 21.5245 20.078 21.6055 20.176C21.6587 20.2404 21.6951 20.2799 21.7078 20.2934L21.7088 20.2947L21.7117 20.2976C21.994 20.5836 22.0778 21.0111 21.9239 21.3827C21.7691 21.7564 21.4045 22 21 22L14.5 22C10.9101 22 8 19.0899 8 15.5C8 11.9101 10.9101 9 14.5 9C18.0899 9 21 11.9101 21 15.5Z" fill="currentColor"/>
+</svg>
               </div>
               <span class="benefit-badge">Ответ &lt; 2 минут</span>
             </div>
@@ -2334,25 +2995,44 @@
          ========================================================================== -->
     <section class="card-showcase-section" id="card">
       <div class="container">
+        <!-- Section Header -->
         <div class="section-header">
           <span class="section-badge">Международные платежи</span>
           <h2 class="section-title">Виртуальная криптокарта <span class="gradient-text">PGON Virtual Card</span></h2>
           <p class="section-desc">Оплачивайте подписки на <strong>ChatGPT Plus</strong>, <strong>Claude Pro</strong>, покупки в <strong>App Store</strong>, <strong>Google Play</strong>, <strong>Netflix</strong>, <strong>Spotify</strong>, <strong>Steam</strong> и любые зарубежные сервисы напрямую с криптобаланса USDT или TON.</p>
         </div>
 
-        <div class="card-showcase-grid">
-          <!-- Left Column: 3D Holographic Crypto Card & Live Status -->
-          <div class="card-visual-wrapper">
+                <!-- Wings Layout: Left Features | Centered Holographic Card | Right Features -->
+        <div class="card-wings-stage">
+          <!-- Left Wing (2 Features) -->
+          <div class="card-wing-column">
+            <div class="card-feat-item">
+              <div class="card-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.00169 8H21.9983C21.9902 6.83507 21.9434 6.16873 21.673 5.63803C21.3854 5.07354 20.9265 4.6146 20.362 4.32698C19.7202 4 18.8802 4 17.2 4H6.8C5.11984 4 4.27976 4 3.63803 4.32698C3.07354 4.6146 2.6146 5.07354 2.32698 5.63803C2.05658 6.16873 2.00979 6.83507 2.00169 8Z" fill="currentColor"/><path d="M22 10H2V15.2C2 16.8802 2 17.7202 2.32698 18.362C2.6146 18.9265 3.07354 19.3854 3.63803 19.673C4.27976 20 5.11984 20 6.8 20H12.7639C12.2888 19.4691 11.9999 18.7681 12 17.9996C12.0002 16.3429 13.3433 15 15 15C15 13.3431 16.3431 12 18 12C19.6569 12 21.0004 13.344 21.0004 15.0008C21.3509 15.0009 21.6873 15.061 22 15.1715V10Z" fill="currentColor"/><path d="M19 15C19 14.4477 18.5523 14 18 14C17.4477 14 17 14.4477 17 15V17.0003L15.0001 17C14.4479 16.9999 14.0001 17.4476 14 17.9999C13.9999 18.5521 14.4476 18.9999 14.9999 19L17 19.0003V21C17 21.5523 17.4477 22 18 22C18.5523 22 19 21.5523 19 21V19.0005L20.9999 19.0008C21.5521 19.0009 21.9999 18.5532 22 18.001C22.0001 17.4487 21.5524 17.0009 21.0001 17.0008L19 17.0005V15Z" fill="currentColor"/></svg>
+              </div>
+              <div class="card-feat-text">
+                <h4>Выпуск за 60 секунд</h4>
+                <p>Без визита в банк, очередей и ожидания пластика прямо в Telegram</p>
+              </div>
+            </div>
+
+            <div class="card-feat-item">
+              <div class="card-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.6667 2.25467C12.2871 1.91511 11.713 1.91511 11.3334 2.25467C9.68909 3.72545 7.73762 6.43951 7.16505 9.87826C7.10392 10.2454 7.05874 10.6195 7.03125 11H16.9689C16.9414 10.6195 16.8962 10.2454 16.8351 9.87826C16.2625 6.43951 14.311 3.72545 12.6667 2.25467Z" fill="currentColor"/><path d="M15.3542 13H7.05383C7.31276 15.7256 8.53154 18.6896 11.2622 21.6749C11.4516 21.882 11.7194 22 12.0001 22C12.2807 22 12.5485 21.882 12.7379 21.6749C13.2028 21.1667 13.6239 20.6591 14.0038 20.1531C14.0013 20.1024 14 20.0514 14 20C14 19.4055 14.1729 18.8514 14.4712 18.3852C14.1705 17.8235 14 17.1817 14 16.5V16C14 14.8053 14.5238 13.7329 15.3542 13Z" fill="currentColor"/><path d="M18.9736 11H21.9511C21.5806 7.26849 19.1589 4.14041 15.8294 2.75928C17.1557 4.49882 18.3533 6.81876 18.808 9.54977C18.8873 10.0257 18.9431 10.5095 18.9736 11Z" fill="currentColor"/><path d="M8.17078 2.75955C4.84169 4.14082 2.42027 7.26874 2.0498 11H5.02686C5.05728 10.5095 5.11313 10.0257 5.19237 9.54977C5.64707 6.8189 6.84464 4.49906 8.17078 2.75955Z" fill="currentColor"/><path d="M2.0498 13H5.04605C5.26424 15.6825 6.27215 18.5122 8.37321 21.3219C4.94015 19.9851 2.42774 16.8065 2.0498 13Z" fill="currentColor"/><path d="M19 13C18.4477 13 18 13.4477 18 14C16.8954 14 16 14.8954 16 16V16.5C16 17.6046 16.8954 18.5 18 18.5H19.75C19.8881 18.5 20 18.6119 20 18.75C20 18.8881 19.8881 19 19.75 19H17C16.4477 19 16 19.4477 16 20C16 20.5523 16.4477 21 17 21H18C18 21.5523 18.4477 22 19 22C19.5523 22 20 21.5523 20 21C21.1046 21 22 20.1046 22 19V18.5C22 17.3954 21.1046 16.5 20 16.5H18.25C18.1119 16.5 18 16.3881 18 16.25C18 16.1119 18 16 18.25 16H21C21.5523 16 22 15.5523 22 15C22 14.4477 21.5523 14 21 14H20C20 13.4477 19.5523 13 19 13Z" fill="currentColor"/></svg>
+              </div>
+              <div class="card-feat-text">
+                <h4>180+ стран мира</h4>
+                <p>Прием в миллионах зарубежных интернет-магазинов и сервисов</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Stage (Virtual Card & Live Balance) -->
+          <div class="card-wings-center">
             <div class="virtual-card-3d" id="virtual-card-element">
               <div class="card-top-row">
                 <div class="card-brand-tag">
-                  <svg viewBox="0 0 100 100" fill="none" width="28" height="28">
-                    <path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="#C084FC"/>
-                    <path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/>
-                    <path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/>
-                    <path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/>
-                    <circle cx="63" cy="37" r="3.2" fill="#FFFFFF"/>
-                  </svg>
+                  <img src="./assets/pgon-icon.png" alt="PGON Card" class="card-brand-img" width="30" height="30" />
                   <span>PGON CARD</span>
                 </div>
                 <div class="card-chip-contactless">
@@ -2364,18 +3044,15 @@
                   </svg>
                 </div>
               </div>
-
               <div class="card-number-display">
                 •••• •••• •••• 9420
               </div>
-
               <div class="card-bottom-row">
                 <div class="card-holder-info">
                   <span class="card-holder-label">CARDHOLDER / EXPIRES</span>
                   <span class="card-holder-name">PGON WEB3 VIP · 12/29</span>
                 </div>
                 <div class="card-network-logo">
-                  <!-- Mastercard style dual overlapping gradient spheres -->
                   <svg width="44" height="28" viewBox="0 0 44 28" fill="none">
                     <circle cx="15" cy="14" r="13" fill="#FF5F00" fill-opacity="0.85"/>
                     <circle cx="29" cy="14" r="13" fill="#EB001B" fill-opacity="0.85"/>
@@ -2386,95 +3063,255 @@
             </div>
 
             <div class="card-badge-live">
-              <span class="pill-pulse-dot dot-green"></span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
               <span>Баланс: автосписание с USDT / TON</span>
             </div>
           </div>
 
-          <!-- Right Column: Card Features & Categorized Service Matrix -->
-          <div class="card-info-wrapper">
-            <div class="card-features-list">
-              <div class="card-feat-item">
-                <div class="card-feat-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                  </svg>
-                </div>
-                <div class="card-feat-text">
-                  <h4>Выпуск за 60 секунд</h4>
-                  <p>Без визита в банк, очередей и ожидания пластика прямо в Telegram</p>
-                </div>
+          <!-- Right Wing (2 Features) -->
+          <div class="card-wing-column">
+            <div class="card-feat-item">
+              <div class="card-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 6.8C5 5.11984 5 4.27976 5.32698 3.63803C5.6146 3.07354 6.07354 2.6146 6.63803 2.32698C7.27976 2 8.11984 2 9.8 2H14.2C15.8802 2 16.7202 2 17.362 2.32698C17.9265 2.6146 18.3854 3.07354 18.673 3.63803C19 4.27976 19 5.11984 19 6.8V17.2C19 18.8802 19 19.7202 18.673 20.362C18.3854 20.9265 17.9265 21.3854 17.362 21.673C16.7202 22 15.8802 22 14.2 22H9.8C8.11984 22 7.27976 22 6.63803 21.673C6.07354 21.3854 5.6146 20.9265 5.32698 20.362C5 19.7202 5 18.8802 5 17.2V6.8ZM11 4C10.4477 4 10 4.44772 10 5C10 5.55228 10.4477 6 11 6H13C13.5523 6 14 5.55228 14 5C14 4.44772 13.5523 4 13 4H11Z" fill="currentColor"/></svg>
               </div>
-
-              <div class="card-feat-item">
-                <div class="card-feat-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="2" y1="12" x2="22" y2="12"/>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                  </svg>
-                </div>
-                <div class="card-feat-text">
-                  <h4>180+ стран мира</h4>
-                  <p>Прием в миллионах зарубежных интернет-магазинов и сервисов</p>
-                </div>
-              </div>
-
-              <div class="card-feat-item">
-                <div class="card-feat-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12.01" y2="18"/>
-                  </svg>
-                </div>
-                <div class="card-feat-text">
-                  <h4>Apple Pay & Google Pay</h4>
-                  <p>Добавление карты в кошелек телефона для оплаты касанием</p>
-                </div>
-              </div>
-
-              <div class="card-feat-item">
-                <div class="card-feat-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <path d="m9 12 2 2 4-4"/>
-                  </svg>
-                </div>
-                <div class="card-feat-text">
-                  <h4>Защита 3D-Secure</h4>
-                  <p>Одноразовые push-коды подтверждения платежей прямо в бота</p>
-                </div>
+              <div class="card-feat-text">
+                <h4>Apple Pay & Google Pay</h4>
+                <p>Добавление карты в кошелек телефона для оплаты касанием</p>
               </div>
             </div>
 
-            <!-- Supported Services Pills Matrix -->
-            <div class="services-matrix-box">
-              <div class="services-matrix-header">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-                <span>Подтвержденная поддержка сервисов:</span>
+            <div class="card-feat-item">
+              <div class="card-feat-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.7142 2.08843C11.9039 2.06102 12.0966 2.06102 12.2863 2.08843C12.5049 2.12002 12.7084 2.19688 12.8699 2.2579L12.9132 2.27422L18.4056 4.33374C19.0234 4.56439 19.566 4.76695 19.9838 5.13517C20.3493 5.45729 20.6309 5.86358 20.8041 6.31893C21.0022 6.83944 21.0014 7.41855 21.0004 8.07799L21.0003 11.9999C21.0003 14.6468 19.3892 16.8184 17.7138 18.3" fill="currentColor"/></svg>
               </div>
-              <div class="service-tags-wrap">
-                <span class="service-tag service-tag-ai">✨ ChatGPT Plus / Team</span>
-                <span class="service-tag service-tag-ai">🧠 Claude Pro (Anthropic)</span>
-                <span class="service-tag service-tag-ai">🎨 Midjourney AI</span>
-                <span class="service-tag service-tag-ai">⚡ Cursor AI & ElevenLabs</span>
-                <span class="service-tag">🍎 Apple App Store & iCloud</span>
-                <span class="service-tag">▶️ Google Play & YouTube</span>
-                <span class="service-tag">🍿 Netflix 4K & Disney+</span>
-                <span class="service-tag">🎵 Spotify Premium</span>
-                <span class="service-tag">🎮 Steam & PlayStation Store</span>
-                <span class="service-tag">🏨 Booking.com & Airbnb</span>
-                <span class="service-tag">📦 Amazon Global & ASOS</span>
-                <span class="service-tag">💻 Figma & GitHub Copilot</span>
+              <div class="card-feat-text">
+                <h4>Защита 3D-Secure</h4>
+                <p>Одноразовые push-коды подтверждения платежей прямо в бота</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centered CTA button -->
+        <div class="card-center-cta">
+          <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="hero-cta-btn" style="max-width: 380px; font-size: 0.95rem;">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/>
+            </svg>
+            <span>ВЫПУСТИТЬ КАРТУ В TELEGRAM</span>
+          </a>
+        </div>
+        <!-- Supported Services Bento Matrix (Full Width) -->
+        <div class="services-matrix-box">
+          <div class="services-matrix-header">
+            <div class="services-matrix-title-wrap">
+              <span class="services-matrix-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                ПРОВЕРЕННАЯ СОВМЕСТИМОСТЬ СЕРВИСОВ
+              </span>
+            </div>
+            <div class="services-matrix-badge">
+              <span class="pulse-dot-green"></span>
+              <span>3D-Secure 2.2 • BIN Global</span>
+            </div>
+          </div>
+
+          <div class="services-bento-grid">
+            <!-- 1. ChatGPT Plus -->
+            <div class="service-bento-tile" title="OpenAI ChatGPT Plus, Team & Enterprise">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.259 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7466-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.6667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">ChatGPT Plus</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>100% Pass</span>
               </div>
             </div>
 
-            <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="hero-cta-btn" style="width: 100%; max-width: 360px; font-size: 0.92rem;">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/>
-              </svg>
-              <span>ВЫПУСТИТЬ КАРТУ В TELEGRAM</span>
-            </a>
+            <!-- 2. Claude Pro -->
+            <div class="service-bento-tile" title="Anthropic Claude Pro: Opus & Sonnet 3.5">
+              <div class="service-tile-icon">
+                <span style="font-family: var(--font-heading); font-weight: 800; font-size: 0.95rem; color: #E0AAFF;">AI</span>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Claude Pro</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Anthropic 3DS</span>
+              </div>
+            </div>
+
+            <!-- 3. Midjourney -->
+            <div class="service-bento-tile" title="Midjourney v6.1: Basic, Standard & Pro">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Midjourney</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Stripe Pass</span>
+              </div>
+            </div>
+
+            <!-- 4. Cursor AI -->
+            <div class="service-bento-tile" title="Cursor AI IDE: Pro Subscription">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Cursor AI</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Pro Plan</span>
+              </div>
+            </div>
+
+            <!-- 5. Apple App Store -->
+            <div class="service-bento-tile" title="Apple: App Store, iCloud+, Apple Music">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.65-2.79 1.43-.59.67-1.07 1.74-.97 2.79 1.07.08 2.14-.58 2.75-1.35z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Apple Store</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Apple Pay</span>
+              </div>
+            </div>
+
+            <!-- 6. Google Play -->
+            <div class="service-bento-tile" title="Google Play, Google One & YouTube Premium">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Google Play</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>YouTube / Cloud</span>
+              </div>
+            </div>
+
+            <!-- 7. Spotify Premium -->
+            <div class="service-bento-tile" title="Spotify: Premium Individual & Family">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.5 17.3c-.22.35-.68.47-1.03.25-2.82-1.73-6.38-2.12-10.56-1.16-.4.1-.8-.16-.9-.56-.1-.4.16-.8.56-.9 4.58-1.05 8.52-.6 11.68 1.34.35.22.47.68.25 1.03zm1.46-3.26c-.27.44-.85.58-1.29.31-3.23-1.99-8.16-2.56-11.98-1.4-.5.15-1.02-.14-1.17-.64-.15-.5.14-1.02.64-1.17 4.37-1.33 9.8-.69 13.49 1.58.44.27.58.85.31 1.32zm.13-3.41c-3.87-2.3-10.26-2.51-13.97-1.39-.6.18-1.22-.15-1.4-.75-.18-.59.15-1.22.75-1.4 4.26-1.29 11.31-1.05 15.77 1.6.53.32.71 1.01.39 1.54-.32.53-1.01.71-1.54.4z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Spotify</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Автопродление</span>
+              </div>
+            </div>
+
+            <!-- 8. Netflix 4K -->
+            <div class="service-bento-tile" title="Netflix & Disney+: Ultra HD 4K Streaming">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5.4 0v24c1.17-.46 2.38-.88 3.63-1.25V0H5.4zm9.57 0v19.47c1.23-.28 2.45-.51 3.63-.69V0h-3.63zM9.03 0L14.97 20.91V0H9.03z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Netflix 4K</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Disney+</span>
+              </div>
+            </div>
+
+            <!-- 9. Steam Games -->
+            <div class="service-bento-tile" title="Steam & PlayStation: Пополнение баланса и игры">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M11.98 0C5.68 0 .51 4.86.02 11.04l6.43 2.66c.55-.37 1.2-.59 1.91-.59.06 0 .13 0 .19.01l2.86-4.14V8.91c0-2.5 2.03-4.52 4.52-4.52 2.5 0 4.53 2.03 4.53 4.53s-2.03 4.52-4.53 4.52h-.1l-4.08 2.91c0 .05 0 .1.01.16 0 1.88-1.52 3.4-3.4 3.4-1.63 0-3.01-1.17-3.33-2.73L.44 15.27C1.86 20.31 6.49 24 11.98 24c6.63 0 12-5.37 12-12S18.6 0 11.98 0z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Steam</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>PlayStation</span>
+              </div>
+            </div>
+
+            <!-- 10. Booking.com -->
+            <div class="service-bento-tile" title="Booking.com & Airbnb: Бронирование отелей и билетов">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 4h8.5c3.59 0 6.5 2.91 6.5 6.5 0 1.63-.6 3.12-1.6 4.27 1.88 1.15 3.1 3.23 3.1 5.58 0 3.67-2.98 6.65-6.65 6.65H3V4zm5.5 8h3c1.38 0 2.5-1.12 2.5-2.5S12.88 7 11.5 7h-3v5zm0 10h3.85c1.46 0 2.65-1.19 2.65-2.65S13.81 16.7 12.35 16.7H8.5V22z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Booking.com</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>Airbnb / Travel</span>
+              </div>
+            </div>
+
+            <!-- 11. Amazon Global -->
+            <div class="service-bento-tile" title="Amazon Global & ASOS: Зарубежный шопинг">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M13.9 14.8c-.8 0-1.4-.4-1.7-1.1-.3-.6-.3-1.4-.3-2.2 0-.8.1-1.6.4-2.2.3-.6.9-1 1.6-1 .7 0 1.3.4 1.6 1 .3.6.4 1.4.4 2.2 0 .8-.1 1.6-.4 2.2-.3.7-.9 1.1-1.6 1.1zM18.8 19c-1.3.9-3.2 1.4-5.1 1.4-4.8 0-8.7-2.5-10.9-6.3-.2-.3-.1-.6.2-.8.3-.1.6 0 .8.2 2 3.5 5.6 5.8 9.9 5.8 1.8 0 3.5-.5 4.8-1.3.3-.2.7-.1.8.2.2.3.1.6-.2.8zm2.4-1.2c-.3-.4-1.8-.2-2.7.2-.3.1-.4 0-.3-.3.4-1.1 1.7-2.6 2.7-2.6.5 0 .8.3.8.7 0 .4-.2 1.2-.5 2z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Amazon</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>US / EU / ASOS</span>
+              </div>
+            </div>
+
+            <!-- 12. Figma & GitHub -->
+            <div class="service-bento-tile" title="Figma & GitHub: Подписки для дизайнеров и разработчиков">
+              <div class="service-tile-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 2h4v5.33H8A2.67 2.67 0 0 1 8 2Zm4 0h4a2.67 2.67 0 0 1 0 5.33H12V2Zm-4 5.33h4v5.34H8a2.67 2.67 0 0 1 0-5.34Zm4 0h4a2.67 2.67 0 0 1 0 5.34H12V7.33ZM8 12.67h4V18a2.67 2.67 0 1 1-4-2.27v-3.06Z"/>
+                </svg>
+              </div>
+              <div class="service-tile-content">
+                <span class="service-tile-name">Figma</span>
+                <span class="service-tile-meta"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;margin-right:3px;vertical-align:middle;"><polyline points="20 6 9 17 4 12"/></svg>GitHub Copilot</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="services-matrix-footer">
+            <div class="services-matrix-footer-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>3D-Secure 2.2 • Push-коды в Telegram за 1 сек</span>
+            </div>
+            <div class="services-matrix-footer-item">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              <span>180+ стран мира • Без отказов</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Column Informative SEO Blocks at Bottom -->
+        <div class="card-seo-grid">
+          <!-- Block 1 -->
+          <div class="seo-article-block" id="seo-card-overview">
+            <h3 class="seo-article-title">Виртуальная зарубежная карта для оплаты сервисов и подписок из России</h3>
+            <p class="seo-article-paragraph">
+              Оформить международную виртуальную карту Visa или Mastercard для оплаты зарубежных сервисов сегодня можно без поездок за границу, очередей и ожидания пластика. 
+              Сервис <strong>PGON</strong> выпускает цифровую предоплаченную карту в Telegram прямо через WebApp всего за 60 секунд.
+            </p>
+            <p class="seo-article-paragraph">
+              Пополнение баланса осуществляется рублями через <strong>СБП (Систему быстрых платежей)</strong> с карт любых банков РФ (Сбер, Т-Банк, Альфа-Банк, ВТБ) без скрытых комиссий с автоматической конвертацией по прозрачному биржевому курсу. 
+              Карта поддерживает бесконтактную оплату через <strong>Apple Pay</strong> и <strong>Google Pay</strong>, а также протокол <strong>3D-Secure 2.2</strong> с мгновенной доставкой push-кодов.
+            </p>
+          </div>
+
+          <!-- Block 2 -->
+          <div class="seo-article-block" id="seo-services-compatibility">
+            <h3 class="seo-article-title">Как оплачивать подписки ChatGPT, зарубежный софт, игры и путешествия</h3>
+            <p class="seo-article-paragraph">
+              Благодаря международному трастовому BIN-номеру карта стабильно принимается для регулярных автоплатежей и разовых покупок в 180+ странах мира. 
+              Она идеально подходит для оплаты подписок на нейросети и софт: <strong>ChatGPT Plus, Claude Pro, Midjourney, Cursor AI, Figma, GitHub Copilot</strong>, серверов Hetzner и DigitalOcean.
+            </p>
+            <p class="seo-article-paragraph">
+              Используйте карту для бронирования отелей на <strong>Booking.com и Airbnb</strong>, покупки авиабилетов и шопинга на Amazon, eBay и ASOS. 
+              Платежи полностью защищены от блокировок по <strong>115-ФЗ</strong> благодаря белой инфраструктуре. Если средства не израсходованы, вы можете в любой момент мгновенно вывести остаток баланса обратно на карту РФ или криптокошелек.
+            </p>
           </div>
         </div>
       </div>
@@ -2497,13 +3334,9 @@
             <div>
               <div class="case-card-header">
                 <div class="case-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-                    <line x1="6" y1="1" x2="6" y2="4"/>
-                    <line x1="10" y1="1" x2="10" y2="4"/>
-                    <line x1="14" y1="1" x2="14" y2="4"/>
-                  </svg>
+                  <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.695 3.03057C17.0904 3.06287 17.4836 3.13419 17.862 3.32698C18.4265 3.6146 18.8854 4.07354 19.173 4.63803C19.3658 5.01641 19.4371 5.40963 19.4694 5.80497C19.4746 5.86853 19.4789 5.9344 19.4825 6.00253C19.7005 6.00735 19.8999 6.02077 20.0853 6.05765C21.2753 6.29437 22.2056 7.22466 22.4424 8.41473C22.5006 8.70759 22.5003 9.03543 22.5 9.41613C22.5 9.44381 22.5 9.47176 22.5 9.5C22.5 9.52824 22.5 9.5562 22.5 9.58387C22.5003 9.96457 22.5006 10.2924 22.4424 10.5853C22.2056 11.7753 21.2753 12.7056 20.0853 12.9424C19.8798 12.9832 19.6571 12.9953 19.411 12.9988C19.3905 13.1382 19.3652 13.2714 19.3342 13.4007C18.8075 15.5946 17.0946 17.3075 14.9007 17.8342C14.2083 18.0004 13.4005 18.0003 12.1496 18C12.1004 18 12.0506 18 12 18C11.9494 18 11.8996 18 11.8504 18C10.5995 18.0003 9.79165 18.0004 9.09933 17.8342C6.90544 17.3075 5.19249 15.5946 4.66578 13.4007C4.49957 12.7084 4.49973 11.9005 4.49998 10.6496C4.49999 10.6004 4.5 10.5506 4.5 10.5L4.5 7.16146C4.49998 6.63431 4.49997 6.17955 4.53057 5.80498C4.56287 5.40963 4.63419 5.01641 4.82698 4.63803C5.1146 4.07355 5.57354 3.6146 6.13803 3.32698C6.51641 3.13419 6.90963 3.06287 7.30497 3.03057C7.67954 2.99997 8.13431 2.99998 8.66145 3L15.3385 3C15.8657 2.99998 16.3205 2.99997 16.695 3.03057ZM19.4999 10.9961C19.6096 10.9932 19.6575 10.9883 19.6951 10.9808C20.0918 10.9019 20.4019 10.5918 20.4808 10.1951C20.4952 10.1228 20.5 10.0126 20.5 9.5C20.5 8.98742 20.4952 8.87716 20.4808 8.80491C20.4019 8.40822 20.0918 8.09812 19.6951 8.01922C19.6575 8.01174 19.6096 8.00684 19.5 8.00386V10.5C19.5 10.5505 19.5 10.6004 19.5 10.6495C19.5 10.769 19.5001 10.8845 19.4999 10.9961ZM2 20C2 19.4477 2.44772 19 3 19H21C21.5523 19 22 19.4477 22 20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20Z" fill="currentColor"/>
+</svg>
                 </div>
                 <span class="case-badge">СБП QR в РФ</span>
               </div>
@@ -2524,12 +3357,9 @@
             <div>
               <div class="case-card-header">
                 <div class="case-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/>
-                    <path d="M15 10h4a2 2 0 0 1 2 2v10"/>
-                    <path d="M3 18h18"/>
-                    <circle cx="9" cy="8" r="2"/>
-                  </svg>
+                  <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.16067 3.5C7.0841 3.5 6.09007 4.07686 5.55594 5.01158L4.07853 7.59705L3.64021 7.23178C3.21593 6.87821 2.58537 6.93554 2.2318 7.35982C1.87824 7.78409 1.93556 8.41466 2.35984 8.76822L3.07076 9.36065L2.65881 10.0816C2.2271 10.8371 2.00003 11.6921 2.00003 12.5623V18.5C2.00003 19.6046 2.89546 20.5 4.00003 20.5C5.10459 20.5 6.00003 19.6046 6.00003 18.5H18C18 19.6046 18.8955 20.5 20 20.5C21.1046 20.5 22 19.6046 22 18.5V12.5623C22 11.6921 21.7729 10.8371 21.3412 10.0816L20.9293 9.36065L21.6402 8.76822C22.0645 8.41466 22.1218 7.78409 21.7682 7.35982C21.4147 6.93554 20.7841 6.87821 20.3598 7.23178L19.9215 7.59705L18.4441 5.01158C17.91 4.07686 16.9159 3.5 15.8394 3.5H8.16067ZM17.638 9.5L18.3611 8.89741L16.7076 6.00386C16.5296 5.69229 16.1982 5.5 15.8394 5.5H8.16067C7.80181 5.5 7.47047 5.69229 7.29243 6.00386L5.63897 8.89741L6.36208 9.5H17.638ZM6.5 12.5C5.67157 12.5 5 13.1716 5 14C5 14.8284 5.67157 15.5 6.5 15.5C7.32843 15.5 8 14.8284 8 14C8 13.1716 7.32843 12.5 6.5 12.5ZM17.5 12.5C16.6716 12.5 16 13.1716 16 14C16 14.8284 16.6716 15.5 17.5 15.5C18.3284 15.5 19 14.8284 19 14C19 13.1716 18.3284 12.5 17.5 12.5Z" fill="currentColor"/>
+</svg>
                 </div>
                 <span class="case-badge">Мгновенный расчет</span>
               </div>
@@ -2550,11 +3380,9 @@
             <div>
               <div class="case-card-header">
                 <div class="case-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/>
-                    <line x1="3" y1="6" x2="21" y2="6"/>
-                    <path d="M16 10a4 4 0 0 1-8 0"/>
-                  </svg>
+                  <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C9.79086 2 8 3.79086 8 6V8L7.16146 8C6.63431 7.99998 6.17955 7.99997 5.80498 8.03057C5.40963 8.06287 5.01641 8.13419 4.63803 8.32698C4.07355 8.6146 3.6146 9.07354 3.32698 9.63803C3.13419 10.0164 3.06287 10.4096 3.03057 10.805C2.99997 11.1795 2.99998 11.6343 3 12.1614V14.6428C2.99999 15.7265 2.99999 16.6008 3.05782 17.3086C3.11737 18.0375 3.24318 18.6777 3.54497 19.27C4.02434 20.2108 4.78924 20.9757 5.73005 21.455C6.32234 21.7568 6.96253 21.8826 7.69138 21.9422C8.39923 22 9.27334 22 10.3571 22H13.6428C14.7266 22 15.6008 22 16.3086 21.9422C17.0375 21.8826 17.6777 21.7568 18.27 21.455C19.2108 20.9757 19.9757 20.2108 20.455 19.27C20.7568 18.6777 20.8826 18.0375 20.9422 17.3086C21 16.6008 21 15.7267 21 14.6429V12.1614C21 11.6343 21 11.1795 20.9694 10.805C20.9371 10.4096 20.8658 10.0164 20.673 9.63803C20.3854 9.07354 19.9265 8.6146 19.362 8.32698C18.9836 8.13419 18.5904 8.06287 18.195 8.03057C17.8205 7.99997 17.3657 7.99998 16.8385 8L16 8V6C16 3.79086 14.2091 2 12 2ZM10 6V8H14V6C14 4.89543 13.1046 4 12 4C10.8954 4 10 4.89543 10 6ZM10 11C10 11.5523 9.55229 12 9 12C8.44772 12 8 11.5523 8 11C8 10.4477 8.44772 10 9 10C9.55229 10 10 10.4477 10 11ZM15 12C15.5523 12 16 11.5523 16 11C16 10.4477 15.5523 10 15 10C14.4477 10 14 10.4477 14 11C14 11.5523 14.4477 12 15 12Z" fill="currentColor"/>
+</svg>
                 </div>
                 <span class="case-badge">Большие чеки</span>
               </div>
@@ -2575,11 +3403,9 @@
             <div>
               <div class="case-card-header">
                 <div class="case-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2a8 8 0 0 0-8 8c0 3.3 2 6.2 5 7.4V20a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2.6c3-1.2 5-4.1 5-7.4a8 8 0 0 0-8-8z"/>
-                    <path d="M10 9h4"/>
-                    <path d="M12 7v4"/>
-                  </svg>
+                  <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.2425 3.03009C14.7783 3.16404 15.1041 3.70698 14.9701 4.24277L10.9701 20.2428C10.8362 20.7786 10.2933 21.1043 9.75746 20.9704C9.22167 20.8364 8.89591 20.2935 9.02986 19.7577L13.0299 3.7577C13.1638 3.22191 13.7067 2.89615 14.2425 3.03009ZM7.70711 7.29313C8.09763 7.68365 8.09763 8.31682 7.70711 8.70734L4.41421 12.0002L7.70711 15.2931C8.09763 15.6837 8.09763 16.3168 7.70711 16.7073C7.31658 17.0979 6.68342 17.0979 6.29289 16.7073L2.29289 12.7073C1.90237 12.3168 1.90237 11.6837 2.29289 11.2931L6.29289 7.29313C6.68342 6.90261 7.31658 6.90261 7.70711 7.29313ZM16.2929 7.29313C16.6834 6.90261 17.3166 6.90261 17.7071 7.29313L21.7071 11.2931C22.0976 11.6837 22.0976 12.3168 21.7071 12.7073L17.7071 16.7073C17.3166 17.0979 16.6834 17.0979 16.2929 16.7073C15.9024 16.3168 15.9024 15.6837 16.2929 15.2931L19.5858 12.0002L16.2929 8.70734C15.9024 8.31682 15.9024 7.68365 16.2929 7.29313Z" fill="currentColor"/>
+</svg>
                 </div>
                 <span class="case-badge badge-card">Виртуальная карта</span>
               </div>
@@ -2600,9 +3426,9 @@
             <div>
               <div class="case-card-header">
                 <div class="case-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="5 3 19 12 5 21 5 3"/>
-                  </svg>
+                  <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10.3842 4.18608L17.2287 8.4639C17.9141 8.89226 18.4864 9.24992 18.9138 9.57473C19.349 9.90537 19.7575 10.2903 19.9839 10.8185C20.3073 11.5731 20.3073 12.4273 19.9839 13.1819C19.7575 13.7101 19.349 14.095 18.9138 14.4257C18.4864 14.7505 17.9141 15.1081 17.2288 15.5365L10.3842 19.8143C9.62081 20.2915 8.9893 20.6862 8.46621 20.95C7.94055 21.2151 7.37129 21.4312 6.7596 21.3821C5.89751 21.3128 5.10728 20.8748 4.5916 20.1805C4.2257 19.6878 4.10726 19.0905 4.05348 18.5043C3.99997 17.9209 3.99998 17.1761 4 16.2759V7.72451C3.99998 6.82426 3.99997 6.07956 4.05348 5.49615C4.10726 4.90987 4.2257 4.31261 4.5916 3.81996C5.10728 3.12564 5.89751 2.68765 6.7596 2.61835C7.37129 2.56917 7.94055 2.78528 8.46621 3.05041C8.9893 3.31423 9.62081 3.70894 10.3842 4.18608Z" fill="currentColor"/>
+</svg>
                 </div>
                 <span class="case-badge badge-card">Международные подписки</span>
               </div>
@@ -2623,10 +3449,9 @@
             <div>
               <div class="case-card-header">
                 <div class="case-icon-box">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                  </svg>
+                  <svg  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 4.34315 3.34315 3 5 3H11C12.6569 3 14 4.34315 14 6C14 6.35064 13.9398 6.68722 13.8293 7H19C20.6569 7 22 8.34315 22 10C22 10.7684 21.7111 11.4692 21.2361 12C21.7111 12.5308 22 13.2316 22 14C22 14.7684 21.7111 15.4692 21.2361 16C21.7111 16.5308 22 17.2316 22 18C22 19.6569 20.6569 21 19 21H5C3.34315 21 2 19.6569 2 18C2 17.2316 2.28885 16.5308 2.7639 16C2.28885 15.4692 2 14.7684 2 14C2 13.2316 2.28885 12.5308 2.7639 12C2.28885 11.4692 2 10.7684 2 10C2 9.23165 2.28885 8.53076 2.76389 8C2.28885 7.46924 2 6.76835 2 6ZM5 7C4.44772 7 4 6.55228 4 6C4 5.44772 4.44772 5 5 5H11C11.5523 5 12 5.44772 12 6C12 6.55228 11.5523 7 11 7H5ZM11 9H5C4.44772 9 4 9.44772 4 10C4 10.5523 4.44772 11 5 11H11C11.5523 11 12 10.5523 12 10C12 9.44772 11.5523 9 11 9ZM13.8293 11C13.9398 10.6872 14 10.3506 14 10C14 9.64936 13.9398 9.31278 13.8293 9H19C19.5523 9 20 9.44772 20 10C20 10.5523 19.5523 11 19 11H13.8293ZM11 13H5C4.44772 13 4 13.4477 4 14C4 14.5523 4.44772 15 5 15H11C11.5523 15 12 14.5523 12 14C12 13.4477 11.5523 13 11 13ZM13.8293 15C13.9398 14.6872 14 14.3506 14 14C14 13.6494 13.9398 13.3128 13.8293 13H19C19.5523 13 20 13.4477 20 14C20 14.5523 19.5523 15 19 15H13.8293ZM11 17H5C4.44772 17 4 17.4477 4 18C4 18.5523 4.44772 19 5 19H11C11.5523 19 12 18.5523 12 18C12 17.4477 11.5523 17 11 17ZM13.8293 19C13.9398 18.6872 14 18.3506 14 18C14 17.6494 13.9398 17.3128 13.8293 17H19C19.5523 17 20 17.4477 20 18C20 18.5523 19.5523 19 19 19H13.8293Z" fill="currentColor"/>
+</svg>
                 </div>
                 <span class="case-badge">0% внутри сети</span>
               </div>
@@ -2706,7 +3531,7 @@
               <tr>
                 <td>
                   <div class="method-name-cell">
-                    <svg width="20" height="20" viewBox="0 0 100 100" fill="none"><path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="#8B14F7"/><path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/><path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/><path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/><circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/></svg>
+                    <img src="./assets/pgon-icon.png" alt="PGON Transfer" class="method-brand-img" width="22" height="22" />
                     <span>Внутренние переводы PGON Transfer</span>
                   </div>
                 </td>
@@ -2732,17 +3557,27 @@
           <p class="section-desc">Исчерпывающие ответы на все вопросы об оплате, безопасности, тарифах, лимитах и возвратах.</p>
         </div>
 
-        <div class="faq-grid-2col">
-          <!-- COLUMN 1: Быстрый старт и оплата (1-7) + Безопасность, KYC и 115-ФЗ (8-14) -->
-          <div class="faq-column">
-            
-            <!-- Раздел: Быстрый старт и оплата -->
-            <div class="faq-group-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>Быстрый старт и оплата</span>
-            </div>
-
-            <!-- Q1 -->
+                <div class="faq-categories-wrapper">
+          
+          <!-- КАТЕГОРИЯ 1: Быстрый старт и оплата -->
+          <details class="faq-category-card">
+            <summary class="faq-category-header">
+              <div class="faq-category-info">
+                <div class="faq-category-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="faq-category-titles">
+                  <h3>Быстрый старт и оплата</h3>
+                  <p>СБП, выпуск карты за 1 минуту, привязка к зарубежным сервисам и Apple Pay</p>
+                </div>
+              </div>
+              <div class="faq-category-meta">
+                
+                <svg class="faq-category-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </summary>
+            <div class="faq-category-body">
+              <!-- Q1 -->
             <details class="faq-item">
               <summary class="faq-question">
                 <span>1. Что такое PGON Wallet и как он работает?</span>
@@ -2818,14 +3653,28 @@
                 В сканере PGON Wallet предусмотрены альтернативные варианты: <strong>загрузка фотографии/скриншота QR-кода из галереи смартфона</strong> или <strong>ручная вставка платежной ссылки СБП</strong> (например, скопированной из интернет-магазина).
               </div>
             </details>
-
-            <!-- Раздел: Безопасность, KYC и 115-ФЗ -->
-            <div class="faq-group-title" style="margin-top: 1.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span>Безопасность, KYC и 115-ФЗ</span>
             </div>
+          </details>
 
-            <!-- Q8 -->
+          <!-- КАТЕГОРИЯ 2: Безопасность, KYC и 115-ФЗ -->
+          <details class="faq-category-card">
+            <summary class="faq-category-header">
+              <div class="faq-category-info">
+                <div class="faq-category-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div class="faq-category-titles">
+                  <h3>Безопасность, KYC и 115-ФЗ</h3>
+                  <p>Защита от блокировок, юридическая чистота, хранение ключей и конфиденциальность</p>
+                </div>
+              </div>
+              <div class="faq-category-meta">
+                
+                <svg class="faq-category-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </summary>
+            <div class="faq-category-body">
+              <!-- Q8 -->
             <details class="faq-item">
               <summary class="faq-question">
                 <span>8. Почему при оплате через PGON исключен риск блокировки по 115-ФЗ?</span>
@@ -2901,19 +3750,28 @@
                 <strong>Нет.</strong> При оплате через СБП продавец видит только стандартный входящий платеж от официального эквайринг-партнера. Ваши криптоадреса, балансы и персональные данные Telegram остаются полностью конфиденциальными.
               </div>
             </details>
-
-          </div>
-
-          <!-- COLUMN 2: Тарифы, курсы и лимиты (15-21) + Возвраты, переводы и поддержка (22-28) -->
-          <div class="faq-column">
-
-            <!-- Раздел: Тарифы, курсы и лимиты -->
-            <div class="faq-group-title">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <span>Тарифы, курсы и лимиты</span>
             </div>
+          </details>
 
-            <!-- Q15 -->
+          <!-- КАТЕГОРИЯ 3: Тарифы, курсы и лимиты -->
+          <details class="faq-category-card">
+            <summary class="faq-category-header">
+              <div class="faq-category-info">
+                <div class="faq-category-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="faq-category-titles">
+                  <h3>Тарифы, курсы и лимиты</h3>
+                  <p>Биржевой курс, 0% комиссии за пополнение, лимиты транзакций и вывод остатка</p>
+                </div>
+              </div>
+              <div class="faq-category-meta">
+                
+                <svg class="faq-category-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </summary>
+            <div class="faq-category-body">
+              <!-- Q15 -->
             <details class="faq-item">
               <summary class="faq-question">
                 <span>15. По какому обменному курсу конвертируется USDT в рубли?</span>
@@ -2989,14 +3847,28 @@
                 При выводе списывается только чистая сетевая комиссия блокчейна: около <strong>0.05 TON</strong> в сети The Open Network, <strong>~1 USDT</strong> в сети BEP-20 и <strong>~1.5 USDT</strong> в сети TRC-20. Сам сервис PGON дополнительной комиссии за вывод не берет.
               </div>
             </details>
-
-            <!-- Раздел: Возвраты, переводы и поддержка -->
-            <div class="faq-group-title" style="margin-top: 1.5rem;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              <span>Возвраты, переводы и поддержка</span>
             </div>
+          </details>
 
-            <!-- Q22 -->
+          <!-- КАТЕГОРИЯ 4: Возвраты, переводы и поддержка -->
+          <details class="faq-category-card">
+            <summary class="faq-category-header">
+              <div class="faq-category-info">
+                <div class="faq-category-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="faq-category-titles">
+                  <h3>Возвраты, переводы и поддержка</h3>
+                  <p>Возврат средств за подписки, переводы внутри Telegram и саппорт 24/7</p>
+                </div>
+              </div>
+              <div class="faq-category-meta">
+                
+                <svg class="faq-category-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+            </summary>
+            <div class="faq-category-body">
+              <!-- Q22 -->
             <details class="faq-item">
               <summary class="faq-question">
                 <span>22. Как происходит возврат денег за товар в магазине?</span>
@@ -3072,11 +3944,12 @@
                 Наша служба поддержки работает <strong>24/7 без выходных</strong>. Вы можете написать напрямую дежурному специалисту в Telegram-бот <strong>@pgon_support_bot</strong>. Среднее время ответа оператора составляет менее 2 минут.
               </div>
             </details>
+            </div>
+          </details>
 
-          </div>
         </div>
       </div>
-    </section>
+</section>
   </main>
 
   <!-- ==========================================================================
@@ -3087,20 +3960,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#hero" class="brand-logo">
-            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="pgon-brand-svg">
-              <defs>
-                <linearGradient id="footerPgonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#8B14F7"/>
-                  <stop offset="100%" stop-color="#6B05D6"/>
-                </linearGradient>
-              </defs>
-              <path d="M 46 6.5 C 48.5 5 51.5 5 54 6.5 L 88.5 26.5 C 91 28 92.5 30.5 92.5 33.5 L 92.5 66.5 C 92.5 69.5 91 72 88.5 73.5 L 54 93.5 C 51.5 95 48.5 95 46 93.5 L 11.5 73.5 C 9 72 7.5 69.5 7.5 66.5 L 7.5 33.5 C 7.5 30.5 9 28 11.5 26.5 Z" fill="url(#footerPgonGrad)"/>
-              <path d="M 19 33 C 24 35 34 40 45 49 C 39 53 31 54 22 47 C 18 43.5 17.5 35 19 33 Z" fill="#120224"/>
-              <path d="M 21 47.5 C 28 50 39 56 47 66 C 41 69 33 68 25 61 C 20.5 57.5 19.5 50 21 47.5 Z" fill="#120224"/>
-              <path d="M 52 27 C 44 27 38 33 39 42 C 40 50 44 59 51 66 C 58 72 65 67 67 62 C 69 57 69 50 67 44 C 71 43.5 75 42 77 40 C 78 39 77 37.5 75.5 37.5 C 73 37.5 70 38 67 36 C 64 30.5 58.5 27 52 27 Z" fill="#120224"/>
-              <circle cx="63" cy="37" r="3.2" fill="#D8B4FE"/>
-            </svg>
-            <span>PGON<span class="dot-pro">.pro</span></span>
+            <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
+            <span class="brand-logo-text">PGON</span>
           </a>
           <p>Инновационный платежный Web3-шлюз нового поколения. Мгновенные расчеты по СБП напрямую с баланса USDT и TON по всей России.</p>
         </div>
@@ -3155,9 +4016,26 @@
     <span>Поддержка 24/7</span>
   </a>
 
-  <!-- Fluid Custom Cursor Elements -->
+  <!-- PGON Cyber-Hexagon Crosshair Cursor (Option 4) -->
   <div class="cursor-dot" id="cursor-dot"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
+  <div class="cursor-ring" id="cursor-ring">
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Outer Hexagon Precision Target -->
+      <polygon class="hex-path" points="24,4 41.32,14 41.32,34 24,44 6.68,34 6.68,14" />
+      <!-- Cyber Reticle Crosshair Ticks -->
+      <line class="hex-tick" x1="24" y1="0" x2="24" y2="7" />
+      <line class="hex-tick" x1="24" y1="41" x2="24" y2="48" />
+      <line class="hex-tick" x1="0" y1="24" x2="7" y2="24" />
+      <line class="hex-tick" x1="41" y1="24" x2="48" y2="24" />
+      <!-- Micro Corner Vertex Lights -->
+      <circle class="hex-corner" cx="24" cy="4" r="1.2" />
+      <circle class="hex-corner" cx="41.32" cy="14" r="1.2" />
+      <circle class="hex-corner" cx="41.32" cy="34" r="1.2" />
+      <circle class="hex-corner" cx="24" cy="44" r="1.2" />
+      <circle class="hex-corner" cx="6.68" cy="34" r="1.2" />
+      <circle class="hex-corner" cx="6.68" cy="14" r="1.2" />
+    </svg>
+  </div>
 
   <!-- ==========================================================================
        NATIVE JAVASCRIPT EVENT PIPELINE (FLASHLIGHT, ELASTIC CURSOR, 3D TILT, SCROLL REVEAL)
@@ -3349,7 +4227,7 @@
         }
       }
 
-      // 3. Fluid Elastic Cursor with Physics (Only active on fine pointer / desktop devices)
+      // 3. PGON Cyber-Hexagon Crosshair Cursor (Snappy physics, zero lag, click snap)
       const cursorDot = document.getElementById('cursor-dot');
       const cursorRing = document.getElementById('cursor-ring');
 
@@ -3372,7 +4250,7 @@
             isCursorVisible = true;
           }
 
-          // Dot follows instantly for snappy responsiveness
+          // Center micro-point follows with 0ms lag
           cursorDot.style.left = `${mouseX}px`;
           cursorDot.style.top = `${mouseY}px`;
         });
@@ -3383,10 +4261,20 @@
           isCursorVisible = false;
         });
 
-        // Spring / Rubber lerp loop for the smooth ring
+        // Tactile snap on mouse press
+        window.addEventListener('mousedown', () => {
+          cursorRing.classList.add('cursor-click');
+          cursorDot.classList.add('cursor-click');
+        });
+        window.addEventListener('mouseup', () => {
+          cursorRing.classList.remove('cursor-click');
+          cursorDot.classList.remove('cursor-click');
+        });
+
+        // Fast aerodynamic lerp (0.38 - crisp, no dragging lag)
         const renderCursor = () => {
-          ringX += (mouseX - ringX) * 0.16;
-          ringY += (mouseY - ringY) * 0.16;
+          ringX += (mouseX - ringX) * 0.38;
+          ringY += (mouseY - ringY) * 0.38;
 
           cursorRing.style.left = `${ringX}px`;
           cursorRing.style.top = `${ringY}px`;
@@ -3394,6 +4282,19 @@
           requestAnimationFrame(renderCursor);
         };
         requestAnimationFrame(renderCursor);
+
+        // Native cursor restoration over input fields & typing areas
+        const textInputs = document.querySelectorAll('input, textarea, select, [contenteditable="true"]');
+        textInputs.forEach(el => {
+          el.addEventListener('mouseenter', () => {
+            cursorDot.classList.add('cursor-hidden');
+            cursorRing.classList.add('cursor-hidden');
+          });
+          el.addEventListener('mouseleave', () => {
+            cursorDot.classList.remove('cursor-hidden');
+            cursorRing.classList.remove('cursor-hidden');
+          });
+        });
 
         // Hover target handlers
         const attachCursorHover = (elements, className) => {
@@ -3403,10 +4304,10 @@
           });
         };
 
-        const standardLinks = document.querySelectorAll('a:not(.hero-cta-btn):not(.btn-header-cta), summary, .styled-table tbody tr, .faq-item');
+        const standardLinks = document.querySelectorAll('a:not(.hero-cta-btn):not(.btn-header-cta), summary, .faq-category-header, .styled-table tbody tr, .faq-item, button:not(.hero-cta-btn):not(.btn-header-cta), .currency-pill, .country-pill, .review-card, .matrix-item, .service-bento-tile');
         attachCursorHover(standardLinks, 'cursor-hover');
 
-        const ctaButtons = document.querySelectorAll('.hero-cta-btn, .btn-header-cta, .floating-support-btn');
+        const ctaButtons = document.querySelectorAll('.hero-cta-btn, .btn-header-cta, .floating-support-btn, .action-btn');
         attachCursorHover(ctaButtons, 'cursor-cta');
       } else {
         if (cursorDot) cursorDot.style.display = 'none';
@@ -3503,6 +4404,188 @@
         });
       }
     });
+  
+    // ==========================================
+    // SEREGA TEXT ANIMATION ENGINE
+    // ==========================================
+    (function initSeregaAnimations() {
+      // Utilities
+      function splitGraphemes(text) {
+        if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+          const segmenter = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+          return Array.from(segmenter.segment(text), s => s.segment);
+        }
+        return Array.from(text);
+      }
+
+      function appendGroupedUnits(fragment, value, unitClass, wordClass) {
+        const units = [];
+        let word = null;
+        let followsWhitespace = false;
+
+        const startWord = () => {
+          word = document.createElement('span');
+          word.className = wordClass;
+          fragment.append(word);
+        };
+
+        for (const grapheme of splitGraphemes(value)) {
+          if (grapheme === '\n' || grapheme === '\r') {
+            const br = document.createElement('br');
+            br.setAttribute('aria-hidden', 'true');
+            fragment.append(br);
+            word = null;
+            followsWhitespace = false;
+            continue;
+          }
+          const isWhitespace = /^\s+$/u.test(grapheme);
+          if (!word || (!isWhitespace && followsWhitespace)) startWord();
+          const unit = document.createElement('span');
+          unit.className = unitClass;
+          unit.setAttribute('aria-hidden', 'true');
+          unit.textContent = grapheme;
+          units.push(unit);
+          word.append(unit);
+          followsWhitespace = isWhitespace;
+        }
+        return units;
+      }
+
+      // --- 1. SEREGA EMOTIONAL SPRING REVEAL (For PGON WALLET Heading) ---
+      function runSeregaEmotional(element) {
+        if (!element) return;
+        element.style.opacity = '1';
+        element.style.visibility = 'visible';
+
+        const settleDuration = 950;
+        function getAmount(localTimeMs) {
+          const linearDur = 0.3; // 300ms
+          const freq = 3.4;
+          const decay = 7.5;
+          const t = localTimeMs / 1000;
+          if (t <= 0) return 1;
+          if (t < linearDur) return 1 - (t / linearDur);
+          const springT = t - linearDur;
+          const w = freq * Math.PI * 2;
+          return (-1 / linearDur) * Math.sin(springT * w) / (Math.exp(decay * springT) * w);
+        }
+
+        const sampleCount = 40;
+        const keyframes = [];
+        for (let i = 0; i <= sampleCount; i++) {
+          const offset = i / sampleCount;
+          const amount = i === sampleCount ? 0 : getAmount(settleDuration * offset);
+          const posAmt = Math.max(0, amount);
+          keyframes.push({
+            offset: offset,
+            opacity: Math.min(1, Math.max(0.1, 1 - amount * 0.9)),
+            filter: `blur(${Math.min(14, 16 * posAmt)}px) drop-shadow(0 0 24px rgba(168, 85, 247, 0.9)) drop-shadow(0 0 50px rgba(147, 51, 234, 0.55)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.95))`,
+            transform: `translate3d(0, ${32 * amount}px, 0) scale(${1 + 0.08 * amount})`
+          });
+        }
+
+        try {
+          const anim = element.animate(keyframes, {
+            duration: settleDuration,
+            easing: 'linear',
+            fill: 'forwards'
+          });
+          anim.finished.then(() => {
+            element.style.opacity = '1';
+            element.style.filter = '';
+            element.style.transform = '';
+          }).catch(() => {
+            element.style.opacity = '1';
+          });
+        } catch (e) {
+          element.style.opacity = '1';
+        }
+      }
+
+      // --- 2. SEREGA GENTLE (Phrases cycling for Hero Subtitle) ---
+      function runSeregaGentle(element, phrases) {
+        if (!element || !phrases || !phrases.length) return;
+        element.classList.add('serega-gentle');
+        let currentIdx = 0;
+
+        function renderAndAnimate() {
+          const phrase = phrases[currentIdx];
+          element.setAttribute('aria-label', phrase);
+          const fragment = document.createDocumentFragment();
+          const units = appendGroupedUnits(fragment, phrase, 'serega-gentle__unit', 'serega-gentle__word');
+          
+          units.forEach(u => {
+            u.style.opacity = '0';
+            u.style.transform = 'translate3d(0, 18px, 0)';
+          });
+          element.replaceChildren(fragment);
+
+          // Animate IN
+          const enterDuration = 520;
+          const enterStagger = 16;
+          const inAnims = units.map((u, i) => {
+            return u.animate([
+              { opacity: 0, transform: 'translate3d(0, 18px, 0)' },
+              { opacity: 1, transform: 'translate3d(0, 0px, 0)' }
+            ], {
+              delay: i * enterStagger,
+              duration: enterDuration,
+              easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+              fill: 'forwards'
+            });
+          });
+
+          // Hold phrase then Animate OUT and swap
+          setTimeout(() => {
+            const exitDuration = 380;
+            const exitStagger = 10;
+            const outAnims = units.map((u, i) => {
+              return u.animate([
+                { opacity: 1, transform: 'translate3d(0, 0px, 0)' },
+                { opacity: 0, transform: 'translate3d(0, -14px, 0)' }
+              ], {
+                delay: i * exitStagger,
+                duration: exitDuration,
+                easing: 'cubic-bezier(0.4, 0, 1, 1)',
+                fill: 'forwards'
+              });
+            });
+
+            const totalOutTime = (units.length * exitStagger) + exitDuration;
+            setTimeout(() => {
+              currentIdx = (currentIdx + 1) % phrases.length;
+              renderAndAnimate();
+            }, totalOutTime + 180);
+          }, 3800);
+        }
+
+        renderAndAnimate();
+      }
+
+      function startAnimations() {
+        // Emotional on PGON WALLET
+        const heroTitle = document.getElementById('hero-title-emotional');
+        if (heroTitle) runSeregaEmotional(heroTitle);
+
+        // Gentle cycling on hero subtitle
+        const heroSubtitle = document.getElementById('hero-title-gentle');
+        if (heroSubtitle) {
+          runSeregaGentle(heroSubtitle, [
+            "Оплата криптой по QR-коду через СБП в России",
+            "Без P2P-обмена, дропов и рисков блокировок 115-ФЗ",
+            "Виртуальная карта Visa и Mastercard для зарубежных подписок",
+            "Моментальная автоконвертация USDT и TON в рубли за 1.8 сек"
+          ]);
+        }
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => setTimeout(startAnimations, 60));
+      } else {
+        setTimeout(startAnimations, 60);
+      }
+    })();
+
   </script>
 
 </body>
