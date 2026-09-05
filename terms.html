@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Пользовательское соглашение | PGON Wallet</title>
+  <meta name="title" content="Пользовательское соглашение | PGON Wallet">
+  <meta name="description" content="Юридические условия использования сервиса PGON Wallet. InterSpin LLC, регистрационный номер 240340030437, Казахстан, Алматы.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pgon.pro/terms.html">
+  
+  <!-- Favicon and Brand Icons -->
+  <link rel="icon" type="image/png" href="./assets/pgon-icon.png">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/pgon-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pgon.pro/terms.html">
+  <meta property="og:title" content="Пользовательское соглашение | PGON Wallet">
+  <meta property="og:description" content="Юридические условия использования сервиса PGON Wallet. InterSpin LLC, регистрационный номер 240340030437, Казахстан, Алматы.">
+  <meta property="og:image" content="https://pgon.pro/hero-bg.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0D0614;
+      --bg-surface: #170B24;
+      --bg-surface-elevated: #221035;
+      --bg-surface-card: rgba(28, 14, 46, 0.7);
+      --border-color: rgba(157, 78, 221, 0.22);
+      --border-focus: #C084FC;
+      --primary-purple: #9D4EDD;
+      --neon-glow: #C084FC;
+      --light-purple: #E0AAFF;
+      --accent-orange: #FF9E00;
+      --text-white: #FFFFFF;
+      --text-gray: #BDB4C7;
+      --text-dim: #7E708E;
+      --text-accent: #E0AAFF;
+      --success: #10B981;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(157, 78, 221, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(123, 44, 191, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(13, 6, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.9rem 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.3rem 1.15rem 0.3rem 0.35rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(34, 12, 68, 0.75) 0%, rgba(18, 6, 38, 0.85) 100%);
+      border: 2px solid #8A14F7;
+      box-shadow: 0 0 16px rgba(138, 20, 247, 0.45), inset 0 0 12px rgba(138, 20, 247, 0.25);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .brand-logo:hover {
+      border-color: #A855F7;
+      box-shadow: 0 0 24px rgba(168, 85, 247, 0.75), inset 0 0 16px rgba(168, 85, 247, 0.35);
+      transform: translateY(-1px) scale(1.02);
+    }
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: none;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.6));
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(-3deg) scale(1.05);
+    }
+    .brand-logo-text {
+      font-family: var(--font-display, 'Unbounded'), 'Unbounded', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      background: linear-gradient(180deg, #A855F7 0%, #7E22CE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .header-nav a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .header-nav a:hover {
+      color: #fff;
+    }
+
+    .btn-header-cta {
+      background: linear-gradient(135deg, #FF9E00, #FF6000);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 158, 0, 0.35);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-header-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 158, 0, 0.5);
+    }
+
+    .legal-main {
+      flex: 1;
+      padding: 3rem 0 5rem;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumbs a {
+      color: var(--text-gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--light-purple);
+    }
+
+    .legal-hero {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .legal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(157, 78, 221, 0.15);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      color: var(--light-purple);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .legal-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+
+    .legal-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .legal-meta-item svg {
+      color: var(--light-purple);
+    }
+
+    .legal-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .legal-content {
+      color: #E2DFE8;
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    .legal-content h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 2.25rem 0 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.16);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .legal-content h2:first-of-type {
+      margin-top: 1rem;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .legal-content h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--light-purple);
+      margin: 1.6rem 0 0.65rem;
+    }
+
+    .legal-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .legal-content p {
+      margin-bottom: 1.1rem;
+    }
+
+    .legal-content p strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .legal-content ul, .legal-content ol {
+      margin: 0.8rem 0 1.25rem 1.4rem;
+      padding-left: 0.5rem;
+    }
+
+    .legal-content li {
+      margin-bottom: 0.6rem;
+      padding-left: 0.2rem;
+    }
+
+    .legal-content li strong {
+      color: #FFFFFF;
+    }
+
+    .legal-callout {
+      background: rgba(157, 78, 221, 0.1);
+      border-left: 4px solid var(--primary-purple);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      color: #FFFFFF;
+    }
+
+    .legal-callout-warning {
+      background: rgba(255, 158, 0, 0.08);
+      border-left-color: var(--accent-orange);
+    }
+
+    .legal-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    table.legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    table.legal-table th {
+      background: rgba(157, 78, 221, 0.2);
+      color: #FFFFFF;
+      padding: 0.85rem 1.1rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    table.legal-table td {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(157, 78, 221, 0.12);
+      color: #E2DFE8;
+    }
+
+    table.legal-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.legal-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .company-credentials-box {
+      background: rgba(23, 11, 36, 0.85);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .company-cred-item {
+      font-size: 0.88rem;
+    }
+
+    .company-cred-item span {
+      display: block;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .company-cred-item strong {
+      color: #FFFFFF;
+      font-size: 0.95rem;
+    }
+
+    .company-cred-item a {
+      color: var(--light-purple);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .company-cred-item a:hover {
+      text-decoration: underline;
+    }
+
+    .doc-nav-card {
+      margin-top: 3rem;
+      background: rgba(23, 11, 36, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .doc-nav-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .doc-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .doc-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      background: rgba(157, 78, 221, 0.08);
+      border: 1px solid rgba(157, 78, 221, 0.16);
+      border-radius: 10px;
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .doc-nav-link:hover {
+      background: rgba(157, 78, 221, 0.2);
+      border-color: var(--light-purple);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .doc-nav-link.active {
+      background: rgba(157, 78, 221, 0.3);
+      border-color: var(--light-purple);
+      color: #FFFFFF;
+    }
+
+    .site-footer {
+      background: #09040D;
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0 2rem;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-gray);
+      font-size: 0.88rem;
+      margin-top: 0.85rem;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: #FFFFFF;
+      transform: translateX(2px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.12);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .footer-bottom-left {
+      text-align: left;
+    }
+    .footer-bottom-right {
+      text-align: right;
+    }
+
+    @media (max-width: 860px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+      .footer-bottom-left,
+      .footer-bottom-right {
+        text-align: center;
+      }
+      .header-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/#hero" class="brand-logo" aria-label="PGON Wallet Главная">
+          <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
+          <span class="brand-logo-text">PGON</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/#pipeline">Как работает</a>
+          <a href="/#benefits">Преимущества</a>
+          <a href="/#card">Виртуальная карта</a>
+          <a href="/#tariffs">Тарифы</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog.html">Блог</a>
+        </nav>
+        <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-header-cta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.674c.459 0 .661-.211.918-.46l2.206-2.145 4.588 3.389c.845.466 1.455.226 1.666-.783l3.007-14.166c.309-1.238-.474-1.8-1.282-1.439z"/></svg>
+          Открыть в Telegram
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-main">
+    <div class="container">
+
+      <div class="legal-hero">
+        <div class="breadcrumbs">
+          <a href="/#hero">Главная</a>
+          <span>/</span>
+          <span>Условия использования</span>
+        </div>
+        <span class="legal-tag">Legal Terms • InterSpin LLC</span>
+        <h1 class="legal-title">Условия использования сервиса PGON Wallet</h1>
+        <div class="legal-meta">
+          <div class="legal-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Редакция от 2026 г.</span>
+          </div>
+          <div class="legal-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Юрисдикция: Республика Казахстан</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-content">
+          <div class="legal-callout">
+            <p>Это юридически обязывающие Условия использования сервиса (далее — «Условия»), которые распространяются на всех пользователей платформы PGON Wallet.</p>
+            <p><strong>InterSpin LLC</strong>, далее — «Мы», «Нас», «Нам», «Нами». «Платформа PGON Wallet», «Платформа» означает данную платформу и предлагаемые Нами Услуги, включая приложения: PGON Wallet, веб-сайт по адресу <a href="https://pgon.pro/" style="color:var(--light-purple);">https://pgon.pro/</a> или любые другие каналы, указанные Нами для доступа к Услугам или их использования.</p>
+          </div>
+
+          <div class="company-credentials-box">
+            <div class="company-cred-item">
+              <span>Компания</span>
+              <strong>InterSpin LLC</strong>
+            </div>
+            <div class="company-cred-item">
+              <span>ИИН / БИН (Идентификационный номер налогоплательщика)</span>
+              <strong>240340030437</strong>
+            </div>
+            <div class="company-cred-item">
+              <span>Юридический адрес</span>
+              <strong>Республика Казахстан, г. Алматы, Жетысуский район, ул. Абдирова, д. 65</strong>
+            </div>
+            <div class="company-cred-item">
+              <span>Официальные контакты</span>
+              <strong>Email: <a href="mailto:pgon_support@proton.me">pgon_support@proton.me</a> | Бот: <a href="https://t.me/pgon_support_bot" target="_blank">@pgon_support_bot</a></strong>
+            </div>
+          </div>
+
+          <h2>1. Введение</h2>
+          <p>Получая доступ к Платформе PGON Wallet или используя ее, а также нажимая кнопку принятия или согласия с настоящими Условиями, если такая возможность предусмотрена, вы соглашаетесь с Условиями и любыми другими политиками или документами, доступными через веб-сайт <a href="https://pgon.pro/" style="color:var(--light-purple);">https://pgon.pro/</a> или приложения. Пожалуйста, внимательно прочитайте Условия и сообщите нам, если у вас возникнут вопросы, отправив запрос по адресу электронной почты <a href="mailto:pgon_support@proton.me" style="color:var(--light-purple);">pgon_support@proton.me</a>. В случае несоответствия между настоящими Условиями и любыми другими политиками или документами применяются настоящие Условия.</p>
+
+          <h3>1.1. Сфера применения условий</h3>
+          <p>1.1.1. Настоящие Условия регулируют ваш доступ и использование услуг Платформы PGON Wallet (далее — «Услуги»), предоставляемых на Платформе PGON Wallet или через нее для:</p>
+          <ul>
+            <li>Пополнения Поддерживаемой цифровой валюты со внешнего кошелька;</li>
+            <li>Хранения Поддерживаемой цифровой валюты;</li>
+            <li>Перевода Поддерживаемой цифровой валюты другим Пользователям или Поставщикам услуг;</li>
+            <li>Вывода Поддерживаемой цифровой валюты на внешний кошелек;</li>
+            <li>Содействия в покупке Поддерживаемой цифровой валюты путем предоставления Пользователям возможности запрашивать фиатные платежи в пользу сторонних продавцов через назначенных Поставщиков услуг, которые самостоятельно осуществляют такие фиатные переводы через местные платежные системы;</li>
+            <li>Предоставления технической возможности взаимодействия с платежной системой третьей стороны для продажи Поддерживаемой цифровой валюты и получения фиатных средств.</li>
+          </ul>
+          <p>1.1.2. Дополнительные правила, регулирующие конкретные функции веб-сайта, будут включены в настоящие Условия и размещены в соответствующих разделах.</p>
+
+          <h3>1.2. Согласие с настоящими условиями</h3>
+          <p>1.2.1. Вы подтверждаете, что прочитали, полностью поняли и согласны с настоящими Условиями. Это согласие включает в себя:</p>
+          <ul>
+            <li>Принятие рисков и отказ от ответственности (см. разделы 1.5, 1.6);</li>
+            <li>Ограничение ответственности, возмещение ущерба и отказ от гарантий (см. разделы 8, 9);</li>
+            <li>Обязательный арбитраж для разрешения споров (см. раздел 12);</li>
+            <li>Отказ от права на суд присяжных и групповых исков (см. раздел 12.4);</li>
+            <li>Ограничения на использование Платформы (см. разделы 2.1, 2.4, 4.1).</li>
+          </ul>
+          <p>1.2.2. Вы признаете и принимаете все риски, связанные с виртуальными активами и сделками с виртуальными активами, как указано в нашем разделе «Принятие рисков» (см. раздел 1.5).</p>
+          <p>1.2.3. Вы соглашаетесь на сбор, использование, раскрытие и другие действия с вашими персональными данными в соответствии с нашей Политикой конфиденциальности и Политикой использования файлов cookie.</p>
+          <p>1.2.4. Вы соглашаетесь соблюдать любые дополнительные положения, правила и условия использования, которые мы или любая третья сторона можем время от времени издавать в связи с предоставлением Услуг, включая те, которые необходимы для доступа к Платформе PGON Wallet и использования Услуг.</p>
+          <p>1.2.5. Если вы не согласны с какой-либо частью настоящих Условий, вы должны немедленно прекратить использование Платформы.</p>
+          <p>1.2.6. Вы соглашаетесь получать электронные сообщения и уведомления через Платформу (см. раздел 11.2).</p>
+
+          <h3>1.3. Важные определения</h3>
+          <p>1.3.1. Следующие термины имеют следующие значения:</p>
+          <ul>
+            <li><strong>«Платформа PGON Wallet» или «Платформа»</strong> — означает экосистему, состоящую из программного обеспечения и Услуг, предоставляемых InterSpin LLC, включая приложение Telegram Mini, бот в приложении Telegram, веб-сайт <a href="https://pgon.pro/" style="color:var(--light-purple);">https://pgon.pro/</a> и инфраструктуру, позволяющую проводить операции между фиатными и крипто валютами через назначенных поставщиков услуг (P2C-транзакции) или любые другие каналы, указанные Нами для использования или доступа к Услугам. Сюда также относятся любые другие средства, которые могут стать доступными Пользователю в будущем для использования или доступа к Услугам.</li>
+            <li><strong>«Цифровая валюта»</strong> — означает любую виртуальную валюту, криптовалюту или стейблкоины.</li>
+            <li><strong>«Поддерживаемая цифровая валюта»</strong> — означает только Цифровые валюты, перечисленные как доступные для хранения или перевода. Услуги и поддерживаемые валюты могут отличаться в зависимости от юрисдикции.</li>
+            <li><strong>«Личный кошелек»</strong> — означает внутренние записи в бухгалтерской книге, отличающие вашу Поддерживаемую цифровую валюту от валюты других Пользователей, или отдельные адреса кошельков, предназначенные исключительно для вашей выгоды. Любой баланс на вашем Личном кошельке представляет собой ваше право собственности на Поддерживаемую цифровую валюту.</li>
+            <li><strong>«Приложение Telegram Mini» или «TMA»</strong> — означает приложение в рамках платформы Telegram, которое позволяет Пользователю получать доступ и использовать Платформу PGON Wallet и Услуги.</li>
+            <li><strong>«Бот в приложении Telegram»</strong> — означает специализированное приложение на платформе Telegram, управляемое компанией InterSpin LLC, которое облегчает Пользователю авторизацию и доступ к Сервисам через интерфейс Telegram.</li>
+            <li><strong>«Пользователь», «Вы», «Вас», «Вам», «Вами» или «Вашей»</strong> — означает любое лицо, которое получает доступ или использует Платформу PGON Wallet или любую из Услуг.</li>
+            <li><strong>«Учетная запись PGON Wallet» или «Учетная запись»</strong> — означает учетную запись, созданную и поддерживаемую в рамках Платформы PGON Wallet, которая позволяет Пользователю получать доступ и использовать Услуги, а также другие связанные с ними функциональные возможности, как определено в Условиях использования или на Платформе PGON Wallet.</li>
+            <li><strong>«История счета»</strong> — означает электронные записи о транзакциях Пользователя и информацию, связанную с Поддерживаемой цифровой валютой, хранящаяся на Личном кошельке, а также их эквивалентная стоимость с привязкой к фиатным ценам.</li>
+            <li><strong>«Услуги»</strong> — означают услуги, предоставляемые компанией InterSpin LLC или сторонними Поставщиками услуг на Платформе PGON Wallet или через нее, как указано в Условиях использования.</li>
+            <li><strong>«Поставщики услуг»</strong> — физические лица, которые предлагают или предоставляют Пользователям свои фиатные платежные услуги с QR-кодом в обмен на Поддерживаемую цифровую валюту.</li>
+            <li><strong>«Транзакция»</strong> — означает любой перевод, пополнение, вывод средств или другую операцию в отношении Поддерживаемой цифровой валюты или фиатной валюты, осуществляемую через Платформу и во взаимосвязи с Учетной записью.</li>
+            <li><strong>«Know Your Customer» или «KYC»</strong> — означает обязательный процесс, проводимый InterSpin LLC, его филиалами или сторонними поставщиками для проверки личности пользователей в целях соблюдения нормативных требований и снижения уровня финансовых преступлений, таких как мошенничество, отмывание денег или финансирование терроризма.</li>
+            <li><strong>«Усиленная проверка» или «EDD»</strong> — означает дополнительную проверку личности или комплексную проверку, проводимую InterSpin LLC, ее аффилированными лицами или сторонними поставщиками для соблюдения действующего законодательства, снижения рисков финансовых преступлений или проверки Вашей пригодности для предоставления определенных Услуг или лимитов транзакций. EDD может включать, без ограничений, запрос дополнительных документов, доказательство источника происхождения средств или любые другие действия, которые Мы сочтем необходимыми.</li>
+            <li><strong>«Запрещенные юрисдикции»</strong> — означает любую юрисдикцию, в которой предоставление, доступ или использование Платформы или любой из Услуг запрещено действующим законодательством или является предметом санкций, или эмбарго со стороны правительств, или международных организаций.</li>
+            <li><strong>«Запрещенное лицо»</strong> — означает любое лицо, которое:
+              <br>(a) включено в любой санкционный список, который ведут государственные органы, включая, в частности, Организацию Объединенных Наций, Управление по контролю за иностранными активами Министерства финансов США (OFAC), Европейский союз или Министерство финансов Великобритании («Страна, находящаяся под санкциями»),
+              <br>(b) находится в запрещенной юрисдикции, является ее гражданином или резидентом,
+              <br>(c) имеет иные ограничения на использование Услуг в соответствии с действующим законодательством, Нашими Условиями или политиками.
+            </li>
+          </ul>
+
+          <h3>1.4. Изменение условий</h3>
+          <p>1.4.1. Мы можем изменять, пересматривать или обновлять настоящие Условия в любое время, публикуя пересмотренные Условия с обновленной датой изменений.</p>
+          <p>1.4.2. Любые поправки к настоящим Условиям будут размещены на Платформе, а также могут быть переданы по электронной почте, через уведомление в приложении или любым другим электронным способом, который Мы сочтем подходящим.</p>
+          <p>1.4.3. Дальнейшее использование Вами Услуг означает принятие Вами всех пересмотренных Условий. Если вы не желаете продолжать пользоваться Платформой или Услугами в соответствии с пересмотренными Условиями, вы можете удалить свою Учетную запись PGON Wallet связавшись с нами (см. раздел 11.1, «b»).</p>
+          <p>1.4.4. В случае, если новые Условия влекут за собой существенные изменения, Мы направим Вам уведомление в разумный срок, до их вступления в силу. К ним не относятся изменения, которые:</p>
+          <ul>
+            <li>созданы для вашего блага и удобства;</li>
+            <li>требуются в соответствии с действующим законодательством или нормативными актами, правилами платежных сетей или требованиями регулирующих органов;</li>
+            <li>относятся к новой услуге, предоставляемой Вам;</li>
+            <li>разъясняют существующие Условия.</li>
+          </ul>
+          <p>В таких случаях мы уведомим вас после введения изменений, в разумно возможный срок.</p>
+
+          <h3>1.5. Принятие рисков</h3>
+          <p>1.5.1. Хранение, передача или иная операция с Поддерживаемой цифровой валютой через Платформу может быть сопряжено с рисками. Прежде чем использовать Платформу для совершения операций с Поддерживаемой цифровой валютой, вы должны внимательно изучить и принять следующие риски:</p>
+          <ul>
+            <li><strong>Риск волатильности:</strong> Волатильность и непредсказуемость цен на Цифровые валюты по отношению к фиатной валюте может привести к значительным потерям для вас за короткий срок времени.</li>
+            <li><strong>Регуляторные риски:</strong> Законодательные и нормативные изменения, касающиеся Цифровой валюты и поставщиков криптоуслуг, могут негативно повлиять на вашу способность использовать, передавать, обменивать, а также на ценность Поддерживаемой цифровой валюты на Платформе.</li>
+            <li><strong>Риски безвозвратных потерь:</strong> Транзакции с Поддерживаемой цифровой валютой могут быть необратимыми, что означает, что Ваши потери из-за мошеннических или случайных Транзакций не могут быть возмещены.</li>
+            <li><strong>Риск мошенничества и кибербезопасности:</strong> Природа Цифровой валюты и кошелька может представлять повышенный риск мошенничества или кибератак.</li>
+            <li><strong>Технические риски:</strong> Доступ Пользователей к Поддерживаемой цифровой валюте или ее использование могут быть нарушены, а Транзакции могут быть отложены из-за технических проблем или обновлений, в том числе в связи с изменениями в законодательстве, в рамках Платформы или в системах сторонних поставщиков услуг.</li>
+          </ul>
+          <div class="legal-callout legal-callout-warning">
+            <p><strong>Примечание:</strong> Прежде чем принять решение об использовании Платформы и любой из Услуг, необходимо, чтобы Вы полностью осознавали все связанные с ними риски.</p>
+          </div>
+          <p>1.5.2. Обратите внимание, что в связи с быстро развивающимся характером рынка виртуальных активов мы не можем гарантировать, что все потенциальные риски полностью понятны или их можно предвидеть. В данном разделе представлен лишь общий обзор рисков, связанных с Поддерживаемой цифровой валютой.</p>
+
+          <h3>1.6. Отказ от ответственности</h3>
+          <p>1.6.1. Обратите внимание, что во взаимосвязи с Платформой и любой из Услуг Мы выступаем исключительно в качестве поставщика услуг в отношении хранения цифровых активов и содействия их передаче. Мы не выступаем в качестве Вашего брокера, посредника, агента или консультанта в каком-либо качестве.</p>
+          <p>1.6.2. Любые сообщения или информация, связанные с Платформой или Услугами, которые мы предоставляем через Платформу или другими способами, предназначены исключительно для информационных целей. Вы принимаете и соглашаетесь, что любое использование такой информации вами осуществляется на ваш собственный страх и риск. Мы отказываемся от любой ответственности которая может возникнуть в результате использования предоставленной информации перед вами или любой другой третьей стороной.</p>
+          <p>1.6.3. Мы не несем ответственности за любые решения, которые вы принимаете для участия в Транзакциях, или за любые убытки, которые вы можете понести из-за рисков (как указано в разделе 1.5), даже если эти решения основаны на информации, которую мы предоставляем на Платформе в отношении Услуг.</p>
+
+          <h2>2. Доступ к платформе и регистрация</h2>
+          <h3>2.1. Право доступа и ограничения</h3>
+          <p>2.1.1. Чтобы иметь право доступа и использования Платформы или любой из Услуг, Вы должны каждый раз, до использования, подтвердить и гарантировать, что вы:</p>
+          <ul>
+            <li>являетесь физическим лицом не моложе восемнадцати (18) лет или достигли совершеннолетия в соответствии с действующим законодательством страны вашего постоянного проживания;</li>
+            <li>не являетесь Запрещенным лицом, не находитесь в стране, не являетесь резидентом или гражданином страны, включенной в черный список Группы разработки финансовых мер борьбы с отмыванием денег (ФАТФ);</li>
+            <li>указали актуальный и действующий номер телефона и адрес электронной почты;</li>
+            <li>не используете программное обеспечение для обхода каких-либо ограничений или использования Платформы и любых Услуг;</li>
+            <li>не участвуете в Запрещенной деятельности и Транзакциях (см. раздел 4.1);</li>
+            <li>не являетесь резидентом юрисдикции, в которой запрещены любые Услуги или Транзакции с Поддерживаемой цифровой валютой;</li>
+            <li>понимаете, что отдельные Услуги, доступные через Telegram Mini App или Telegram Bot, могут быть недоступны, если Telegram заблокирован или ограничен в вашей юрисдикции;</li>
+            <li>не имели Учетной записи, которая ранее была временно приостановлена или удалена.</li>
+          </ul>
+          <p>2.1.2. Получая доступ или используя Платформу или любую из Услуг, если иное не указано в Условиях, Вы подтверждаете и гарантируете, что соответствуете всем условиям для получения права доступа и использования Платформы или любой из Услуг, указанными в данном разделе, и соглашаетесь использовать Платформу или любую из Услуг таким образом, чтобы не нарушать действующие законы, правила или нормы. Вы разрешаете нам по мере необходимости проверять, соответствуете ли вы всем условиям для получения права доступа и использования Платформы или любой из Услуг, направляя запросы или запрашивая доказательства по Нашему усмотрению.</p>
+          <p>2.1.3. Если Вы больше не отвечаете всем условиям для получения права доступа и использования Платформы или любой из Услуг, вы должны незамедлительно уведомить нас (см. раздел 11.1, «b») и прекратить использование Платформы и любых Услуг.</p>
+          <p>2.1.4. Обратите внимание, что Мы оставляем за собой право отказать в доступе к Платформе определенным лицам, независимо от того, соответствуют ли они всем условиям для получения права доступа и использования Платформы или любой из Услуг, и можем в любое время изменить наши условия получения права доступа и использования Платформы или любой из Услуг.</p>
+          <p>2.1.5. Если Мы установим, что вы нарушили настоящие Условия, мы оставляем за собой право удалить вашу Учетную запись или отказать в предоставлении каких-либо Услуг. Вы подтверждаете, что любые Поддерживаемые цифровые валюты, используемые в Услугах с внешнего кошелька, приобретены на законных основаниях и принадлежат вам законно.</p>
+
+          <h3>2.2. Регистрация учетной записи</h3>
+          <p>2.2.1. Чтобы получить доступ и использовать все или часть Платформы и Услуг, вы должны создать Учетную запись PGON Wallet.</p>
+          <p>2.2.2. Вы можете создать и использовать только одну Учетную запись PGON Wallet для себя, а не от имени третьих лиц, если иное не разрешено Нами в письменной форме. Попытка создания или управления несколькими учетными записями в рамках Платформы без нашего предварительного письменного согласия может привести к временному приостановлению действия или удалению Вашей Учетной записи, или к другим действиям, которые мы сочтем необходимыми.</p>
+          <p>2.2.3. Вы несете ответственность за защиту своей Учетной записи и за любые действия, совершенные с ее помощью, даже если она была взломана. Это включает в себя несанкционированный доступ со стороны того, кто вошел в Вашу Учетную запись и совершал Транзакции. Если Вы подозреваете несанкционированный доступ к вашей Учетной записи, незамедлительно сообщите нам об этом (см. раздел 11.1, «d»).</p>
+
+          <h3>2.3. Проверка личности</h3>
+          <p>2.3.1. При создании Учетной записи PGON Wallet Вы должны добросовестно предоставить нам актуальную, полную и точную информацию по всем требуемым элементам на странице регистрации. Вы соглашаетесь обновлять свою информацию в случае ее изменения.</p>
+          <p>2.3.2. Вы соглашаетесь предоставлять нам на постоянной основе любую дополнительную информацию, которую мы запросим. Эта информация может включать, но не ограничиваться, сведения о вашей Учетной записи PGON Wallet или Транзакциях и будет использоваться для:
+          <ul>
+            <li>Целей KYC;</li>
+            <li>Соблюдения действующего законодательства и нормативных актов;</li>
+            <li>Выявления и предотвращения отмывания денег, финансирования терроризма, мошенничества или любых других финансовых преступлений.</li>
+          </ul>
+          <p>2.3.3. В определенных обстоятельствах, как указано в наших процедурах ПОД/ФТ, Мы можем потребовать от Вас предоставить дополнительную информацию о себе, предоставить записи и выполнить другие действия по проверке в целях EDD.</p>
+          <p>2.3.4. Вы понимаете и соглашаетесь с тем, что если вы не предоставите эту информацию своевременно, мы можем приостановить ваш доступ к Платформе или удалить вашу Учетную запись.</p>
+
+          <h3>2.4. Обязательства Пользователей</h3>
+          <p>2.4.1. Получая доступ или используя Платформу или любую из Услуг, Вы соглашаетесь не совершать следующие действия:</p>
+          <ul>
+            <li>Нарушать или помогать другим нарушать любые применимые законы, правила или другие юридические требования;</li>
+            <li>Пытаться преднамеренно обмануть или помогать обмануть Нас, других Пользователей или Поставщиков услуг;</li>
+            <li>Предоставлять ложную, неточную или вводящую в заблуждение информацию;</li>
+            <li>Вмешиваться, перехватывать или присваивать любую часть Платформы, данных или информации;</li>
+            <li>Использовать Платформу любым способом, который может нарушить Нашу способность предоставлять Услуги;</li>
+            <li>Участвовать в любых Транзакциях, связанных с Запрещенной деятельностью (см. раздел 4.1);</li>
+            <li>Передавать и загружать любой вирус, червь или другое вредоносное программное обеспечение или программы;</li>
+            <li>Пытаться получить несанкционированный доступ к Платформе, Кошельку, Учетным записям других Пользователей или к любым связанным с ними сетям и системам;</li>
+            <li>Использовать Учетную запись или Услуги для действий от имени любого третьего лица, будь то в качестве агента, посредника или иным образом;</li>
+            <li>Разрешать третьим лицам получать доступ к вашей Учетной записи или использовать ее;</li>
+            <li>Собирать любую информацию о Пользователях Платформы, включая, но не ограничиваясь, номера телефонов, адреса электронной почты или другие персональные данные;</li>
+            <li>Выдавать себя за другого человека во время использования Услуг;</li>
+            <li>Оскорблять, преследовать и нарушать права на частную жизнь или интеллектуальную собственность Нас, Пользователей или третьих лиц;</li>
+            <li>Коммерчески эксплуатировать Платформу любым способом, включая, но не ограничиваясь продажей, сдачей в аренду, лизингом или иным способом;</li>
+            <li>Изменять, создавать производные работы, проводить обратное проектирование, декомпилировать или разбирать всю или любую часть Платформы;</li>
+            <li>Копировать, воспроизводить, переиздавать, загружать или передавать любой контент с Платформы без нашего прямого разрешения;</li>
+            <li>Использовать любую часть Платформы или Услуг для разработки аналогичного или конкурирующего продукта.</li>
+          </ul>
+          <p>2.4.2. PGON Wallet не предоставляет услуги по предоставлению налоговой отчетности и не осуществляет налоговые платежи от имени Пользователей. Каждый Пользователь несет полную ответственность за соблюдение применимых обязательств по предоставлению налоговой отчетности и осуществлению налоговых платежей в соответствии с действующим законодательством.</p>
+
+          <h3>2.4.3. Идентификация аккаунта и изменение Telegram ID</h3>
+          <p>Ваш доступ к Платформе и связанным с ней балансу средств привязан к вашему Telegram ID, который используется в качестве уникального идентификатора. Если вы удалите свой Telegram-аккаунт и создадите новый — даже с тем же логином (username) — ваш Telegram ID изменится, и мы будем рассматривать его как новый аккаунт, не связанный с предыдущим аккаунтом.</p>
+          <p>Если Ваша Учетная запись не была связана с адресом электронной почты, удаление Telegram-аккаунта приведёт к безвозвратной утрате доступа к Учетной записи и средствам. При наличии связки с электронной почтой мы можем восстановить доступ, даже если Telegram ID изменился.</p>
+          <p>PGON Wallet не сохраняет логины пользователей и не может проверить, принадлежат ли два Telegram-аккаунта с разными ID одному и тому же лицу. В таких случаях доступ к ранее размещённым средствам не восстанавливается автоматически.</p>
+          <p>Если вы утверждаете, что являетесь владельцем ранее использовавшегося аккаунта и хотите восстановить доступ к средствам, вы должны предоставить достаточные доказательства принадлежности такого аккаунту к вам, включая (но не ограничиваясь):</p>
+          <ul>
+            <li>скриншоты, на которых отображается Telegram ID исходного аккаунта;</li>
+            <li>платёжные квитанции с указанием данных карты, кошелька или счёта;</li>
+            <li>подтверждение переписки с прежнего аккаунта;</li>
+            <li>иные разумные доказательства, подтверждающие принадлежность аккаунта к вам.</li>
+          </ul>
+          <p>Мы можем оказать содействие в восстановлении доступа исключительно по собственному усмотрению, при условии, что предоставленные вами доказательства будут достаточными и могут быть проверены.</p>
+
+          <h3>2.5. Удаление учетной записи</h3>
+          <p>2.5.1. Вы можете удалить свою Учетную запись и прекратить использование Платформы и наших Услуг в любое время, связавшись с нами (см. раздел 11.1, «b»).</p>
+          <p>2.5.2. Перед удалением Учетной записи, пожалуйста, убедитесь, что Вы вывели все Поддерживаемые цифровые валюты из Кошелька и (или) вашего Личного кошелька на внешний кошелек.</p>
+          <p>2.5.3. Хотя за закрытие Учетной записи не взимается плата, вы несете ответственность за погашение любой неоплаченной комиссии, причитающейся Нам.</p>
+          <div class="legal-callout">
+            <p><strong>Примечание:</strong> Мы не имеем права закрывать Вашу Учетную запись, если вы:</p>
+            <ul>
+              <li>пытаетесь скрыться от расследования соответствующих органов;</li>
+              <li>у вас есть незавершенная Транзакция или какой-либо неразрешенный спор на Платформе;</li>
+              <li>у вас есть какие-либо неоплаченные комиссии, причитающиеся нам;</li>
+              <li>владеете Поддерживаемыми цифровыми валютами, которые подлежат заморозке.</li>
+            </ul>
+          </div>
+          <p>Обратите внимание: при удалении Учетной записи персональные данные Пользователя подлежат удалению в соответствии с требованиями применимого законодательства. При этом информация, связанная с транзакциями, может сохраняться в обезличенной или неперсонифицированной форме для целей соблюдения требований закона, обеспечения безопасности и защиты прав Платформы.</p>
+
+          <h2>3. Наши услуги</h2>
+          <h3>3.1. Условия предоставления услуг</h3>
+          <p>3.1.1. Во взаимосвязи с вашей Учетной записью PGON Wallet, Мы предлагаем Вам следующие Услуги:</p>
+          <ul>
+            <li><strong>Услуги кастодиального кошелька:</strong> Наши услуги поддерживают только определенные виды Цифровых валют («Поддерживаемые цифровые валюты»), которые представлены вам на Платформе, в том числе в наших приложениях. Вы можете получить доступ к Личному кошельку для хранения и перевода Поддерживаемых цифровых валют и отслеживания Истории счета. Вы являетесь владельцем Поддерживаемых цифровых валют, хранящихся на вашем Личном кошельке. Мы надежно управляем и сохраняем контроль над закрытым ключом для проведения транзакций от вашего имени. В соответствии с нашими протоколами безопасности Нам может потребоваться доступ к закрытым ключам или обработка информации KYC/EDD для авторизации переводов Поддерживаемых цифровых валют, осуществляемых в соответствии с вашими инструкциями через Платформу.</li>
+            <li><strong>Пополнение и вывод Цифровых валют:</strong> Вы можете пополнять и выводить Поддерживаемые цифровые валюты на внешний кошелек или с него. Мы можем потребовать от Вас предоставить конкретную информацию о Поддерживаемых цифровых валютах, которые вы собираетесь внести на свой счет в Личном кошельке.</li>
+            <li><strong>Переводы Цифровых валют:</strong> После того как Вы пополнили Поддерживаемые цифровые валюты с внешнего кошелька, Вы можете переводить их через Платформу другим Пользователям и Поставщикам услуг. Переводы Поддерживаемых цифровых валют Поставщикам услуг могут включать в себя плату за услуги, которые они Вам предоставляют.</li>
+            <li><strong>Использование стороннего поставщика услуг для проведения операции обмена:</strong> Когда вы решаете продать Поддерживаемые цифровые валюты за фиатную валюту через Платформу, вы инициируете процесс, который соединяет вас с платежной системой третьей стороны, способной облегчить этот обмен. Платформа предоставляет техническую инфраструктуру для облегчения перевода проданных Поддерживаемых цифровых валют на кошелек, связанный с платежной системой. Эта платежная система отвечает за обмен Поддерживаемых цифровых валют на фиатную валюту и отправку их вам. Наша роль заключается в обеспечении безопасного и эффективного технического соединения между вашим кошельком и платежной системой. Мы взимаем фиксированную комиссию за каждую транзакцию. Информация о конкретных размерах комиссии отображается на Платформе. Эта комиссия покрывает расходы, связанные с поддержанием технической инфраструктуры, необходимой для этих обменов.</li>
+          </ul>
+          <div class="legal-callout legal-callout-warning">
+            <p><strong>Примечание:</strong> Если Вы попытаетесь пополнить свой Личный кошелек Цифровыми валютами, которые не поддерживаются Платформой, вы принимаете на себя все риски и несете ответственность за любые убытки, которые Вы можете понести.</p>
+            <p><strong>Лимиты:</strong> Мы можем устанавливать лимиты на сумму Поддерживаемых цифровых валют, которую Вы можете вводить или выводить, включая минимальные и максимальные суммы в день, неделю или месяц. Информация об этих лимитах будет доступна вам на Платформе, в том числе в наших приложениях, и Мы можем информировать Вас о них перед принятием Ваших инструкций по операциям ввода или вывода средств.</p>
+          </div>
+
+          <h3>3.2. Отклонение транзакций</h3>
+          <p>3.2.1. Мы оставляем за собой право отклонить любую Транзакцию и не несем ответственности за любые ваши потери в следующих случаях:</p>
+          <ul>
+            <li>Недостаточно Поддерживаемых цифровых валют в кошельке и (или) на вашем Личном кошельке;</li>
+            <li>Вы не предоставили нам необходимую информацию или документы для KYC или EDD;</li>
+            <li>У нас есть достаточные основания подозревать, что Ваша инструкция была направлена на незаконные цели, включая, но не ограничиваясь, любой Запрещенной деятельностью, отмыванием денег, финансированием терроризма, мошенничеством или другими видами преступной деятельности.</li>
+          </ul>
+          <p>3.2.2. При определенных обстоятельствах, если Ваша Транзакция была отклонена, вам может потребоваться пройти дополнительную проверку KYC/EDD, прежде чем Мы сможем выполнить любые ваши инструкции по новым транзакциям.</p>
+          <p>3.2.3. Если Мы отклоним пополнение кошелька и (или) вашего Личного кошелька Поддерживаемыми цифровыми валютами, Мы вернем их на исходный внешний кошелек. Если пополнение отклонено по соображениям ПОД, мы оставляем за собой право вернуть все поддерживаемые цифровые валюты, связанные с вашей Учетной записью, включая те, которые были внесены после отклоненной транзакции, на адрес внешнего кошелька, с которого они были отправлены. Вы признаете и соглашаетесь с тем, что такие действия могут быть предприняты, если последующие пополнения будут считаться сомнительными из-за связи с первоначальной транзакцией, подвергшейся компрометации согласно ПОД. Вы соглашаетесь оплатить все комиссии, возникшие в результате отклонения Транзакции. Некоторые комиссии могут варьироваться в зависимости от эквивалента стоимости вашей Транзакции в Поддерживаемых цифровых валютах и Долларов США (USD).</p>
+          <p>3.2.4. Вы соглашаетесь с тем, что Мы можем по своему усмотрению вычесть любые применимые комиссии и расходы на возврат из суммы возвращаемых Поддерживаемых цифровых валют, либо из кошелька и (или) вашего Личного кошелька, если на нем имеется достаточное количество Поддерживаемых цифровых валют.</p>
+          <p>3.2.5. Вы несете полную ответственность за проверку всех деталей Транзакции, включая информацию о получателе, адреса кошельков, суммы, сети и другие соответствующие параметры.</p>
+
+          <h3>3.3. Доступ к услугам</h3>
+          <p>3.3.1. Мы можем решить ограничить или приостановить доступ к Платформе или Услугам, полностью или частично, на определенных рынках, либо по Нашему собственному усмотрению, либо в связи с законодательными или нормативными требованиями, в зависимости от Вашего местоположения.</p>
+          <p>3.3.2. Кроме того, Вы признаете, что некоторые Услуги могут быть временно недоступны из-за сбоев, отключений или недоступности услуг третьих сторон, включая местные платежные системы.</p>
+
+          <h3>3.4. Тарифы</h3>
+          <p>3.4.1. Хотя Мы предоставляем большинство Услуг на бесплатной основе, пользуясь Услугами по переводу Цифровых валют, вы соглашаетесь платить нам комиссию за обработку перевода. Эта комиссия оплачивается в USDT Пользователем, который инициирует переводы Поддерживаемых цифровых валют.</p>
+          <p>3.4.2. Мы будем отображать текущие комиссии на Платформе, в том числе в наших приложениях, или в момент инициирования вами перевода.</p>
+          <p>3.4.3. Вы разрешаете нам взимать плату с ваших Поддерживаемых цифровых валют, хранящихся в Кошельке и (или) на вашем Личном кошельке, для покрытия любых наших применимых комиссий или комиссий Поставщиков услуг.</p>
+          <p>3.4.4. Обратите внимание, что мы оставляем за собой право по собственному усмотрению вводить новые сборы или изменять существующие сборы, а также методы их расчета с предварительным уведомлением или без него.</p>
+
+          <h2>4. Запрещенная деятельность и транзакции</h2>
+          <h3>4.1. Запрещенная деятельность</h3>
+          <p>4.1.1. Вы соглашаетесь не использовать Платформу или свою Учетную запись для любых действий, указанных ниже («Запрещенная деятельность»), которые включают, но не ограничиваются ими:</p>
+          <ul>
+            <li><strong>Незаконная деятельность:</strong> Такие как незаконная финансовая деятельность, схемы Понци или пирамиды, незаконный оборот наркотических, психотропных и иных веществ, а также незаконный оборот имущества, торговля людьми и связанная с ней деятельность и т.д.;</li>
+            <li><strong>Нелицензированная деятельность, подлежащая регулированию:</strong> Например, нелицензированная деятельность по предоставлению услуг по переводу денег или участие в таких переводах средств, нелицензированные поставщики платежных услуг, поставщики финансовых услуг и т.д.;</li>
+            <li><strong>Деятельность с высоким риском или неприемлемая деятельность:</strong> Любая деятельность, которая, по нашему мнению, связана с высоким риском или неприемлема;</li>
+            <li><strong>Контент и услуги для взрослых;</strong></li>
+            <li><strong>Обманчивый маркетинг и ложная реклама;</strong></li>
+            <li><strong>Религиозные или духовные организации</strong> (в той мере, в какой это запрещено действующими законами или правилами);</li>
+            <li><strong>Несанкционированная продажа оружия;</strong></li>
+            <li><strong>Регулируемые товары и услуги,</strong> такие как марихуана, табак, электронные сигареты, фармацевтические препараты, рецептурные лекарства, товары, ограниченные по возрасту, или опасные материалы, включая токсичные, легковоспламеняющиеся, радиоактивные или подобные вещества;</li>
+            <li><strong>Азартные игры;</strong></li>
+            <li><strong>Нарушение прав интеллектуальной собственности;</strong></li>
+            <li><strong>Контрафактные или несанкционированные товары;</strong></li>
+            <li><strong>Манипулирование рынком;</strong></li>
+            <li><strong>Рынки даркнета;</strong></li>
+            <li><strong>Оборона и боеприпасы;</strong></li>
+            <li><strong>Ядерная энергетика.</strong></li>
+          </ul>
+          <p>4.1.2. Если Мы подозреваем, что Вы используете Платформу или Учетную запись для Запрещенной деятельности, мы можем:
+          <ul>
+            <li>временно приостановить действие или удалить Вашу Учетную запись;</li>
+            <li>заморозить Поддерживаемые цифровые валюты, принадлежащие Вам, хранящиеся в Кошельке и (или) на вашем Личном Кошельке;</li>
+            <li>заблокировать любые связанные Транзакции;</li>
+            <li>сообщить о нарушениях в правоохранительные органы с предварительным уведомлением или без него.</li>
+          </ul>
+
+          <h3>4.2. Лимиты транзакции</h3>
+          <p>4.2.1. Мы можем устанавливать лимиты на стоимость или объем всех или определенных Транзакций, которые вы можете совершать через свою Учетную запись, включая минимальные и максимальные лимиты в день, неделю или месяц.</p>
+          <p>4.2.2. Эти лимиты будут доступны вам на Платформе, в том числе в наших приложениях, и мы можем проинформировать вас о них до принятия вашего распоряжения о совершении Транзакции. На некоторые виды операций, такие как вывод средств в Цифровых валютах на банковские карты в фиатной валюте, могут распространяться дополнительные ежедневные и ежемесячные лимиты на транзакции.</p>
+          <div class="legal-callout legal-callout-warning">
+            <p><strong>Примечание:</strong> Мы оставляем за собой право в любое время, с предварительным уведомлением или без него, корректировать лимиты ваших Транзакций по своему усмотрению. Мы также можем потребовать от вас выполнения дополнительных условий или предоставления дополнительных требований KYC и EDD, прежде чем утвердить любые изменения ваших лимитов.</p>
+          </div>
+
+          <h3>4.3. Вывод средств и отмена транзакций</h3>
+          <p>4.3.1. После того как Транзакция была инициирована через Платформу, она считается окончательной и необратимой. В результате мы не можем отменить Транзакцию или вернуть вам Поддерживаемые цифровые валюты.</p>
+          <p>4.3.2. В некоторых случаях, по нашему усмотрению, мы можем возместить вам точную сумму в фиатной валюте, первоначально потраченную на Поддерживаемую цифровую валюту, участвующую в транзакции, независимо от текущих колебаний обменного курса (см. раздел 11.1, «c»).</p>
+
+          <h2>5. Интеллектуальная собственность и использование платформы</h2>
+          <h3>5.1. Лицензия на использование платформы</h3>
+          <p>5.1.1. При условии соблюдения вами настоящих Условий вам предоставляется ограниченная, неэксклюзивная, непередаваемая, не подлежащая сублицензированию и отзываемая лицензия на доступ и использование Платформы и Услуг исключительно в личных некоммерческих целях.</p>
+          <p>5.1.2. Данная лицензия не предоставляет вам права собственности на Платформу или ее содержимое. Все права остаются за InterSpin LLC.</p>
+
+          <h3>5.2. Интеллектуальная собственность</h3>
+          <p>5.2.1. Все права интеллектуальной собственности, включая авторские права, товарные знаки, знаки обслуживания, торговые наименования, дизайн, патенты, логотипы и любые другие права собственности на Платформу, любой контент на ней, Услуги, а также все технологии и любой контент, созданный или полученный на основе любого из вышеперечисленного, являются исключительной собственностью InterSpin LLC.</p>
+          <p>5.2.2. Логотипы и идентификаторы бренда, связанные с Платформой или Услугами, являются зарегистрированными или незарегистрированными товарными знаками InterSpin LLC или третьих лиц.</p>
+          <p>5.2.3. Мы уважаем права интеллектуальной собственности и ожидаем того же от Пользователей. При использовании Платформы Вы принимаете и гарантируете, что будете воздерживаться от участия или содействия любой деятельности, которая нарушает права интеллектуальной собственности третьих лиц.</p>
+          <p>5.2.4. Мы можем удалить нарушающий права контент с Платформы и временно приостановить действие или удалить Учетные записи Пользователей, которые неоднократно совершают такие нарушения, после получения уведомлений о нарушении. Если вы считаете, что ваши права были нарушены, вы можете направить нам такое уведомление (см. раздел 11.1, «e»).</p>
+          <p>5.2.5. Уведомление должно содержать: описание нарушающего права контента, конкретное местоположение нарушающего права контента на Платформе, ваши контактные данные (номер телефона и адрес электронной почты).</p>
+
+          <h3>5.3. Отсутствие гарантии доступа или производительности платформы</h3>
+          <p>5.3.1. Доступ к Платформе и Услугам может быть прерван, задержан или ограничен в связи с обслуживанием системы, непредвиденными техническими трудностями, перегрузкой сети или другими факторами, не зависящими от нас. В результате Вы можете не иметь возможности совершать Операции или получать данные в такие периоды.</p>
+          <p>5.3.2. Мы отказываемся от любой ответственности за убытки, возникшие в результате или в связи с недоступностью или снижением производительности Платформы, а также за задержку транзакций или ответов службы поддержки пользователей, вызванную проблемами с Платформой.</p>
+
+          <h2>6. Услуги, ссылки и реклама третьих лиц</h2>
+          <p>6.1. Платформа и Услуги могут содержать гиперссылки на веб-сайты, приложения или услуги третьих лиц. Такие ссылки предоставляются исключительно для вашего удобства. Такие ссылки, веб-сайты, приложения и услуги не создаются, не проверяются и не поддерживаются нами, и Вы получаете доступ к ним или пользуетесь ими исключительно на свой страх и риск.</p>
+          <p>6.2. Обратите внимание, что, переходя по ссылкам на сайты или приложения третьих лиц, вы попадаете под действие условий использования и политики конфиденциальности этих третьих лиц.</p>
+          <p>6.3. Мы не несем ответственности за доступность, точность или надежность таких сторонних сайтов, их контент или политику конфиденциальности.</p>
+
+          <h2>7. Конфиденциальность и защита данных</h2>
+          <p>7.1. Перед использованием Платформы и любых Услуг ознакомьтесь с нашей Политикой конфиденциальности и Политикой в отношении файлов cookie, чтобы понять, как мы собираем, используем и передаем вашу личную информацию, а также как мы используем файлы cookie и другие технологии отслеживания на Платформе.</p>
+
+          <h2>8. Отказ от гарантий</h2>
+          <p>8.1. Платформа и Услуги предоставляются Пользователям «как есть» и «как доступно», без заявлений и гарантий любого рода, будь то явные, подразумеваемые или установленные законом. Мы не гарантируем бесперебойную, своевременную, безопасную или безошибочную работу Платформы.</p>
+          <p>8.2. InterSpin LLC, ее должностные лица, директора, сотрудники, агенты, филиалы и поставщики прямо отказываются от всех видов гарантий, включая подразумеваемые гарантии права собственности, товарного состояния, удовлетворительного качества, пригодности для конкретной цели или ненарушения прав.</p>
+          <p>8.3. В некоторых юрисдикциях отказ от подразумеваемых гарантий может быть запрещен, и часть этих условий может не распространяться на вас. Если применимое законодательство требует предоставления гарантий, они ограничиваются 90 днями с момента первого использования Платформы.</p>
+
+          <h2>9. Ограничение ответственности и возмещение ущерба</h2>
+          <p>9.1. В пределах, разрешенных действующим законодательством, максимальная ответственность InterSpin LLC перед Пользователем за любой ущерб не должна превышать меньшее из следующих значений: <strong>50 USD (пятидесяти долларов США)</strong> либо общей суммы комиссий, уплаченных Вами Нам в течение 12 месяцев, предшествовавших событию.</p>
+          <p>9.2. InterSpin LLC не несет ответственности за любые косвенные, прямые, случайные или штрафные убытки, включая упущенную выгоду, утрату данных или ущерб репутации.</p>
+          <p>9.3. Вы соглашаетесь возместить ущерб и оградить InterSpin LLC от любых претензий, требований, исков и расходов, возникающих в связи с вашим доступом или нарушением настоящих Условий.</p>
+
+          <h2>10. Срок действия и прекращение действия</h2>
+          <p>10.1. Настоящие Условия действуют до тех пор, пока вы имеете доступ к Платформе и Услугам и (или) пользуетесь ими.</p>
+          <p>10.2. Мы оставляем за собой право прекратить ваш доступ к Платформе и удалить вашу Учетную запись в любое время и по любой причине при нарушении условий. Вы также оставляете за собой право удалить Учетную запись в любое время.</p>
+
+          <h2>11. Информационное взаимодействие и контакты</h2>
+          <p>11.1. В зависимости от вашего запроса вы можете связаться с нами посредством следующих контактных данных:</p>
+          <ul>
+            <li><strong>Общая поддержка пользователей:</strong> InterSpin LLC, Республика Казахстан, город Алматы, Жетысуский район, ул. Абдирова, д. 65. E-mail: <a href="mailto:pgon_support@proton.me" style="color:var(--light-purple);">pgon_support@proton.me</a></li>
+            <li><strong>Создание и удаление Учетной записи:</strong> Telegram Support Bot: <a href="https://t.me/pgon_support_bot" target="_blank" style="color:var(--light-purple);">https://t.me/pgon_support_bot</a></li>
+            <li><strong>Возврат средств и отмена Транзакций:</strong> Telegram Support Bot: <a href="https://t.me/pgon_support_bot" target="_blank" style="color:var(--light-purple);">https://t.me/pgon_support_bot</a></li>
+            <li><strong>Уведомить о несанкционированном доступе или утере реквизитов безопасности:</strong> Telegram Support Bot: <a href="https://t.me/pgon_support_bot" target="_blank" style="color:var(--light-purple);">@pgon_support_bot</a></li>
+            <li><strong>Уведомить о нарушении:</strong> InterSpin LLC, Республика Казахстан, город Алматы, Жетысуский район, ул. Абдирова, д. 65. E-mail: <a href="mailto:pgon_support@proton.me" style="color:var(--light-purple);">pgon_support@proton.me</a></li>
+            <li><strong>Разрешение споров:</strong> InterSpin LLC, Республика Казахстан, город Алматы, Жетысуский район, ул. Абдирова, д. 65. E-mail: <a href="mailto:pgon_support@proton.me" style="color:var(--light-purple);">pgon_support@proton.me</a></li>
+          </ul>
+          <p>11.2. Электронные средства взаимодействия: используя сайт, вы соглашаетесь с тем, что все коммуникации между Вами и Нами или другими Пользователями могут осуществляться в электронном виде (в уведомлениях приложений, по электронной почте, SMS или в Telegram).</p>
+
+          <h2>12. Разрешение споров и арбитраж</h2>
+          <p>12.1. Все претензии, споры и иски, возникающие из настоящих Условий или связанные с ними, подлежат обязательному рассмотрению в арбитраже на индивидуальной основе, исключая групповые иски.</p>
+          <p>12.2. Стороны обязуются провести процедуру досудебного урегулирования спора в течение минимум 30 (тридцати) календарных дней.</p>
+          <p>12.3. Если спор не может быть разрешен после периода урегулирования, любая из сторон может передать его в арбитраж, проводимый Гонконгским арбитражным центром (HKIAC) в соответствии с Арбитражным регламентом HKIAC. Местом проведения арбитражного разбирательства является Республика Казахстан, город Алматы; языком арбитражного разбирательства является русский.</p>
+          <p>12.4. Стороны прямо отказываются от права на суд присяжных и от коллективных исков.</p>
+
+          <h2>13. Регулирующее законодательство</h2>
+          <p>Использование Платформы или Услуг регулируется законами юрисдикции, в которой зарегистрирована компания InterSpin LLC (Республика Казахстан), без учета коллизионных норм.</p>
+
+          <h2>14. Иные важные положения</h2>
+          <p>14.1. Настоящие Условия, Политика конфиденциальности и Политика файлов cookie представляют собой полное соглашение между вами и InterSpin LLC.</p>
+          <p>14.2. Если какое-либо положение будет признано незаконным или недействительным, оно будет считаться отделенным и не повлияет на юридическую силу остальных положений.</p>
+          <p>14.3. InterSpin LLC оставляет за собой право при любых обстоятельствах передавать или переуступать свои права и обязанности без ограничений третьей стороне в рамках слияния или продажи.</p>
+        </div>
+      </div>
+
+      <div class="doc-nav-card">
+        <div class="doc-nav-title">Юридические документы платформы PGON Wallet</div>
+        <div class="doc-nav-grid">
+          <a href="terms.html" class="doc-nav-link active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Пользовательское соглашение</a>
+<a href="privacy.html" class="doc-nav-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Политика конфиденциальности</a>
+<a href="aml-cft.html" class="doc-nav-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Политика AML & KYC</a>
+<a href="cookies.html" class="doc-nav-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Политика файлов Cookie</a>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/#hero" class="brand-logo">
+            <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
+            <span class="brand-logo-text">PGON</span>
+          </a>
+          <p>Инновационный платежный Web3-шлюз нового поколения. Мгновенные расчеты по СБП напрямую с баланса USDT и TON по всей России</p>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="/#hero">Главная</a></li>
+            <li><a href="/#pipeline">Как это работает</a></li>
+            <li><a href="/#benefits">Преимущества</a></li>
+            <li><a href="/#card">Виртуальная карта</a></li>
+            <li><a href="/#cases">Сценарии использования</a></li>
+            <li><a href="/#tariffs">Тарифная сетка</a></li>
+            <li><a href="/#faq">База знаний FAQ</a></li>
+            <li><a href="/blog.html">Блог и гайды</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Продукты</h4>
+          <ul>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">PGON Virtual Card (Visa/MC)</a></li>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">Telegram Mini App</a></li>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">PGON Pay для бизнеса</a></li>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">Реферальная программа</a></li>
+            <li><a href="https://t.me/pgon_support_bot" target="_blank" rel="noopener noreferrer">API документация</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Юридическая информация</h4>
+          <ul>
+            <li><a href="terms.html">Пользовательское соглашение</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="aml-cft.html">Политика AML & KYC</a></li>
+            <li><a href="cookies.html">Политика файлов Cookie</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p>© 2026 PGON Technologies Ltd. InterSpin LLC.<br>Все права защищены</p>
+        </div>
+        <div class="footer-bottom-right">
+          <p>Криптоактивы сопряжены с рыночной волатильностью.<br>Сервис не предоставляет финансовых консультаций</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

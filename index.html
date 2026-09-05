@@ -2106,10 +2106,18 @@
       border-top: 1px solid rgba(157, 78, 221, 0.15);
       padding-top: 2rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
+      gap: 2rem;
       color: var(--text-muted);
       font-size: 0.82rem;
+      line-height: 1.6;
+    }
+    .footer-bottom-left {
+      text-align: left;
+    }
+    .footer-bottom-right {
+      text-align: right;
     }
 
     /* Floating Telegram Support Widget */
@@ -2347,6 +2355,10 @@
       .footer-bottom {
         flex-direction: column;
         gap: 1rem;
+        text-align: center;
+      }
+      .footer-bottom-left,
+      .footer-bottom-right {
         text-align: center;
       }
       .floating-support-btn {
@@ -2644,6 +2656,226 @@
       }
     }
 
+    /* ==========================================================================
+       BLOG CAROUSEL SECTION STYLES
+       ========================================================================== */
+    .blog-feed-section {
+      padding: 6.5rem 0 5.5rem;
+      position: relative;
+      background: linear-gradient(180deg, rgba(7, 3, 16, 0.4) 0%, rgba(16, 6, 32, 0.75) 50%, rgba(7, 3, 16, 0.4) 100%);
+      overflow: hidden;
+    }
+
+    .blog-feed-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      gap: 1.5rem;
+    }
+
+    .blog-feed-nav-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(26, 11, 51, 0.85);
+      border: 1px solid var(--border-glass);
+      color: var(--light-purple);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .blog-feed-nav-btn:hover {
+      background: rgba(138, 20, 247, 0.3);
+      border-color: var(--border-glow);
+      color: #FFFFFF;
+      transform: scale(1.05);
+    }
+
+    .blog-feed-all-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--light-purple);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      background: rgba(138, 20, 247, 0.12);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .blog-feed-all-link:hover {
+      background: rgba(138, 20, 247, 0.25);
+      border-color: var(--border-glow);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .blog-feed-track-wrap {
+      position: relative;
+      margin: 0 -1.5rem;
+      padding: 0 1.5rem 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(138, 20, 247, 0.4) transparent;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .blog-feed-track-wrap::-webkit-scrollbar {
+      height: 6px;
+    }
+    .blog-feed-track-wrap::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 9999px;
+    }
+    .blog-feed-track-wrap::-webkit-scrollbar-thumb {
+      background: rgba(138, 20, 247, 0.4);
+      border-radius: 9999px;
+    }
+    .blog-feed-track-wrap::-webkit-scrollbar-thumb:hover {
+      background: var(--border-glow);
+    }
+
+    .blog-feed-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      min-width: 100%;
+      padding-bottom: 0.5rem;
+    }
+
+    .blog-feed-card {
+      width: 380px;
+      max-width: 85vw;
+      background: linear-gradient(135deg, rgba(26, 11, 51, 0.85) 0%, rgba(16, 6, 32, 0.95) 100%);
+      border: 1px solid var(--border-glass);
+      border-radius: 18px;
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      scroll-snap-align: start;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .blog-feed-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #8A14F7, transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .blog-feed-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-glow);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.7), 0 0 24px rgba(138, 20, 247, 0.35);
+    }
+
+    .blog-feed-card:hover::before {
+      opacity: 1;
+    }
+
+    .blog-feed-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.15rem;
+      gap: 0.5rem;
+    }
+
+    .blog-feed-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--light-purple);
+      background: rgba(138, 20, 247, 0.2);
+      padding: 0.3rem 0.75rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(168, 85, 247, 0.25);
+    }
+
+    .blog-feed-time {
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+
+    .blog-feed-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+      margin-bottom: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .blog-feed-card:hover .blog-feed-title {
+      color: var(--light-purple);
+    }
+
+    .blog-feed-hook {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 1.6rem;
+      flex: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-feed-footer {
+      padding-top: 1.15rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--light-purple);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .blog-feed-footer span {
+      transition: var(--transition);
+    }
+
+    .blog-feed-card:hover .blog-feed-footer span {
+      color: #FFFFFF;
+      transform: translateX(4px);
+    }
+
+    @media (max-width: 768px) {
+      .blog-feed-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .blog-feed-card {
+        width: 300px;
+        padding: 1.45rem;
+      }
+      .blog-feed-title {
+        font-size: 1.05rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2666,6 +2898,7 @@
           <li><a href="#cases">Сценарии</a></li>
           <li><a href="#tariffs">Тарифы</a></li>
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="blog.html">Блог</a></li>
           <li><a href="#support">Поддержка</a></li>
         </ul>
       </nav>
@@ -2753,7 +2986,7 @@
         </h1>
         
         <p class="hero-subtitle">
-          Покупайте продукты, оплачивайте счета в ресторанах, авиабилеты и любые подписки напрямую с вашего криптобаланса USDT или TON. Моментальная автоконвертация в рубли без P2P-обмена, скрытых комиссий и рисков блокировок карт по 115-ФЗ.
+          Покупайте продукты, оплачивайте счета в ресторанах, авиабилеты и любые подписки напрямую с вашего криптобаланса USDT или TON. Моментальная автоконвертация в рубли без P2P-обмена, скрытых комиссий и рисков блокировок карт по 115-ФЗ
         </p>
 
         <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="hero-cta-btn" id="hero-telegram-cta">
@@ -2778,7 +3011,7 @@
         <div class="section-header">
           <span class="section-badge">Прозрачный процесс</span>
           <h2 class="section-title">Как это работает: <span class="gradient-text">от крипты до покупки за 3 шага</span></h2>
-          <p class="section-desc">Забудьте о сложных P2P-сделках, переводах на карты дропов и постоянном страхе блокировок по 115-ФЗ.</p>
+          <p class="section-desc">Забудьте о сложных P2P-сделках, переводах на карты дропов и постоянном страхе блокировок по 115-ФЗ</p>
         </div>
 
         <div class="steps-grid">
@@ -2794,7 +3027,7 @@
             </div>
             <h3 class="step-title">Пополнение счета</h3>
             <p class="step-desc">
-              Запустите мини-апп в Telegram и пополните персональный криптобаланс в <strong>USDT (TRC-20, BEP-20, TON)</strong> или <strong>TON</strong>. Средства зачисляются моментально.
+              Запустите мини-апп в Telegram и пополните персональный криптобаланс в <strong>USDT (TRC-20, BEP-20, TON)</strong> или <strong>TON</strong>. Средства зачисляются моментально
             </p>
           </div>
 
@@ -2818,7 +3051,7 @@
             </div>
             <h3 class="step-title">Сканирование QR-кода</h3>
             <p class="step-desc">
-              Нажмите кнопку сканера в кошельке и наведите камеру смартфона на статический или динамический <strong>QR-код СБП</strong> на кассе магазина, в чеке или терминале.
+              Нажмите кнопку сканера в кошельке и наведите камеру смартфона на статический или динамический <strong>QR-код СБП</strong> на кассе магазина, в чеке или терминале
             </p>
           </div>
 
@@ -2834,7 +3067,7 @@
             </div>
             <h3 class="step-title">Моментальный расчет</h3>
             <p class="step-desc">
-              Сумма в рублях автоматически конвертируется с вашего криптобаланса по прозрачному рыночному курсу. Продавец получает рубли через СБП за 1 секунду.
+              Сумма в рублях автоматически конвертируется с вашего криптобаланса по прозрачному рыночному курсу. Продавец получает рубли через СБП за 1 секунду
             </p>
           </div>
         </div>
@@ -2849,7 +3082,7 @@
         <div class="section-header">
           <span class="section-badge">Преимущества</span>
           <h2 class="section-title">Почему выбирают <span class="gradient-text">PGON Wallet</span></h2>
-          <p class="section-desc">Мы создали сервис, который решает реальные проблемы с выводом, обменом и оплатой криптовалютой в повседневной жизни.</p>
+          <p class="section-desc">Мы создали сервис, который решает реальные проблемы с выводом, обменом и оплатой криптовалютой в повседневной жизни</p>
         </div>
 
         <div class="benefits-grid">
@@ -2870,7 +3103,7 @@
             </div>
             <h3 class="benefit-title">Мгновенная оплата по QR</h3>
             <p class="benefit-desc">
-              Сканируйте QR-код в кафе, магазине или на заправке прямо из Telegram — автоконвертация криптовалюты в рубли за 2 секунды.
+              Сканируйте QR-код в кафе, магазине или на заправке прямо из Telegram — автоконвертация криптовалюты в рубли за 2 секунды
             </p>
           </div>
 
@@ -2886,7 +3119,7 @@
             </div>
             <h3 class="benefit-title">100% защита от блокировок</h3>
             <p class="benefit-desc">
-              Никаких подозрительных переводов от третьих лиц. Банк видит стандартную покупку через кассовый СБП-шлюз.
+              Никаких подозрительных переводов от третьих лиц. Банк видит стандартную покупку через кассовый СБП-шлюз
             </p>
           </div>
 
@@ -2902,7 +3135,7 @@
             </div>
             <h3 class="benefit-title">Фиксированный курс без скрытых комиссий</h3>
             <p class="benefit-desc">
-              Точная сумма списания в крипте и рублях фиксируется на экране до нажатия кнопки. Никаких внезапных комиссий постфактум.
+              Точная сумма списания в крипте и рублях фиксируется на экране до нажатия кнопки. Никаких внезапных комиссий постфактум
             </p>
           </div>
 
@@ -2918,7 +3151,7 @@
             </div>
             <h3 class="benefit-title">Прямо из Telegram</h3>
             <p class="benefit-desc">
-              Кошелек открывается внутри привычного Telegram. Не нужно скачивать сторонние APK, возиться с App Store или обновлять софт.
+              Кошелек открывается внутри привычного Telegram. Не нужно скачивать сторонние APK, возиться с App Store или обновлять софт
             </p>
           </div>
 
@@ -2934,7 +3167,7 @@
             </div>
             <h3 class="benefit-title">Мгновенные пополнения и переводы</h3>
             <p class="benefit-desc">
-              Прямое пополнение криптой (USDT, BTC, ETH, TON и другие топовые монеты), через CryptoBot, xRocket или СБП, а также бесплатные переводы внутри кошелька.
+              Прямое пополнение криптой (USDT, BTC, ETH, TON и другие топовые монеты), через CryptoBot, xRocket или СБП, а также бесплатные переводы внутри кошелька
             </p>
           </div>
 
@@ -2950,7 +3183,7 @@
             </div>
             <h3 class="benefit-title">Быстрый обмен внутри кошелька</h3>
             <p class="benefit-desc">
-              Моментальный свап между USDT, TON, BTC, ETH и фиатным рублевым балансом по выгодному рыночному курсу без ожидания подтверждения сети.
+              Моментальный свап между USDT, TON, BTC, ETH и фиатным рублевым балансом по выгодному рыночному курсу без ожидания подтверждения сети
             </p>
           </div>
 
@@ -2966,7 +3199,7 @@
             </div>
             <h3 class="benefit-title">Безопасное хранение активов</h3>
             <p class="benefit-desc">
-              Надежная инфраструктура для хранения ваших цифровых активов. Полный контроль баланса, быстрая выгрузка истории и многоуровневая защита доступа.
+              Надежная инфраструктура для хранения ваших цифровых активов. Полный контроль баланса, быстрая выгрузка истории и многоуровневая защита доступа
             </p>
           </div>
 
@@ -2983,7 +3216,7 @@
             </div>
             <h3 class="benefit-title">Поддержка 24/7</h3>
             <p class="benefit-desc">
-              Живые специалисты отвечают в чате Telegram за 1–2 минуты, помогают с платежами, лимитами и любыми вопросами в любое время суток.
+              Живые специалисты отвечают в чате Telegram за 1–2 минуты, помогают с платежами, лимитами и любыми вопросами в любое время суток
             </p>
           </div>
         </div>
@@ -2999,7 +3232,7 @@
         <div class="section-header">
           <span class="section-badge">Международные платежи</span>
           <h2 class="section-title">Виртуальная криптокарта <span class="gradient-text">PGON Virtual Card</span></h2>
-          <p class="section-desc">Оплачивайте подписки на <strong>ChatGPT Plus</strong>, <strong>Claude Pro</strong>, покупки в <strong>App Store</strong>, <strong>Google Play</strong>, <strong>Netflix</strong>, <strong>Spotify</strong>, <strong>Steam</strong> и любые зарубежные сервисы напрямую с криптобаланса USDT или TON.</p>
+          <p class="section-desc">Оплачивайте подписки на <strong>ChatGPT Plus</strong>, <strong>Claude Pro</strong>, покупки в <strong>App Store</strong>, <strong>Google Play</strong>, <strong>Netflix</strong>, <strong>Spotify</strong>, <strong>Steam</strong> и любые зарубежные сервисы напрямую с криптобаланса USDT или TON</p>
         </div>
 
                 <!-- Wings Layout: Left Features | Centered Holographic Card | Right Features -->
@@ -3293,11 +3526,11 @@
             <h3 class="seo-article-title">Виртуальная зарубежная карта для оплаты сервисов и подписок из России</h3>
             <p class="seo-article-paragraph">
               Оформить международную виртуальную карту Visa или Mastercard для оплаты зарубежных сервисов сегодня можно без поездок за границу, очередей и ожидания пластика. 
-              Сервис <strong>PGON</strong> выпускает цифровую предоплаченную карту в Telegram прямо через WebApp всего за 60 секунд.
+              Сервис <strong>PGON</strong> выпускает цифровую предоплаченную карту в Telegram прямо через WebApp всего за 60 секунд
             </p>
             <p class="seo-article-paragraph">
               Пополнение баланса осуществляется рублями через <strong>СБП (Систему быстрых платежей)</strong> с карт любых банков РФ (Сбер, Т-Банк, Альфа-Банк, ВТБ) без скрытых комиссий с автоматической конвертацией по прозрачному биржевому курсу. 
-              Карта поддерживает бесконтактную оплату через <strong>Apple Pay</strong> и <strong>Google Pay</strong>, а также протокол <strong>3D-Secure 2.2</strong> с мгновенной доставкой push-кодов.
+              Карта поддерживает бесконтактную оплату через <strong>Apple Pay</strong> и <strong>Google Pay</strong>, а также протокол <strong>3D-Secure 2.2</strong> с мгновенной доставкой push-кодов
             </p>
           </div>
 
@@ -3306,11 +3539,11 @@
             <h3 class="seo-article-title">Как оплачивать подписки ChatGPT, зарубежный софт, игры и путешествия</h3>
             <p class="seo-article-paragraph">
               Благодаря международному трастовому BIN-номеру карта стабильно принимается для регулярных автоплатежей и разовых покупок в 180+ странах мира. 
-              Она идеально подходит для оплаты подписок на нейросети и софт: <strong>ChatGPT Plus, Claude Pro, Midjourney, Cursor AI, Figma, GitHub Copilot</strong>, серверов Hetzner и DigitalOcean.
+              Она идеально подходит для оплаты подписок на нейросети и софт: <strong>ChatGPT Plus, Claude Pro, Midjourney, Cursor AI, Figma, GitHub Copilot</strong>, серверов Hetzner и DigitalOcean
             </p>
             <p class="seo-article-paragraph">
               Используйте карту для бронирования отелей на <strong>Booking.com и Airbnb</strong>, покупки авиабилетов и шопинга на Amazon, eBay и ASOS. 
-              Платежи полностью защищены от блокировок по <strong>115-ФЗ</strong> благодаря белой инфраструктуре. Если средства не израсходованы, вы можете в любой момент мгновенно вывести остаток баланса обратно на карту РФ или криптокошелек.
+              Платежи полностью защищены от блокировок по <strong>115-ФЗ</strong> благодаря белой инфраструктуре. Если средства не израсходованы, вы можете в любой момент мгновенно вывести остаток баланса обратно на карту РФ или криптокошелек
             </p>
           </div>
         </div>
@@ -3325,7 +3558,7 @@
         <div class="section-header">
           <span class="section-badge">Реальные сценарии</span>
           <h2 class="section-title">Как PGON Wallet <span class="gradient-text">решает задачи в реальной жизни</span></h2>
-          <p class="section-desc">От утреннего кофе в Москве до оплаты годовых зарубежных подписок на ИИ — без обменников, комиссий P2P и рисков блокировок банковских карт.</p>
+          <p class="section-desc">От утреннего кофе в Москве до оплаты годовых зарубежных подписок на ИИ — без обменников, комиссий P2P и рисков блокировок банковских карт</p>
         </div>
 
         <div class="cases-grid">
@@ -3342,7 +3575,7 @@
               </div>
               <h3 class="case-title">Кофе, рестораны и супермаркеты</h3>
               <p class="case-quote">
-                «Оплачиваю утренний кофе, обеды и продукты в Пятёрочке, ВкусВилле и любых заведениях напрямую с USDT-баланса без вывода на карту российского банка.»
+                «Оплачиваю утренний кофе, обеды и продукты в Пятёрочке, ВкусВилле и любых заведениях напрямую с USDT-баланса без вывода на карту российского банка»
               </p>
             </div>
             <div class="case-tags-footer">
@@ -3365,7 +3598,7 @@
               </div>
               <h3 class="case-title">АЗС, авто и поездки по РФ</h3>
               <p class="case-quote">
-                «Быстрый скан QR-кода на колонке АЗС Лукойл, Газпромнефть или Роснефть — чек формируется на кассе за 2 секунды, я уезжаю без задержек.»
+                «Быстрый скан QR-кода на колонке АЗС Лукойл, Газпромнефть или Роснефть — чек формируется на кассе за 2 секунды, я уезжаю без задержек»
               </p>
             </div>
             <div class="case-tags-footer">
@@ -3388,7 +3621,7 @@
               </div>
               <h3 class="case-title">Крупный шопинг и электроника</h3>
               <p class="case-quote">
-                «Покупаю гаджеты и технику в DNS, М.Видео и Ситилинке по кассовому QR. Банк видит легальную розничную операцию через СБП-шлюз.»
+                «Покупаю гаджеты и технику в DNS, М.Видео и Ситилинке по кассовому QR. Банк видит легальную розничную операцию через СБП-шлюз»
               </p>
             </div>
             <div class="case-tags-footer">
@@ -3411,7 +3644,7 @@
               </div>
               <h3 class="case-title">ChatGPT, Claude и ИИ-сервисы</h3>
               <p class="case-quote">
-                «Оплачиваю подписки на ChatGPT Plus, Claude Pro, Midjourney, Cursor и Figma с виртуальной карты PGON без комиссий посредников и риска банов.»
+                «Оплачиваю подписки на ChatGPT Plus, Claude Pro, Midjourney, Cursor и Figma с виртуальной карты PGON без комиссий посредников и риска банов»
               </p>
             </div>
             <div class="case-tags-footer">
@@ -3434,7 +3667,7 @@
               </div>
               <h3 class="case-title">Spotify, Netflix, Steam и App Store</h3>
               <p class="case-quote">
-                «Spotify, Netflix, YouTube Premium и пополнение кошелька Steam в долларах или евро в один клик прямо с криптобаланса.»
+                «Spotify, Netflix, YouTube Premium и пополнение кошелька Steam в долларах или евро в один клик прямо с криптобаланса»
               </p>
             </div>
             <div class="case-tags-footer">
@@ -3457,7 +3690,7 @@
               </div>
               <h3 class="case-title">Фриланс, гонорары и переводы</h3>
               <p class="case-quote">
-                «Получаю оплату за заказы в USDT или TON и моментально трачу в магазинах или пересылаю коллегам по Telegram ID без комиссии.»
+                «Получаю оплату за заказы в USDT или TON и моментально трачу в магазинах или пересылаю коллегам по Telegram ID без комиссии»
               </p>
             </div>
             <div class="case-tags-footer">
@@ -3473,7 +3706,7 @@
         <div class="section-header">
           <span class="section-badge">Тарифная сетка</span>
           <h2 class="section-title">Способы пополнения кошелька и <span class="gradient-text">честные комиссии</span></h2>
-          <p class="section-desc">Никаких скрытых спредов. Вы всегда видите точную сумму к списанию до подтверждения платежа.</p>
+          <p class="section-desc">Никаких скрытых спредов. Вы всегда видите точную сумму к списанию до подтверждения платежа</p>
         </div>
 
         <div class="table-scroll-hint">
@@ -3547,6 +3780,95 @@
     </section>
 
     <!-- ==========================================================================
+         SECTION: BLOG & GUIDES CAROUSEL FEED
+         ========================================================================== -->
+    <section class="blog-feed-section" id="blog">
+      <div class="container">
+        <div class="blog-feed-header">
+          <div>
+            <span class="section-badge">Блог и инструкции</span>
+            <h2 class="section-title">Полезные материалы и <span class="gradient-text">гайды</span></h2>
+            <p class="section-desc">Актуальные инструкции по оплате зарубежных сервисов, защите от 115-ФЗ и технологиям СБП</p>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <button class="blog-feed-nav-btn" id="blog-scroll-left" aria-label="Предыдущие статьи">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="blog-feed-nav-btn" id="blog-scroll-right" aria-label="Следующие статьи">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <a href="blog.html" class="blog-feed-all-link">
+              <span>Все статьи</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="blog-feed-track-wrap" id="blog-track-wrap">
+          <div class="blog-feed-track">
+
+            <!-- Card 1 -->
+            <a href="blog/kak-oplatit-chatgpt-plus-iz-rossii-2026.html" class="blog-feed-card">
+              <div class="blog-feed-badge-row">
+                <span class="blog-feed-badge">🤖 Гайды и сервисы</span>
+                <span class="blog-feed-time">4 мин чтения</span>
+              </div>
+              <h3 class="blog-feed-title">Как оплатить ChatGPT Plus и Claude Pro из России в 2026 году</h3>
+              <p class="blog-feed-hook">Пошаговая инструкция по выпуску виртуальной карты PGON в Telegram и привязке её к OpenAI и Anthropic без посредников и риска блокировок аккаунта</p>
+              <div class="blog-feed-footer">
+                <span>Читать гайд →</span>
+                <span style="font-size: 0.78rem; color: var(--text-dim);">1 марта 2026</span>
+              </div>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="blog/kak-oplachivat-po-qr-sbp-kriptovalyutoy.html" class="blog-feed-card">
+              <div class="blog-feed-badge-row">
+                <span class="blog-feed-badge">⚡ Технологии СБП</span>
+                <span class="blog-feed-time">3 мин чтения</span>
+              </div>
+              <h3 class="blog-feed-title">Оплата по QR СБП с криптокошелька: как это устроено без P2P</h3>
+              <p class="blog-feed-hook">Разбираем технологию прямого криптоэквайринга: как расплачиваться в супермаркетах, кафе и на АЗС криптовалютой без банковских карт и блокировок 115-ФЗ</p>
+              <div class="blog-feed-footer">
+                <span>Читать гайд →</span>
+                <span style="font-size: 0.78rem; color: var(--text-dim);">24 февраля 2026</span>
+              </div>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="blog/kak-izbezhat-blokirovok-115-fz-pri-rabote-s-kriptoy.html" class="blog-feed-card">
+              <div class="blog-feed-badge-row">
+                <span class="blog-feed-badge">🛡️ Безопасность</span>
+                <span class="blog-feed-time">5 мин чтения</span>
+              </div>
+              <h3 class="blog-feed-title">Безопасность криптовалютных расчетов и защита от 115-ФЗ</h3>
+              <p class="blog-feed-hook">Гид по финансовой гигиене: почему российские банки массово блокируют счета криптоэнтузиастов и как легально защитить свои средства при расчетах</p>
+              <div class="blog-feed-footer">
+                <span>Читать гайд →</span>
+                <span style="font-size: 0.78rem; color: var(--text-dim);">18 февраля 2026</span>
+              </div>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="blog/virtualnaya-karta-dlya-app-store-i-steam.html" class="blog-feed-card">
+              <div class="blog-feed-badge-row">
+                <span class="blog-feed-badge">🎮 Игры и App Store</span>
+                <span class="blog-feed-time">3 мин чтения</span>
+              </div>
+              <h3 class="blog-feed-title">Как пополнить баланс Steam и оплатить App Store без комиссии</h3>
+              <p class="blog-feed-hook">Покупаем игры, боевые пропуски и мобильные приложения по официальным ценам без 25% комиссии посредников и кошельков сторонних стран</p>
+              <div class="blog-feed-footer">
+                <span>Читать гайд →</span>
+                <span style="font-size: 0.78rem; color: var(--text-dim);">10 февраля 2026</span>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
          SECTION 4: 28-QUESTION FAQ SEGMENT (2-COLUMN BALANCED GRID)
          ========================================================================== -->
     <section class="faq-section" id="faq">
@@ -3554,7 +3876,7 @@
         <div class="section-header">
           <span class="section-badge">База знаний</span>
           <h2 class="section-title">Часто задаваемые вопросы о <span class="gradient-text">PGON Wallet</span></h2>
-          <p class="section-desc">Исчерпывающие ответы на все вопросы об оплате, безопасности, тарифах, лимитах и возвратах.</p>
+          <p class="section-desc">Исчерпывающие ответы на все вопросы об оплате, безопасности, тарифах, лимитах и возвратах</p>
         </div>
 
                 <div class="faq-categories-wrapper">
@@ -3963,7 +4285,7 @@
             <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
             <span class="brand-logo-text">PGON</span>
           </a>
-          <p>Инновационный платежный Web3-шлюз нового поколения. Мгновенные расчеты по СБП напрямую с баланса USDT и TON по всей России.</p>
+          <p>Инновационный платежный Web3-шлюз нового поколения. Мгновенные расчеты по СБП напрямую с баланса USDT и TON по всей России</p>
         </div>
 
         <div class="footer-col">
@@ -3976,6 +4298,7 @@
             <li><a href="#cases">Сценарии использования</a></li>
             <li><a href="#tariffs">Тарифная сетка</a></li>
             <li><a href="#faq">База знаний FAQ</a></li>
+            <li><a href="blog.html">Блог и гайды</a></li>
           </ul>
         </div>
 
@@ -3993,17 +4316,21 @@
         <div class="footer-col">
           <h4>Юридическая информация</h4>
           <ul>
-            <li><a href="#hero">Пользовательское соглашение</a></li>
-            <li><a href="#hero">Политика конфиденциальности</a></li>
-            <li><a href="#hero">Политика AML & KYC</a></li>
-            <li><a href="#hero">Предупреждение о рисках</a></li>
+            <li><a href="terms.html">Пользовательское соглашение</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="aml-cft.html">Политика AML & KYC</a></li>
+            <li><a href="cookies.html">Политика файлов Cookie</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 PGON Technologies Ltd. Все права защищены.</p>
-        <p>Криптоактивы сопряжены с рыночной волатильностью. Сервис не предоставляет финансовых консультаций.</p>
+        <div class="footer-bottom-left">
+          <p>© 2026 PGON Technologies Ltd. InterSpin LLC.<br>Все права защищены</p>
+        </div>
+        <div class="footer-bottom-right">
+          <p>Криптоактивы сопряжены с рыночной волатильностью.<br>Сервис не предоставляет финансовых консультаций</p>
+        </div>
       </div>
     </div>
   </footer>
@@ -4583,6 +4910,19 @@
         document.addEventListener('DOMContentLoaded', () => setTimeout(startAnimations, 60));
       } else {
         setTimeout(startAnimations, 60);
+      }
+
+      // Blog feed scroll buttons
+      const blogWrap = document.getElementById('blog-track-wrap');
+      const btnLeft = document.getElementById('blog-scroll-left');
+      const btnRight = document.getElementById('blog-scroll-right');
+      if (blogWrap && btnLeft && btnRight) {
+        btnLeft.addEventListener('click', () => {
+          blogWrap.scrollBy({ left: -380, behavior: 'smooth' });
+        });
+        btnRight.addEventListener('click', () => {
+          blogWrap.scrollBy({ left: 380, behavior: 'smooth' });
+        });
       }
     })();
 

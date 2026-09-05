@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>Политика AML & KYC | PGON Wallet</title>
+  <meta name="title" content="Политика AML & KYC | PGON Wallet">
+  <meta name="description" content="Политика по противодействию легализации доходов и идентификации клиентов (AML / CFT / KYC) платформы PGON Wallet.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pgon.pro/aml-cft.html">
+  
+  <!-- Favicon and Brand Icons -->
+  <link rel="icon" type="image/png" href="./assets/pgon-icon.png">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./assets/pgon-icon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pgon.pro/aml-cft.html">
+  <meta property="og:title" content="Политика AML & KYC | PGON Wallet">
+  <meta property="og:description" content="Политика по противодействию легализации доходов и идентификации клиентов (AML / CFT / KYC) платформы PGON Wallet.">
+  <meta property="og:image" content="https://pgon.pro/hero-bg.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #0D0614;
+      --bg-surface: #170B24;
+      --bg-surface-elevated: #221035;
+      --bg-surface-card: rgba(28, 14, 46, 0.7);
+      --border-color: rgba(157, 78, 221, 0.22);
+      --border-focus: #C084FC;
+      --primary-purple: #9D4EDD;
+      --neon-glow: #C084FC;
+      --light-purple: #E0AAFF;
+      --accent-orange: #FF9E00;
+      --text-white: #FFFFFF;
+      --text-gray: #BDB4C7;
+      --text-dim: #7E708E;
+      --text-accent: #E0AAFF;
+      --success: #10B981;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(157, 78, 221, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(123, 44, 191, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(13, 6, 20, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.9rem 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.3rem 1.15rem 0.3rem 0.35rem;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, rgba(34, 12, 68, 0.75) 0%, rgba(18, 6, 38, 0.85) 100%);
+      border: 2px solid #8A14F7;
+      box-shadow: 0 0 16px rgba(138, 20, 247, 0.45), inset 0 0 12px rgba(138, 20, 247, 0.25);
+      transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .brand-logo:hover {
+      border-color: #A855F7;
+      box-shadow: 0 0 24px rgba(168, 85, 247, 0.75), inset 0 0 16px rgba(168, 85, 247, 0.35);
+      transform: translateY(-1px) scale(1.02);
+    }
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+      background: transparent;
+      border: none;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(192, 132, 252, 0.6));
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+    .brand-logo:hover .brand-logo-img {
+      transform: rotate(-3deg) scale(1.05);
+    }
+    .brand-logo-text {
+      font-family: var(--font-display, 'Unbounded'), 'Unbounded', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      background: linear-gradient(180deg, #A855F7 0%, #7E22CE 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      line-height: 1;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .header-nav a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .header-nav a:hover {
+      color: #fff;
+    }
+
+    .btn-header-cta {
+      background: linear-gradient(135deg, #FF9E00, #FF6000);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 158, 0, 0.35);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-header-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 158, 0, 0.5);
+    }
+
+    .legal-main {
+      flex: 1;
+      padding: 3rem 0 5rem;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+
+    .breadcrumbs a {
+      color: var(--text-gray);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--light-purple);
+    }
+
+    .legal-hero {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .legal-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      background: rgba(157, 78, 221, 0.15);
+      border: 1px solid rgba(192, 132, 252, 0.3);
+      color: var(--light-purple);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .legal-title {
+      font-family: 'Unbounded', sans-serif;
+      font-size: clamp(1.8rem, 3.8vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .legal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+
+    .legal-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .legal-meta-item svg {
+      color: var(--light-purple);
+    }
+
+    .legal-card {
+      background: var(--bg-surface-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: clamp(1.5rem, 3.5vw, 3rem);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .legal-content {
+      color: #E2DFE8;
+      font-size: 0.98rem;
+      line-height: 1.75;
+    }
+
+    .legal-content h2 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 2.25rem 0 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.16);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .legal-content h2:first-of-type {
+      margin-top: 1rem;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .legal-content h3 {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--light-purple);
+      margin: 1.6rem 0 0.65rem;
+    }
+
+    .legal-content h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    .legal-content p {
+      margin-bottom: 1.1rem;
+    }
+
+    .legal-content p strong {
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+
+    .legal-content ul, .legal-content ol {
+      margin: 0.8rem 0 1.25rem 1.4rem;
+      padding-left: 0.5rem;
+    }
+
+    .legal-content li {
+      margin-bottom: 0.6rem;
+      padding-left: 0.2rem;
+    }
+
+    .legal-content li strong {
+      color: #FFFFFF;
+    }
+
+    .legal-callout {
+      background: rgba(157, 78, 221, 0.1);
+      border-left: 4px solid var(--primary-purple);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      color: #FFFFFF;
+    }
+
+    .legal-callout-warning {
+      background: rgba(255, 158, 0, 0.08);
+      border-left-color: var(--accent-orange);
+    }
+
+    .legal-table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    table.legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    table.legal-table th {
+      background: rgba(157, 78, 221, 0.2);
+      color: #FFFFFF;
+      padding: 0.85rem 1.1rem;
+      font-weight: 700;
+      border-bottom: 1px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    table.legal-table td {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(157, 78, 221, 0.12);
+      color: #E2DFE8;
+    }
+
+    table.legal-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.legal-table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .company-credentials-box {
+      background: rgba(23, 11, 36, 0.85);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .company-cred-item {
+      font-size: 0.88rem;
+    }
+
+    .company-cred-item span {
+      display: block;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .company-cred-item strong {
+      color: #FFFFFF;
+      font-size: 0.95rem;
+    }
+
+    .company-cred-item a {
+      color: var(--light-purple);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .company-cred-item a:hover {
+      text-decoration: underline;
+    }
+
+    .doc-nav-card {
+      margin-top: 3rem;
+      background: rgba(23, 11, 36, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .doc-nav-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .doc-nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0.85rem;
+    }
+
+    .doc-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1rem;
+      background: rgba(157, 78, 221, 0.08);
+      border: 1px solid rgba(157, 78, 221, 0.16);
+      border-radius: 10px;
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .doc-nav-link:hover {
+      background: rgba(157, 78, 221, 0.2);
+      border-color: var(--light-purple);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .doc-nav-link.active {
+      background: rgba(157, 78, 221, 0.3);
+      border-color: var(--light-purple);
+      color: #FFFFFF;
+    }
+
+    .site-footer {
+      background: #09040D;
+      border-top: 1px solid var(--border-color);
+      padding: 3rem 0 2rem;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-gray);
+      font-size: 0.88rem;
+      margin-top: 0.85rem;
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      color: var(--text-gray);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      color: #FFFFFF;
+      transform: translateX(2px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid rgba(157, 78, 221, 0.12);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .footer-bottom-left {
+      text-align: left;
+    }
+    .footer-bottom-right {
+      text-align: right;
+    }
+
+    @media (max-width: 860px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 580px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+      }
+      .footer-bottom-left,
+      .footer-bottom-right {
+        text-align: center;
+      }
+      .header-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/#hero" class="brand-logo" aria-label="PGON Wallet Главная">
+          <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
+          <span class="brand-logo-text">PGON</span>
+        </a>
+        <nav class="header-nav">
+          <a href="/#pipeline">Как работает</a>
+          <a href="/#benefits">Преимущества</a>
+          <a href="/#card">Виртуальная карта</a>
+          <a href="/#tariffs">Тарифы</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/blog.html">Блог</a>
+        </nav>
+        <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-header-cta">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l-.313 4.674c.459 0 .661-.211.918-.46l2.206-2.145 4.588 3.389c.845.466 1.455.226 1.666-.783l3.007-14.166c.309-1.238-.474-1.8-1.282-1.439z"/></svg>
+          Открыть в Telegram
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="legal-main">
+    <div class="container">
+
+      <div class="legal-hero">
+        <div class="breadcrumbs">
+          <a href="/#hero">Главная</a>
+          <span>/</span>
+          <span>Политика AML & KYC</span>
+        </div>
+        <span class="legal-tag">AML / CFT Policy • InterSpin LLC</span>
+        <h1 class="legal-title">Политика по противодействию отмыванию денег (AML / KYC)</h1>
+        <div class="legal-meta">
+          <div class="legal-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Редакция от 2026 г.</span>
+          </div>
+          <div class="legal-meta-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Стандарты FATF & Законодательство РК</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-content">
+          <div class="legal-callout">
+            <p><strong>InterSpin LLC</strong> придерживается строгой политики нулевой терпимости к любым попыткам использования инфраструктуры PGON Wallet для легализации доходов, полученных преступным путем, финансирования терроризма или обхода международных санкций (AML / CFT / CPF).</p>
+          </div>
+
+          <div class="company-credentials-box">
+            <div class="company-cred-item">
+              <span>Организация</span>
+              <strong>InterSpin LLC</strong>
+            </div>
+            <div class="company-cred-item">
+              <span>Регистрационный БИН</span>
+              <strong>240340030437</strong>
+            </div>
+            <div class="company-cred-item">
+              <span>AML Офицер / Служба комплаенс</span>
+              <strong><a href="mailto:pgon_support@proton.me">pgon_support@proton.me</a> (Тема: AML Compliance)</strong>
+            </div>
+            <div class="company-cred-item">
+              <span>Юрисдикция</span>
+              <strong>Республика Казахстан</strong>
+            </div>
+          </div>
+
+          <h2>1. Правовая основа и принципы</h2>
+          <p>Настоящая Политика разработана в соответствии с законодательством Республики Казахстан о противодействии легализации (отмыванию) доходов, полученных преступным путем, и финансированию терроризма, а также рекомендациями Группы разработки финансовых мер (FATF).</p>
+          <p>Основные принципы комплаенс-контроля платформы PGON Wallet:</p>
+          <ul>
+            <li><strong>Риск-ориентированный подход:</strong> мониторинг транзакций с градацией уровня риска входящих и исходящих потоков;</li>
+            <li><strong>Знай своего клиента (KYC):</strong> идентификация и верификация пользователей при превышении установленных пороговых сумм либо возникновении подозрений;</li>
+            <li><strong>Блокчейн-аналитика (On-Chain Screening):</strong> автоматизированный скоринг криптовалютных адресов на предмет связи с даркнет-маркетплейсами, миксерами, санкционными списками и взломами;</li>
+            <li><strong>Блокировка подозрительных операций:</strong> заморозка средств до выяснения обстоятельств и предоставления источника происхождения капитала (SOF/SOW).</li>
+          </ul>
+
+          <h2>2. Уровни верификации (KYC Tiers)</h2>
+          <div class="legal-table-wrapper">
+            <table class="legal-table">
+              <thead>
+                <tr>
+                  <th>Уровень (Tier)</th>
+                  <th>Требования</th>
+                  <th>Лимиты на операции</th>
+                  <th>Статус проверки</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tier 0 (Базовый)</strong></td>
+                  <td>Telegram ID, базовая проверка на отсутствие фрода</td>
+                  <td>До 50 000 руб. / транзакция</td>
+                  <td>Мгновенно, автоматический скоринг</td>
+                </tr>
+                <tr>
+                  <td><strong>Tier 1 (Стандартный)</strong></td>
+                  <td>Подтвержденный e-mail + номер телефона</td>
+                  <td>До 300 000 руб. / сутки</td>
+                  <td>Автоматическая верификация через код</td>
+                </tr>
+                <tr>
+                  <td><strong>Tier 2 (Расширенный / EDD)</strong></td>
+                  <td>Паспорт / ID-карта + селфи + подтверждение адреса</td>
+                  <td>До 1 500 000 руб. / сутки, доступ к безлимитным операциям</td>
+                  <td>Ручная или AI-проверка комплаенс-службой (до 24 ч)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>3. Мониторинг транзакций и блокчейн-скоринг</h2>
+          <p>3.1. Каждый входящий криптовалютный перевод (USDT, TON и др.) проходит автоматическую оценку риска чистоты через системы блокчейн-анализа.</p>
+          <p>3.2. Операции с общим уровнем риска (Risk Score) <strong>более 65%</strong>, а также транзакции, связанные со следующими категориями, подлежат немедленной автоматической блокировке:</p>
+          <ul>
+            <li>Darknet Marketplace (нелегальные торговые площадки);</li>
+            <li>Sanctioned Entities (адреса, входящие в списки OFAC, EU, UN, UK HMT);</li>
+            <li>Mixers & Tumblers (сервисы анонимизации криптовалют: Tornado Cash, Wasabi и аналоги);</li>
+            <li>Scam, Ransomware & Stolen Funds (вымогательство, вредоносное ПО, средства от краж и взломов);</li>
+            <li>Gambling / Нелицензированные игорные ресурсы.</li>
+          </ul>
+
+          <h2>4. Усиленная комплексная проверка (EDD)</h2>
+          <p>4.1. В случае выявления сомнительных транзакций или срабатывания триггеров риска Компания запрашивает процедуру Enhanced Due Diligence (EDD).</p>
+          <p>4.2. Пользователь обязан предоставить в течение 48 часов с момента запроса:</p>
+          <ul>
+            <li>Качественную фотографию документа, удостоверяющего личность (паспорт гражданина или заграничный паспорт);</li>
+            <li>Видео-селфи с документом в руках и рукописной запиской с текущей датой и названием «PGON Wallet»;</li>
+            <li>Документальное подтверждение легального источника происхождения средств (выписка из банка, налоговая декларация, справка о доходах, подтверждение закрытия P2P-сделки на регулируемой бирже).</li>
+          </ul>
+          <p>4.3. До момента успешного завершения процедуры EDD операции по учетной записи и вывод средств временно приостанавливаются.</p>
+
+          <h2>5. Запрещенные юрисдикции и санкции</h2>
+          <p>PGON Wallet строго не оказывает услуг гражданам, резидентам и лицам, находящимся в странах и территориях, включенных в черный список FATF, а также подлежащих всеобъемлющим международным санкциям:</p>
+          <ul>
+            <li>Корейская Народно-Демократическая Республика (КНДР);</li>
+            <li>Исламская Республика Иран;</li>
+            <li>Республика Мьянма;</li>
+            <li>Куба, Сирийская Арабская Республика;</li>
+            <li>Иные юрисдикции с высоким уровнем риска, признанные не отвечающими международным стандартам ПОД/ФТ.</li>
+          </ul>
+
+          <h2>6. Взаимодействие с правоохранительными органами</h2>
+          <p>Компания сотрудничает с уполномоченными государственными и судебными органами Республики Казахстан и международными правоохранительными организациями в соответствии с нормами действующего законодательства. При получении надлежащим образом оформленных официальных судебных актов или запросов уполномоченных органов средства нарушителей могут быть заморожены, а материалы переданы для проведения расследования.</p>
+
+          <h2>7. Связь со службой комплаенс</h2>
+          <p>По всем вопросам соблюдения политики AML/KYC и прохождения верификации: <a href="mailto:pgon_support@proton.me" style="color:var(--light-purple);">pgon_support@proton.me</a> (пометка: AML Compliance) или через бота <a href="https://t.me/pgon_support_bot" target="_blank" style="color:var(--light-purple);">@pgon_support_bot</a>.</p>
+        </div>
+      </div>
+
+      <div class="doc-nav-card">
+        <div class="doc-nav-title">Юридические документы платформы PGON Wallet</div>
+        <div class="doc-nav-grid">
+          <a href="terms.html" class="doc-nav-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Пользовательское соглашение</a>
+<a href="privacy.html" class="doc-nav-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Политика конфиденциальности</a>
+<a href="aml-cft.html" class="doc-nav-link active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Политика AML & KYC</a>
+<a href="cookies.html" class="doc-nav-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Политика файлов Cookie</a>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/#hero" class="brand-logo">
+            <img src="./assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="36" height="36" />
+            <span class="brand-logo-text">PGON</span>
+          </a>
+          <p>Инновационный платежный Web3-шлюз нового поколения. Мгновенные расчеты по СБП напрямую с баланса USDT и TON по всей России</p>
+        </div>
+        <div class="footer-col">
+          <h4>Навигация</h4>
+          <ul>
+            <li><a href="/#hero">Главная</a></li>
+            <li><a href="/#pipeline">Как это работает</a></li>
+            <li><a href="/#benefits">Преимущества</a></li>
+            <li><a href="/#card">Виртуальная карта</a></li>
+            <li><a href="/#cases">Сценарии использования</a></li>
+            <li><a href="/#tariffs">Тарифная сетка</a></li>
+            <li><a href="/#faq">База знаний FAQ</a></li>
+            <li><a href="/blog.html">Блог и гайды</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Продукты</h4>
+          <ul>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">PGON Virtual Card (Visa/MC)</a></li>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">Telegram Mini App</a></li>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">PGON Pay для бизнеса</a></li>
+            <li><a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer">Реферальная программа</a></li>
+            <li><a href="https://t.me/pgon_support_bot" target="_blank" rel="noopener noreferrer">API документация</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Юридическая информация</h4>
+          <ul>
+            <li><a href="terms.html">Пользовательское соглашение</a></li>
+            <li><a href="privacy.html">Политика конфиденциальности</a></li>
+            <li><a href="aml-cft.html">Политика AML & KYC</a></li>
+            <li><a href="cookies.html">Политика файлов Cookie</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-bottom-left">
+          <p>© 2026 PGON Technologies Ltd. InterSpin LLC.<br>Все права защищены</p>
+        </div>
+        <div class="footer-bottom-right">
+          <p>Криптоактивы сопряжены с рыночной волатильностью.<br>Сервис не предоставляет финансовых консультаций</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
