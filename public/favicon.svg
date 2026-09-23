@@ -1,51 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" fill="none">
   <defs>
-    <!-- Outer Hexagon Glossy Violet Gradient -->
-    <linearGradient id="pgonHexGrad" x1="15%" y1="0%" x2="85%" y2="100%">
-      <stop offset="0%" stop-color="#9D4EDD"/>
-      <stop offset="35%" stop-color="#7B2CBF"/>
-      <stop offset="70%" stop-color="#5A189A"/>
-      <stop offset="100%" stop-color="#3C096C"/>
+    <linearGradient id="pgonHexGrad" x1="5%" y1="0%" x2="95%" y2="100%">
+      <stop offset="0%" stop-color="#9C17F7" />
+      <stop offset="30%" stop-color="#8612E9" />
+      <stop offset="70%" stop-color="#6008DC" />
+      <stop offset="100%" stop-color="#4600CD" />
     </linearGradient>
-    
-    <!-- Chamfered Bevel Specular Rim Light -->
-    <linearGradient id="pgonBevelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E0AAFF" stop-opacity="0.95"/>
-      <stop offset="30%" stop-color="#C77DFF" stop-opacity="0.7"/>
-      <stop offset="70%" stop-color="#7B2CBF" stop-opacity="0.25"/>
-      <stop offset="100%" stop-color="#E0AAFF" stop-opacity="0.85"/>
-    </linearGradient>
-    
-    <!-- Deep Midnight Purple Recessed Cavity for Debossed Bird -->
-    <linearGradient id="pgonInnerCavity" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#140228"/>
-      <stop offset="100%" stop-color="#090114"/>
-    </linearGradient>
-
-    <!-- Ultraviolet Edge Neon Inner Glow Filter -->
-    <filter id="pgonNeonGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#C77DFF" flood-opacity="0.6"/>
-    </filter>
   </defs>
-
-  <!-- Outer Rounded Hexagon Base -->
-  <path d="M 46.5 6.2 C 48.6 5.0 51.4 5.0 53.5 6.2 L 87.5 25.8 C 89.6 27.0 91.0 29.4 91.0 31.8 L 91.0 70.2 C 91.0 72.6 89.6 75.0 87.5 76.2 L 53.5 95.8 C 51.4 97.0 48.6 97.0 46.5 95.8 L 12.5 76.2 C 10.4 75.0 9.0 72.6 9.0 70.2 L 9.0 31.8 C 9.0 29.4 10.4 27.0 12.5 25.8 Z" fill="url(#pgonHexGrad)"/>
   
-  <!-- Outer Bevel Stroke with Specular Highlights -->
-  <path d="M 46.5 6.2 C 48.6 5.0 51.4 5.0 53.5 6.2 L 87.5 25.8 C 89.6 27.0 91.0 29.4 91.0 31.8 L 91.0 70.2 C 91.0 72.6 89.6 75.0 87.5 76.2 L 53.5 95.8 C 51.4 97.0 48.6 97.0 46.5 95.8 L 12.5 76.2 C 10.4 75.0 9.0 72.6 9.0 70.2 L 9.0 31.8 C 9.0 29.4 10.4 27.0 12.5 25.8 Z" stroke="url(#pgonBevelGrad)" stroke-width="2.6" fill="none"/>
-
-  <!-- Debossed Bird Emblem with Neon Edge Lighting -->
-  <g filter="url(#pgonNeonGlow)">
-    <!-- Upper Wing Feather Blade -->
-    <path d="M 21 32 C 26.5 34 37.5 39 49 48.5 C 42 52.5 33 53.5 24 46 C 20 42.5 19.5 34 21 32 Z" fill="url(#pgonInnerCavity)" stroke="#C084FC" stroke-width="1.3"/>
+  <g transform="translate(48.608, 23.695) scale(10.300)">
+    <!-- Purple Gradient Hexagon -->
+    <path d="M22.3851 0.602886L38.0202 9.62981C39.4125 10.4337 40.2702 11.9192 40.2702 13.5269V31.5808C40.2702 33.1885 39.4125 34.674 38.0202 35.4779L22.3851 44.5048C20.9928 45.3087 19.2774 45.3087 17.8851 44.5048L2.25 35.4779C0.857696 34.674 0 33.1885 0 31.5808V13.5269C0 11.9192 0.857695 10.4337 2.25 9.62981L17.8851 0.602886C19.2774 -0.200962 20.9928 -0.200962 22.3851 0.602886Z" fill="url(#pgonHexGrad)" />
     
-    <!-- Lower Wing Feather Blade -->
-    <path d="M 23 46.5 C 30.5 49 42.5 55.5 50.5 66.5 C 44 69.5 35 68.5 27 61 C 22.5 57 21.5 49.5 23 46.5 Z" fill="url(#pgonInnerCavity)" stroke="#C084FC" stroke-width="1.3"/>
+    <!-- Bird Silhouette in Midnight Purple -->
+    <path d="M5.32259 23.8664C5.77259 29.5664 8.51009 33.0538 10.3851 34.3663L15.2601 37.4601C20.5101 35.1163 21.8226 32.6788 23.1351 29.4914C24.1851 26.9413 21.8226 24.6789 20.5101 23.8664L4.19759 14.1164C3.44759 19.7414 6.82259 22.1789 8.13509 23.1164C9.18509 23.8664 15.3226 28.1789 18.2601 30.2414C17.2101 30.6914 9.32259 26.1164 5.32259 23.8664Z" fill="#120224" />
+    <path d="M30.6351 29.8664C29.1351 35.2663 23.0101 39.2414 20.1351 40.5539L17.1351 38.65C21.6351 37.3086 27.4056 30.8679 25.3851 25.9289C23.6976 21.8038 17.8851 19.7414 14.8851 17.8664C16.3851 13.3664 22.5726 7.55385 29.3226 10.5538C34.7226 12.9538 36.3226 17.5538 36.4476 19.5538C31.7601 18.6163 32.5101 23.1163 30.6351 29.8664Z" fill="#120224" />
     
-    <!-- Pigeon Head, Beak & S-curved Body -->
-    <path d="M 54 25.5 C 45 25.5 39 32 40 41 C 41 49 45.5 58.5 53 66.5 C 60.5 73 68 67.5 70 62.5 C 72 57.5 71.5 50.5 69.5 44.5 C 74 43.5 78 42 80 40 C 81 39 80 37.5 78.5 37.5 C 75.5 37.5 72.5 38 69.5 36 C 66.5 29.5 60.5 25.5 54 25.5 Z" fill="url(#pgonInnerCavity)" stroke="#C084FC" stroke-width="1.3"/>
-    
-    <!-- Debossed Circular Eye Dot -->
-    <circle cx="63.5" cy="37.5" r="3.6" fill="url(#pgonInnerCavity)" stroke="#E0AAFF" stroke-width="1.3"/>
+    <!-- Bird Eye Circle with matching Hexagon Gradient -->
+    <path d="M29.1351 16.5538C29.1351 17.3823 28.4635 18.0538 27.6351 18.0538C26.8067 18.0538 26.1351 17.3823 26.1351 16.5538C26.1351 15.7254 26.8067 15.0538 27.6351 15.0538C28.4635 15.0538 29.1351 15.7254 29.1351 16.5538Z" fill="url(#pgonHexGrad)" />
   </g>
 </svg>
