@@ -1089,6 +1089,60 @@
       margin-bottom: 1.25rem;
     }
 
+    .calc-mode-switcher {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 5px;
+      border-radius: 14px;
+      border: 1px solid rgba(168, 85, 247, 0.22);
+      margin-bottom: 1.25rem;
+    }
+
+    .calc-mode-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0.65rem 0.5rem;
+      border-radius: 10px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-dim);
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 0.84rem;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      line-height: 1.25;
+      gap: 4px;
+    }
+
+    .calc-mode-btn:hover {
+      color: #FFFFFF;
+      background: rgba(168, 85, 247, 0.12);
+    }
+
+    .calc-mode-btn.is-active {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.35) 0%, rgba(34, 211, 238, 0.2) 100%);
+      color: #FFFFFF;
+      border: 1px solid rgba(168, 85, 247, 0.6);
+      box-shadow: 0 4px 16px rgba(168, 85, 247, 0.25);
+    }
+
+    .calc-mode-rate-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #4ADE80;
+      font-family: var(--font-mono-tech);
+      opacity: 0.95;
+    }
+
+    .calc-mode-btn.is-active .calc-mode-rate-tag {
+      color: #38BDF8;
+    }
+
     .calc-card-main {
       display: flex;
       flex-direction: column;
@@ -2180,7 +2234,7 @@
     .cases-slider-meta {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: flex-end;
       font-size: 0.74rem;
       font-family: var(--font-mono-tech);
       color: var(--text-dim);
@@ -3830,7 +3884,7 @@
     }
 
     .styled-table tbody tr.is-hidden {
-      display: none;
+      display: none !important;
     }
 
     /* 5. Haptic Spring Motion on Click */
@@ -4349,21 +4403,36 @@
                 <span>Прямой шлюз выплат юрлица • Зачисление от 30 сек</span>
               </div>
 
+              <!-- Calculator Mode Switcher: Sell (USDT -> RUB: 85) vs Buy (RUB -> USDT: 92) -->
+              <div class="calc-mode-switcher" id="calc-mode-switcher" role="tablist">
+                <button type="button" class="calc-mode-btn is-active" id="calc-mode-sell" role="tab" aria-selected="true">
+                  <span>USDT → Рубли (Вывод)</span>
+                  <span class="calc-mode-rate-tag">1 USDT = 85.00 ₽</span>
+                </button>
+                <button type="button" class="calc-mode-btn" id="calc-mode-buy" role="tab" aria-selected="false">
+                  <span>Рубли → USDT (Покупка)</span>
+                  <span class="calc-mode-rate-tag">1 USDT = 92.00 ₽</span>
+                </button>
+              </div>
+
               <!-- Currency Input: Give -->
               <div class="calc-input-group">
                 <div class="calc-label-row">
-                  <span class="calc-label">Вы отдаете криптовалюту</span>
-                  <span class="calc-balance-hint">Лимит: от 1 500 ₽ до 500 000 ₽</span>
+                  <span class="calc-label" id="calc-give-label">Вы отдаете криптовалюту</span>
+                  <span class="calc-balance-hint" id="calc-give-hint">Лимит: от 1 500 ₽ до 500 000 ₽</span>
                 </div>
                 <div class="calc-input-box">
                   <input type="number" id="exchange-crypto-val" class="calc-number-input" value="250" min="5" max="50000" step="10" aria-label="Сумма криптовалюты" />
-                  <div class="calc-select-wrap">
+                  <div class="calc-select-wrap" id="calc-give-select-wrap">
                     <select id="exchange-crypto-coin" class="calc-select-coin" aria-label="Выбор монеты">
                       <option value="USDT" selected>USDT (TRC20 / TON)</option>
                       <option value="TON">TON</option>
                       <option value="BTC">BTC</option>
                       <option value="ETH">ETH</option>
                     </select>
+                  </div>
+                  <div class="calc-rub-badge" id="calc-give-rub-badge" style="display: none;">
+                    <span>RUB (₽)</span>
                   </div>
                 </div>
               </div>
@@ -4372,7 +4441,7 @@
               <div class="calc-rate-row">
                 <div class="calc-rate-pill">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                  <span id="exchange-rate-label">Курс обмена: 1 USDT = 94.20 ₽</span>
+                  <span id="exchange-rate-label">Курс обмена: 1 USDT = 85.00 ₽</span>
                 </div>
                 <span class="calc-fee-tag">0% скрытых спредов</span>
               </div>
@@ -4380,20 +4449,23 @@
               <!-- Currency Output: Receive -->
               <div class="calc-input-group">
                 <div class="calc-label-row">
-                  <span class="calc-label">Вы получаете на карту (чистый рубль)</span>
-                  <span class="calc-entity-hint">Официальный безналичный перевод</span>
+                  <span class="calc-label" id="calc-receive-label">Вы получаете на карту (чистый рубль)</span>
+                  <span class="calc-entity-hint" id="calc-receive-hint">Официальный безналичный перевод</span>
                 </div>
                 <div class="calc-input-box calc-output-box">
-                  <span id="exchange-rub-val" class="calc-output-number">23 550 ₽</span>
-                  <div class="calc-rub-badge">
+                  <span id="exchange-rub-val" class="calc-output-number">21 250 ₽</span>
+                  <div class="calc-rub-badge" id="calc-receive-rub-badge">
                     <span>RUB (₽)</span>
+                  </div>
+                  <div class="calc-rub-badge" id="calc-receive-crypto-badge" style="display: none; background: rgba(34, 211, 238, 0.15); color: #38BDF8; border-color: rgba(34, 211, 238, 0.4);">
+                    <span>USDT</span>
                   </div>
                 </div>
               </div>
 
               <!-- Target Bank Quick Selector -->
               <div class="calc-bank-selector">
-                <span class="calc-sub-label">Куда зачислить выплату (по номеру карты или СБП):</span>
+                <span class="calc-sub-label" id="calc-bank-label">Куда зачислить выплату (по номеру карты или СБП):</span>
                 <div class="bank-pill-row">
                   <button type="button" class="bank-pill active" data-bank="tbank">
                     <span class="bank-pill-dot" style="background: #FFDD2D;"></span>Т-Банк
@@ -4437,11 +4509,11 @@
 
             <!-- CTA Button & Footer Note -->
             <div class="calc-card-actions">
-              <a href="https://t.me/pgon_wallet_bot?start=exchange" target="_blank" rel="noopener noreferrer" class="btn-primary calc-cta-btn">
-                <span>Вывести рубли на карту в Telegram-боте</span>
+              <a href="https://t.me/pgon_wallet_bot?start=exchange" target="_blank" rel="noopener noreferrer" class="btn-primary calc-cta-btn" id="calc-cta-btn">
+                <span id="calc-cta-text">Вывести рубли на карту в Telegram-боте</span>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
-              <div class="calc-footer-note">⚡ Лимит операции — от 1 500 до 500 000 ₽ по СБП и номеру карты · Зачисление от 30 сек</div>
+              <div class="calc-footer-note" id="calc-footer-note">⚡ Лимит операции — от 1 500 до 500 000 ₽ по СБП и номеру карты · Зачисление от 30 сек</div>
             </div>
           </div>
 
@@ -4697,7 +4769,7 @@
 
           
           <p class="services-matrix-desc">
-            Карта <strong>PGON Virtual Card</strong> открывается в Telegram за одну минуту. Баланс пополняется напрямую через <strong>USDT или TON</strong>. Оплачивайте зарубежные подписки, нейросети, магазины приложений и игры из России. Все платежи подтверждаются кодами <strong>3D-Secure 2.2</strong> прямо в боте - надежно и без отказов
+            Карта <strong>PGON Virtual Card</strong> открывается в Telegram за одну минуту (выпуск всего <strong>$8</strong>, активация при пополнении от <strong>$10</strong>). Пополнение баланса с честной комиссией <strong>1.6%</strong> через USDT или TON, а комиссия на любые зарубежные платежи и подписки — <strong>0%</strong>. Все платежи подтверждаются кодами <strong>3D-Secure 2.2</strong> прямо в боте - надежно и без отказов
           </p>
 
           <div class="services-bento-grid">
@@ -5089,7 +5161,6 @@
               <div class="cases-slider-thumb" id="cases-slider-thumb" title="Перетащите бегунок"></div>
             </div>
             <div class="cases-slider-meta">
-              <span>Перемещайте бегунок или свайпайте</span>
               <span class="cases-counter-badge" id="cases-counter">1 / 7</span>
             </div>
           </div>
@@ -5109,7 +5180,7 @@
       <div class="container">
         <div class="section-header">
           <span class="section-badge">Тарифная сетка</span>
-          <h2 class="section-title">Способы пополнения кошелька и <span class="gradient-text">честные комиссии</span></h2>
+          <h2 class="section-title">Удобные пополнение и вывод, <span class="gradient-text">честные комиссии</span></h2>
           <p class="section-desc">Никаких скрытых спредов. Вы всегда видите точную сумму к списанию до подтверждения платежа</p>
         </div>
 
@@ -5140,7 +5211,7 @@
         </div>
 
         <div class="table-container">
-          <table class="styled-table">
+          <table class="styled-table" id="tariffs-table">
             <thead>
               <tr>
                 <th>Метод пополнения</th>
@@ -5170,19 +5241,19 @@
                     <span>Оплата по QR СБП или прямой ссылке НСПК</span>
                   </div>
                 </td>
-                <td><span class="fee-highlight">1.5% – 2.0%</span></td>
+                <td><span class="fee-highlight">3% – 5%</span></td>
                 <td>Мгновенно (&lt; 3 сек)</td>
                 <td><span class="method-badge badge-anon">Без следа 115-ФЗ</span></td>
-                <td>От 1 ₽ до 500 000 ₽ / чек</td>
+                <td>До 300 000 ₽ за раз, до 500 000 ₽ в день</td>
               </tr>
-              <tr data-tariff-category="sbp">
+              <tr data-tariff-category="sbp crypto">
                 <td>
                   <div class="method-name-cell">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                     <span>Вывод крипты на карту РФ (СБП / номер карты)</span>
                   </div>
                 </td>
-                <td><span class="fee-highlight">1.8% – 2.2%</span></td>
+                <td><span class="fee-highlight">5% – 6.5%</span></td>
                 <td>15–60 секунд (от юрлица)</td>
                 <td><span class="method-badge badge-anon">СБП / Номер карты</span></td>
                 <td>От 1 500 ₽ до 500 000 ₽ / операция</td>
@@ -5194,21 +5265,33 @@
                     <span>Выпуск карты PGON Virtual Card</span>
                   </div>
                 </td>
-                <td><span class="fee-highlight fee-zero">0 USDT (Бесплатно)</span></td>
+                <td><span class="fee-highlight">$8</span></td>
                 <td>Моментально (&lt; 1 мин)</td>
                 <td><span class="method-badge badge-anon">Анонимно (Без паспорта)</span></td>
-                <td>До 5 активных карт</td>
+                <td>Активация: пополнение от $10</td>
               </tr>
               <tr data-tariff-category="card">
                 <td>
                   <div class="method-name-cell">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-                    <span>Оплата подписок (ChatGPT, App Store, Steam)</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <span>Пополнение баланса виртуальной карты</span>
                   </div>
                 </td>
-                <td><span class="fee-highlight">1% конвертация</span></td>
+                <td><span class="fee-highlight">1.6%</span></td>
+                <td>Мгновенно (USDT / TON)</td>
+                <td><span class="method-badge badge-anon">В Telegram WebApp</span></td>
+                <td>От $10 минимум</td>
+              </tr>
+              <tr data-tariff-category="card">
+                <td>
+                  <div class="method-name-cell">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4ADE80" stroke-width="2" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <span>Оплата покупок и подписок (ChatGPT, App Store, Steam)</span>
+                  </div>
+                </td>
+                <td><span class="fee-highlight fee-zero">0%</span></td>
                 <td>Мгновенно (3DS Push в бота)</td>
-                <td><span class="method-badge badge-anon">Защита 3D-Secure</span></td>
+                <td><span class="method-badge badge-anon">Защита 3D-Secure 2.2</span></td>
                 <td>До $5 000 / сутки</td>
               </tr>
               <tr data-tariff-category="crypto">
@@ -5218,7 +5301,7 @@
                     <span>Telegram-боты (CryptoBot / xRocket)</span>
                   </div>
                 </td>
-                <td><span class="fee-highlight">1.5% – 3.0%</span></td>
+                <td><span class="fee-highlight">1.5% – 3%</span></td>
                 <td>Моментально (внутри Telegram)</td>
                 <td><span class="method-badge badge-bot">Telegram ID</span></td>
                 <td>От 1 USDT без ограничений</td>
@@ -5585,9 +5668,9 @@
               </summary>
               <div class="faq-answer">
                 В PGON Wallet действуют официальные и понятные лимиты:<br>
-                • <strong>Оплата по QR СБП или прямой ссылке НСПК</strong>: от <strong>1 рубля</strong> до <strong>500 000 рублей</strong> за один чек (в рамках регламента Национальной Системы Платежных Карт РФ).<br>
+                • <strong>Оплата по QR СБП или прямой ссылке НСПК</strong>: до <strong>300 000 рублей</strong> за один чек, до <strong>500 000 рублей</strong> в день.<br>
                 • <strong>Вывод криптовалюты на карту (по СБП или номеру карты)</strong>: от <strong>1 500 рублей</strong> до <strong>500 000 рублей</strong> за операцию. Перевод отправляется напрямую от юридического лица (100% защита от 115-ФЗ).<br>
-                • <strong>Виртуальная карта PGON</strong>: до $5 000 в сутки на зарубежные сервисы и покупки.
+                • <strong>Виртуальная карта PGON</strong>: выпуск $8, для активации пополнение от $10; комиссия на пополнение всего 1.6%, на любые зарубежные платежи — 0% (лимит операций до $5 000 в сутки).
               </div>
             </details>
 
@@ -6443,7 +6526,6 @@
       const tariffSegmentContainer = document.getElementById("tariff-segmented-control");
       const tariffGlidingPill = document.getElementById("tariff-gliding-pill");
       const tariffButtons = document.querySelectorAll(".tariff-segment-btn");
-      const tariffRows = document.querySelectorAll("#tariffs-table tbody tr");
 
       function updateGlidingPill(activeBtn) {
         if (!tariffGlidingPill || !activeBtn || !tariffSegmentContainer) return;
@@ -6454,10 +6536,30 @@
         tariffGlidingPill.style.width = `${btnRect.width}px`;
       }
 
+      function filterTariffRows(filter) {
+        const rows = document.querySelectorAll("#tariffs-table tbody tr, .styled-table tbody tr");
+        rows.forEach((row) => {
+          const rawCat = row.getAttribute("data-tariff-category") || "";
+          const categories = rawCat.trim().split(/\s+/);
+          if (filter === "all" || categories.includes(filter)) {
+            row.classList.remove("is-hidden");
+            row.style.display = "";
+            row.style.opacity = "1";
+            row.style.transform = "translateY(0)";
+          } else {
+            row.classList.add("is-hidden");
+            row.style.display = "none";
+          }
+        });
+      }
+
       if (tariffSegmentContainer && tariffButtons.length > 0) {
-        const initialActive = document.querySelector(".tariff-segment-btn.is-active");
+        const initialActive = document.querySelector(".tariff-segment-btn.is-active") || tariffButtons[0];
         if (initialActive) {
-          setTimeout(() => updateGlidingPill(initialActive), 100);
+          setTimeout(() => {
+            updateGlidingPill(initialActive);
+            filterTariffRows(initialActive.getAttribute("data-tariff-filter") || "all");
+          }, 100);
         }
 
         tariffButtons.forEach((btn) => {
@@ -6470,17 +6572,8 @@
             btn.setAttribute("aria-selected", "true");
             updateGlidingPill(btn);
 
-            const filter = btn.getAttribute("data-tariff-filter");
-            tariffRows.forEach((row) => {
-              const category = row.getAttribute("data-tariff-category");
-              if (filter === "all" || category === filter) {
-                row.classList.remove("is-hidden");
-                row.style.opacity = "1";
-                row.style.transform = "translateY(0)";
-              } else {
-                row.classList.add("is-hidden");
-              }
-            });
+            const filter = btn.getAttribute("data-tariff-filter") || "all";
+            filterTariffRows(filter);
           });
         });
 
@@ -6518,7 +6611,9 @@
       }
 
       // ==========================================================================
-      // SECTION 2.6: Exchange Calculator Dynamic Logic
+      // SECTION 2.6: Exchange Calculator Dynamic Logic & Temporary Rates
+      // NOTE: Temporary fixed rates (USDT -> RUB: 85 руб, RUB -> USDT: 92 руб).
+      // Configured for upcoming live API integration via window.pgonSetExchangeRates()
       // ==========================================================================
       const exCryptoVal = document.getElementById("exchange-crypto-val");
       const exCryptoCoin = document.getElementById("exchange-crypto-coin");
@@ -6526,30 +6621,140 @@
       const exRateLabel = document.getElementById("exchange-rate-label");
       const bankPills = document.querySelectorAll(".bank-pill");
 
-      const coinRates = {
-        USDT: 94.20,
-        TON: 485.50,
-        BTC: 8420000,
-        ETH: 285000
+      const calcModeSell = document.getElementById("calc-mode-sell");
+      const calcModeBuy = document.getElementById("calc-mode-buy");
+      const calcGiveLabel = document.getElementById("calc-give-label");
+      const calcGiveHint = document.getElementById("calc-give-hint");
+      const calcReceiveLabel = document.getElementById("calc-receive-label");
+      const calcReceiveHint = document.getElementById("calc-receive-hint");
+      const calcGiveSelectWrap = document.getElementById("calc-give-select-wrap");
+      const calcGiveRubBadge = document.getElementById("calc-give-rub-badge");
+      const calcReceiveRubBadge = document.getElementById("calc-receive-rub-badge");
+      const calcReceiveCryptoBadge = document.getElementById("calc-receive-crypto-badge");
+      const calcBankLabel = document.getElementById("calc-bank-label");
+      const calcCtaBtn = document.getElementById("calc-cta-btn");
+      const calcCtaText = document.getElementById("calc-cta-text");
+      const calcFooterNote = document.getElementById("calc-footer-note");
+
+      let currentMode = "sell"; // "sell": USDT -> Рубли (85 руб), "buy": Рубли -> USDT (92 руб)
+
+      // Temporary fixed rates (to be replaced with live API)
+      const EXCHANGE_RATES = {
+        sell: {
+          USDT: 85.00, // USDT -> рубли: 85 руб
+          TON: 440.00,
+          BTC: 7850000,
+          ETH: 265000
+        },
+        buy: {
+          USDT: 92.00, // рубли -> USDT: 92 руб
+          TON: 475.00,
+          BTC: 8450000,
+          ETH: 288000
+        }
+      };
+
+      // API integration hook for future real-time rate fetching
+      window.pgonSetExchangeRates = function(newRates) {
+        if (!newRates) return;
+        if (newRates.sell) Object.assign(EXCHANGE_RATES.sell, newRates.sell);
+        if (newRates.buy) Object.assign(EXCHANGE_RATES.buy, newRates.buy);
+        updateExchangeCalc();
       };
 
       function updateExchangeCalc() {
-        if (!exCryptoVal || !exCryptoCoin || !exRubVal || !exRateLabel) return;
-        const coin = exCryptoCoin.value || "USDT";
-        const rate = coinRates[coin] || 94.20;
+        if (!exCryptoVal || !exRubVal || !exRateLabel) return;
         let amount = parseFloat(exCryptoVal.value);
         if (isNaN(amount) || amount < 0) amount = 0;
 
-        const rubTotal = Math.round(amount * rate);
-        exRubVal.textContent = rubTotal.toLocaleString("ru-RU") + " ₽";
-        
-        let rateDisplay = rate >= 1000 ? rate.toLocaleString("ru-RU") : rate.toFixed(2);
-        exRateLabel.textContent = `Курс обмена: 1 ${coin} = ${rateDisplay} ₽`;
+        if (currentMode === "sell") {
+          const coin = (exCryptoCoin && exCryptoCoin.value) || "USDT";
+          const rate = EXCHANGE_RATES.sell[coin] || 85.00;
+          const rubTotal = Math.round(amount * rate);
+          exRubVal.textContent = rubTotal.toLocaleString("ru-RU") + " ₽";
+          
+          let rateDisplay = rate >= 1000 ? rate.toLocaleString("ru-RU") : rate.toFixed(2);
+          exRateLabel.textContent = `Курс обмена: 1 ${coin} = ${rateDisplay} ₽`;
+        } else {
+          // Buy mode: Рубли -> USDT (92 руб)
+          const rate = EXCHANGE_RATES.buy.USDT || 92.00;
+          const usdtTotal = rate > 0 ? (amount / rate) : 0;
+          exRubVal.textContent = (amount > 0 ? usdtTotal.toFixed(2) : "0.00") + " USDT";
+          exRateLabel.textContent = `Курс покупки: 1 USDT = ${rate.toFixed(2)} ₽`;
+        }
       }
 
-      if (exCryptoVal && exCryptoCoin) {
+      function setCalcMode(mode) {
+        currentMode = mode;
+        if (mode === "sell") {
+          if (calcModeSell) {
+            calcModeSell.classList.add("is-active");
+            calcModeSell.setAttribute("aria-selected", "true");
+          }
+          if (calcModeBuy) {
+            calcModeBuy.classList.remove("is-active");
+            calcModeBuy.setAttribute("aria-selected", "false");
+          }
+          if (calcGiveLabel) calcGiveLabel.textContent = "Вы отдаете криптовалюту";
+          if (calcGiveHint) calcGiveHint.textContent = "Лимит: от 1 500 ₽ до 500 000 ₽";
+          if (calcReceiveLabel) calcReceiveLabel.textContent = "Вы получаете на карту (чистый рубль)";
+          if (calcReceiveHint) calcReceiveHint.textContent = "Официальный безналичный перевод";
+          if (calcGiveSelectWrap) calcGiveSelectWrap.style.display = "";
+          if (calcGiveRubBadge) calcGiveRubBadge.style.display = "none";
+          if (calcReceiveRubBadge) calcReceiveRubBadge.style.display = "";
+          if (calcReceiveCryptoBadge) calcReceiveCryptoBadge.style.display = "none";
+          if (calcBankLabel) calcBankLabel.textContent = "Куда зачислить выплату (по номеру карты или СБП):";
+          if (calcCtaText) calcCtaText.textContent = "Вывести рубли на карту в Telegram-боте";
+          if (calcCtaBtn) calcCtaBtn.href = "https://t.me/pgon_wallet_bot?start=exchange";
+          if (calcFooterNote) calcFooterNote.textContent = "⚡ Лимит операции — от 1 500 до 500 000 ₽ по СБП и номеру карты · Зачисление от 30 сек";
+          
+          if (exCryptoVal) {
+            exCryptoVal.value = "250";
+            exCryptoVal.step = "10";
+            exCryptoVal.min = "5";
+            exCryptoVal.max = "50000";
+          }
+        } else {
+          if (calcModeBuy) {
+            calcModeBuy.classList.add("is-active");
+            calcModeBuy.setAttribute("aria-selected", "true");
+          }
+          if (calcModeSell) {
+            calcModeSell.classList.remove("is-active");
+            calcModeSell.setAttribute("aria-selected", "false");
+          }
+          if (calcGiveLabel) calcGiveLabel.textContent = "Вы отдаете рубли (СБП / карта)";
+          if (calcGiveHint) calcGiveHint.textContent = "Лимит: до 300 000 ₽ за чек, до 500 000 ₽ в день";
+          if (calcReceiveLabel) calcReceiveLabel.textContent = "Вы получаете криптовалюту (USDT)";
+          if (calcReceiveHint) calcReceiveHint.textContent = "Моментальное зачисление в Telegram";
+          if (calcGiveSelectWrap) calcGiveSelectWrap.style.display = "none";
+          if (calcGiveRubBadge) calcGiveRubBadge.style.display = "flex";
+          if (calcReceiveRubBadge) calcReceiveRubBadge.style.display = "none";
+          if (calcReceiveCryptoBadge) calcReceiveCryptoBadge.style.display = "flex";
+          if (calcBankLabel) calcBankLabel.textContent = "С какого банка или СБП будете оплачивать:";
+          if (calcCtaText) calcCtaText.textContent = "Купить USDT в Telegram-боте";
+          if (calcCtaBtn) calcCtaBtn.href = "https://t.me/pgon_wallet_bot?start=buy";
+          if (calcFooterNote) calcFooterNote.textContent = "⚡ Лимит покупки — до 300 000 ₽ по СБП за один чек · Зачисление моментально";
+          
+          if (exCryptoVal) {
+            exCryptoVal.value = "10000";
+            exCryptoVal.step = "500";
+            exCryptoVal.min = "500";
+            exCryptoVal.max = "500000";
+          }
+        }
+        updateExchangeCalc();
+      }
+
+      if (calcModeSell) calcModeSell.addEventListener("click", () => setCalcMode("sell"));
+      if (calcModeBuy) calcModeBuy.addEventListener("click", () => setCalcMode("buy"));
+
+      if (exCryptoVal) {
         exCryptoVal.addEventListener("input", updateExchangeCalc);
+      }
+      if (exCryptoCoin) {
         exCryptoCoin.addEventListener("change", () => {
+          if (currentMode !== "sell") return;
           if (exCryptoCoin.value === "BTC") {
             exCryptoVal.value = "0.05";
             exCryptoVal.step = "0.01";
@@ -6565,8 +6770,8 @@
           }
           updateExchangeCalc();
         });
-        updateExchangeCalc();
       }
+      updateExchangeCalc();
 
       if (bankPills.length > 0) {
         bankPills.forEach(pill => {
