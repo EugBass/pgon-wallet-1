@@ -242,12 +242,82 @@
       align-items: center;
     }
 
-    .nav-inner {
+    .site-header .nav-inner {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
+      justify-content: flex-start;
+      gap: clamp(1rem, 2vw, 2.2rem);
       width: 100%;
+      max-width: 100%;
+      margin: 0;
+      padding-left: clamp(1rem, 2.5vw, 2.5rem);
+      padding-right: clamp(1rem, 2.5vw, 2.5rem);
+    }
+
+    .header-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+
+    .site-header .btn-header-cta {
+      margin-left: 0;
+    }
+
+    /* Mobile Hamburger Menu Toggle Button (Three Lines) - Hidden by default on Desktop */
+    .mobile-menu-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      border-radius: 10px;
+      cursor: pointer;
+      flex-shrink: 0;
+      gap: 4px;
+      transition: all 0.25s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .mobile-menu-btn:hover {
+      background: rgba(168, 85, 247, 0.18);
+      border-color: rgba(192, 132, 252, 0.6);
+      box-shadow: 0 0 16px rgba(168, 85, 247, 0.35);
+    }
+
+    .burger-bar {
+      width: 18px;
+      height: 2px;
+      background: #FFFFFF;
+      border-radius: 2px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+      transform-origin: center;
+      display: block;
+    }
+
+    /* Animated 3 Lines to X */
+    .mobile-menu-btn.is-active .burger-bar-top {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .mobile-menu-btn.is-active .burger-bar-mid {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .mobile-menu-btn.is-active .burger-bar-bot {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* Mobile Nav Dropdown Drawer Base Setup */
+    .mobile-nav-drawer {
+      display: none;
     }
 
     .brand-logo {
@@ -2945,10 +3015,190 @@
         background-position: center top;
       }
       .site-header {
-        height: 66px;
+        height: 60px;
       }
       .nav-links {
-        display: none;
+        display: none !important;
+      }
+      .mobile-menu-btn {
+        display: inline-flex !important;
+      }
+      .mobile-nav-drawer {
+        display: block !important;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        height: calc(100dvh - 60px);
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, visibility 0.25s ease;
+      }
+      .mobile-nav-drawer.is-open {
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+      }
+      .mobile-nav-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 2, 14, 0.82);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+      }
+      .mobile-nav-content {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-height: calc(100dvh - 60px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        background: linear-gradient(180deg, rgba(16, 7, 34, 0.98) 0%, rgba(9, 3, 20, 0.99) 100%);
+        border-bottom: 1px solid rgba(168, 85, 247, 0.35);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.85), 0 0 35px rgba(157, 78, 221, 0.25);
+        padding: 0.85rem 1rem 1.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        transform: translateY(-12px);
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .mobile-nav-drawer.is-open .mobile-nav-content {
+        transform: translateY(0);
+      }
+      .mobile-nav-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 0.55rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        margin-bottom: 0.2rem;
+      }
+      .mobile-nav-title {
+        font-family: var(--font-heading);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #C084FC;
+      }
+      .mobile-nav-close {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        color: #E0AAFF;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .mobile-nav-close:hover {
+        background: rgba(168, 85, 247, 0.2);
+        color: #FFFFFF;
+      }
+      .mobile-nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .mobile-nav-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 0.8rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        color: #FFFFFF;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .mobile-nav-link:hover,
+      .mobile-nav-link:active {
+        background: rgba(168, 85, 247, 0.16);
+        border-color: rgba(168, 85, 247, 0.45);
+        transform: translateX(3px);
+      }
+      .nav-icon-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: rgba(168, 85, 247, 0.18);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        font-size: 1rem;
+        flex-shrink: 0;
+      }
+      .nav-text-group {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        flex: 1;
+        min-width: 0;
+      }
+      .nav-link-main {
+        font-family: var(--font-heading);
+        font-size: 0.86rem;
+        font-weight: 700;
+        color: #FFFFFF;
+        line-height: 1.2;
+      }
+      .nav-link-sub {
+        font-size: 0.71rem;
+        color: #D8B4FE;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .nav-arrow {
+        color: #A855F7;
+        opacity: 0.65;
+        flex-shrink: 0;
+        transition: transform 0.2s ease;
+      }
+      .mobile-nav-link:hover .nav-arrow {
+        transform: translateX(2px);
+        opacity: 1;
+        color: #E0AAFF;
+      }
+      .mobile-nav-footer {
+        padding-top: 0.55rem;
+        margin-top: 0.2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .mobile-nav-cta-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        background: linear-gradient(135deg, #7B2CBF 0%, #9D4EDD 100%);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 12px;
+        color: #FFFFFF;
+        font-family: var(--font-heading);
+        font-size: 0.86rem;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 4px 20px rgba(157, 78, 221, 0.45);
+        transition: all 0.25s ease;
+      }
+      .mobile-nav-cta-btn:hover {
+        box-shadow: 0 6px 28px rgba(157, 78, 221, 0.7);
+        transform: translateY(-1px);
       }
       .steps-grid {
         grid-template-columns: 1fr;
@@ -3023,31 +3273,57 @@
 
     @media (max-width: 640px) {
       .site-header {
-        height: 64px;
+        height: 60px;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .site-header .nav-inner {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        justify-content: space-between !important;
+      }
+      .brand-logo {
+        margin-left: 0 !important;
+        flex-shrink: 0 !important;
       }
       .brand-logo-badge {
-        height: 42px !important;
+        height: 36px !important;
         width: auto !important;
-        max-width: 180px !important;
+        max-width: 128px !important;
         object-fit: contain !important;
         filter: drop-shadow(0 2px 10px rgba(168, 85, 247, 0.55)) !important;
       }
       .brand-logo svg,
       .brand-logo-img {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
       }
       .btn-header-cta {
-        padding: 0.48rem 0.85rem;
-        font-size: 0.82rem;
-        gap: 0.38rem;
-        border-radius: 12px;
+        padding: 0.42rem 0.72rem !important;
+        font-size: 0.78rem !important;
+        gap: 0.35rem !important;
+        border-radius: 10px !important;
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+        white-space: nowrap !important;
+      }
+      .btn-header-cta svg {
+        width: 15px !important;
+        height: 15px !important;
+        flex-shrink: 0 !important;
       }
       .btn-text-full {
-        display: none;
+        display: none !important;
       }
       .btn-text-mobile {
-        display: inline;
+        display: inline !important;
+        font-size: 0.78rem !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.01em !important;
       }
 
       /* Hero section mobile adjustment: lower text well below the mascot */
@@ -4048,15 +4324,77 @@
     @media (max-width: 640px) {
       /* Prominent Site Header Logo on Mobile */
       .site-header {
-        height: 64px !important;
+        height: 60px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .site-header .nav-inner {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+      .brand-logo {
+        margin-left: 0 !important;
+        flex-shrink: 0 !important;
+        display: inline-flex !important;
+        align-items: center !important;
       }
       .brand-logo-badge {
-        height: 42px !important;
+        height: 30px !important;
         width: auto !important;
-        max-width: 180px !important;
+        max-width: 104px !important;
         object-fit: contain !important;
         display: block !important;
-        filter: drop-shadow(0 2px 10px rgba(168, 85, 247, 0.6)) !important;
+        filter: drop-shadow(0 2px 8px rgba(168, 85, 247, 0.55)) !important;
+      }
+      .header-actions {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        margin-left: auto !important;
+        flex-shrink: 0 !important;
+      }
+      .btn-header-cta {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 36px !important;
+        padding: 0 9px !important;
+        font-family: var(--font-body), sans-serif !important;
+        font-size: 0.74rem !important;
+        font-weight: 700 !important;
+        gap: 4px !important;
+        border-radius: 9px !important;
+        flex-shrink: 0 !important;
+        margin-left: 0 !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+      }
+      .btn-header-cta svg {
+        width: 14px !important;
+        height: 14px !important;
+        flex-shrink: 0 !important;
+      }
+      .btn-text-full {
+        display: none !important;
+      }
+      .btn-text-mobile {
+        display: inline !important;
+        font-size: 0.74rem !important;
+        white-space: nowrap !important;
+        letter-spacing: -0.01em !important;
+      }
+      .mobile-menu-btn {
+        display: inline-flex !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 9px !important;
+        flex-shrink: 0 !important;
       }
 
       /* Virtual Card Center Stage on Mobile */
@@ -4268,14 +4606,67 @@
     }
 
     @media (max-width: 380px) {
+      .site-header .nav-inner {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+        gap: 0.35rem !important;
+      }
+      .brand-logo-badge {
+        height: 28px !important;
+        max-width: 98px !important;
+      }
+      .header-actions {
+        gap: 5px !important;
+      }
       .btn-header-cta {
-        padding: 0.42rem 0.68rem !important;
-        font-size: 0.78rem !important;
-        gap: 0.3rem !important;
+        height: 34px !important;
+        padding: 0 7px !important;
+        font-size: 0.71rem !important;
+        gap: 3px !important;
+      }
+      .btn-header-cta svg {
+        width: 13px !important;
+        height: 13px !important;
+      }
+      .btn-text-mobile {
+        font-size: 0.71rem !important;
+      }
+      .mobile-menu-btn {
+        width: 34px !important;
+        height: 34px !important;
       }
     }
 
     @media (max-width: 360px) {
+      .site-header .nav-inner {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+        gap: 0.25rem !important;
+      }
+      .brand-logo-badge {
+        height: 26px !important;
+        max-width: 90px !important;
+      }
+      .header-actions {
+        gap: 4px !important;
+      }
+      .btn-header-cta {
+        height: 32px !important;
+        padding: 0 6px !important;
+        font-size: 0.69rem !important;
+        gap: 3px !important;
+      }
+      .btn-header-cta svg {
+        width: 12px !important;
+        height: 12px !important;
+      }
+      .btn-text-mobile {
+        font-size: 0.69rem !important;
+      }
+      .mobile-menu-btn {
+        width: 32px !important;
+        height: 32px !important;
+      }
       .card-num-text {
         font-size: 0.7rem !important;
         letter-spacing: 0.05em !important;
@@ -4283,10 +4674,6 @@
       .card-copy-pill {
         padding: 0.2rem 0.4rem !important;
         font-size: 0.62rem !important;
-      }
-      .brand-logo-badge {
-        height: 36px !important;
-        max-width: 145px !important;
       }
     }
 
@@ -4319,13 +4706,138 @@
         </ul>
       </nav>
 
-      <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-header-cta" id="nav-telegram-cta">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/>
-        </svg>
-        <span class="btn-text-full">Открыть в Telegram</span>
-        <span class="btn-text-mobile">Открыть кошелек</span>
-      </a>
+      <div class="header-actions">
+        <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-header-cta" id="nav-telegram-cta">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/>
+          </svg>
+          <span class="btn-text-full">Открыть в Telegram</span>
+          <span class="btn-text-mobile">Открыть кошелек</span>
+        </a>
+
+        <!-- Mobile Hamburger Menu Button (Three Lines) -->
+        <button class="mobile-menu-btn" id="mobile-menu-toggle" type="button" aria-label="Открыть меню навигации" aria-expanded="false" aria-controls="mobile-nav-drawer">
+          <span class="burger-bar burger-bar-top"></span>
+          <span class="burger-bar burger-bar-mid"></span>
+          <span class="burger-bar burger-bar-bot"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav Dropdown Drawer -->
+    <div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
+      <div class="mobile-nav-overlay" id="mobile-nav-backdrop"></div>
+      <div class="mobile-nav-content">
+        <div class="mobile-nav-header">
+          <span class="mobile-nav-title">Разделы сайта</span>
+          <button class="mobile-nav-close" id="mobile-nav-close-btn" type="button" aria-label="Закрыть меню">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <ul class="mobile-nav-list">
+          <li>
+            <a href="#pipeline" class="mobile-nav-link">
+              <span class="nav-icon-badge">⚡</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Как это работает</span>
+                <span class="nav-link-sub">Оплата по QR СБП за 3 секунды</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#benefits" class="mobile-nav-link">
+              <span class="nav-icon-badge">🛡️</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Преимущества</span>
+                <span class="nav-link-sub">Защита от 115-ФЗ, без P2P и блокировок</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#exchange" class="mobile-nav-link">
+              <span class="nav-icon-badge">🔄</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Обмен на карту РФ</span>
+                <span class="nav-link-sub">Вывод в рубли по СБП и номеру карты</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#card" class="mobile-nav-link">
+              <span class="nav-icon-badge">💳</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Виртуальная карта</span>
+                <span class="nav-link-sub">Оплата ChatGPT, Claude, App Store, Steam</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#cases" class="mobile-nav-link">
+              <span class="nav-icon-badge">🎯</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Сценарии использования</span>
+                <span class="nav-link-sub">Магазины, рестораны, АЗС, софт</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#tariffs" class="mobile-nav-link">
+              <span class="nav-icon-badge">📊</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Тарифная сетка</span>
+                <span class="nav-link-sub">Честные комиссии без скрытых спредов</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#faq" class="mobile-nav-link">
+              <span class="nav-icon-badge">❓</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">База знаний FAQ</span>
+                <span class="nav-link-sub">Ответы на популярные вопросы</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="blog.html" class="mobile-nav-link">
+              <span class="nav-icon-badge">📖</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Блог и аналитика</span>
+                <span class="nav-link-sub">Гайды по оплате зарубежных сервисов</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="#support" class="mobile-nav-link">
+              <span class="nav-icon-badge">💬</span>
+              <span class="nav-text-group">
+                <span class="nav-link-main">Поддержка 24/7</span>
+                <span class="nav-link-sub">Контакты и живой чат с оператором</span>
+              </span>
+              <svg class="nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </li>
+        </ul>
+        <div class="mobile-nav-footer">
+          <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="mobile-nav-cta-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.16.74-.71 3.97-1 5.56-.12.67-.37.9-.6.92-.52.05-.91-.34-1.42-.67-.79-.53-1.24-.85-2.01-1.35-.89-.58-.31-.9.19-1.43.13-.14 2.41-2.21 2.46-2.4.01-.03.01-.14-.06-.2-.07-.06-.17-.04-.25-.02-.11.02-1.79 1.14-5.06 3.35-.48.33-.91.49-1.3.48-.43-.01-1.26-.24-1.88-.45-.76-.25-1.37-.39-1.32-.82.03-.22.33-.45.92-.69 3.6-1.57 6.01-2.61 7.21-3.11 3.44-1.43 4.16-1.68 4.63-1.69.1 0 .33.02.48.15.12.11.16.27.17.38-.01.07-.01.14-.02.21z"/>
+            </svg>
+            <span>Запустить PGON Wallet</span>
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -7220,6 +7732,86 @@
         window.addEventListener("resize", updateCasesRunner);
         setTimeout(updateCasesRunner, 120);
       }
+    })();
+
+    // ==========================================================================
+    // SECTION 6: Mobile Navigation Dropdown Drawer & Smooth Scroll
+    // ==========================================================================
+    (function initMobileNav() {
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+      const mobileNavCloseBtn = document.getElementById('mobile-nav-close-btn');
+      const mobileNavBackdrop = document.getElementById('mobile-nav-backdrop');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta-btn');
+
+      function openMobileMenu() {
+        if (!mobileNavDrawer || !mobileMenuToggle) return;
+        mobileNavDrawer.classList.add('is-open');
+        mobileNavDrawer.setAttribute('aria-hidden', 'false');
+        mobileMenuToggle.classList.add('is-active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        if (!mobileNavDrawer || !mobileMenuToggle) return;
+        mobileNavDrawer.classList.remove('is-open');
+        mobileNavDrawer.setAttribute('aria-hidden', 'true');
+        mobileMenuToggle.classList.remove('is-active');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+
+      function toggleMobileMenu() {
+        if (!mobileNavDrawer) return;
+        if (mobileNavDrawer.classList.contains('is-open')) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      }
+
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleMobileMenu();
+        });
+      }
+
+      if (mobileNavCloseBtn) {
+        mobileNavCloseBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeMobileMenu();
+        });
+      }
+
+      if (mobileNavBackdrop) {
+        mobileNavBackdrop.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeMobileMenu();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileNavDrawer && mobileNavDrawer.classList.contains('is-open')) {
+          closeMobileMenu();
+        }
+      });
+
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          const href = link.getAttribute('href');
+          closeMobileMenu();
+          if (href && href.startsWith('#')) {
+            const targetEl = document.querySelector(href);
+            if (targetEl) {
+              e.preventDefault();
+              targetEl.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        });
+      });
     })();
 
   </script>
