@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как вывести криптовалюту на карту любого банка РФ через СБП без посредников | Блог PGON Wallet</title>
+  <meta name="title" content="Как вывести криптовалюту на карту любого банка РФ через СБП без посредников | Блог PGON Wallet">
+  <meta name="description" content="Пошаговое руководство по выводу USDT и TON в рубли прямо на карту Сбера, Т-Банка, Альфы или ВТБ без P2P-рисков и риска блокировок 115-ФЗ.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://pgon.pro/blog/kak-vyvesti-kriptovalyutu-na-kartu-rf-cherez-sbp.html">
+  
+  <link rel="icon" type="image/png" href="../assets/pgon-icon.png">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/pgon-icon.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pgon.pro/blog/kak-vyvesti-kriptovalyutu-na-kartu-rf-cherez-sbp.html">
+  <meta property="og:title" content="Как вывести криптовалюту на карту любого банка РФ через СБП без посредников | Блог PGON Wallet">
+  <meta property="og:description" content="Пошаговое руководство по выводу USDT и TON в рубли прямо на карту Сбера, Т-Банка, Альфы или ВТБ без P2P-рисков и блокировок.">
+  <meta property="og:image" content="https://pgon.pro/hero-bg.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-dark: #070310;
+      --bg-surface: #100620;
+      --bg-surface-elevated: #1a0b33;
+      --bg-card: rgba(26, 11, 51, 0.65);
+      --border-glass: rgba(157, 78, 221, 0.22);
+      --border-glow: #A855F7;
+      --primary-purple: #8A14F7;
+      --light-purple: #E0AAFF;
+      --accent-orange: #FF9E00;
+      --text-main: #F3EEF9;
+      --text-muted: #B8A9CC;
+      --text-dim: #7A6990;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(138, 20, 247, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 65%, rgba(255, 158, 0, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+    .container { width: 100%; max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+    .site-header {
+      background: rgba(7, 3, 16, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-glass);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0.85rem 0;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; }
+    .brand-logo { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; color: #fff; }
+    .brand-logo-img { width: 34px; height: 34px; object-fit: contain; }
+    .brand-logo-text { font-family: 'Unbounded', sans-serif; font-size: 1.3rem; font-weight: 800; background: linear-gradient(180deg, #A855F7 0%, #7E22CE 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .header-nav { display: flex; align-items: center; gap: 1.5rem; }
+    .header-nav a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; }
+    .header-nav a:hover { color: #fff; }
+    .btn-header-cta { background: linear-gradient(135deg, #7B2CBF, #9D4EDD); color: #fff; font-weight: 700; font-size: 0.85rem; padding: 0.5rem 1.15rem; border-radius: 9999px; text-decoration: none; }
+    .article-wrap { padding: 3rem 0 5rem; }
+    .article-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.35rem 0.85rem; border-radius: 9999px; background: rgba(138, 20, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.35); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; color: var(--light-purple); margin-bottom: 1.25rem; }
+    .article-title { font-family: 'Unbounded', sans-serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; line-height: 1.25; margin-bottom: 1.25rem; color: #FFFFFF; }
+    .article-meta { display: flex; align-items: center; gap: 1.5rem; color: var(--text-dim); font-size: 0.88rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-glass); flex-wrap: wrap; }
+    .article-body { font-size: 1.05rem; line-height: 1.75; color: var(--text-main); }
+    .article-body p { margin-bottom: 1.5rem; }
+    .article-body h2 { font-family: 'Unbounded', sans-serif; font-size: 1.45rem; margin: 2.5rem 0 1rem; color: #FFFFFF; }
+    .article-body h3 { font-family: 'Unbounded', sans-serif; font-size: 1.2rem; margin: 2rem 0 0.85rem; color: var(--light-purple); }
+    .article-body ul, .article-body ol { margin: 0 0 1.5rem 1.5rem; }
+    .article-body li { margin-bottom: 0.5rem; }
+    .article-box { background: rgba(26, 11, 51, 0.75); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 14px; padding: 1.5rem; margin: 2rem 0; }
+    .site-footer { background: #070310; border-top: 1px solid var(--border-glass); padding: 3rem 0; margin-top: auto; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="../#hero" class="brand-logo" aria-label="PGON Wallet Главная">
+          <img src="../assets/pgon-icon.png" alt="PGON Wallet" class="brand-logo-img" width="34" height="34" />
+          <span class="brand-logo-text">PGON</span>
+        </a>
+        <nav class="header-nav">
+          <a href="../blog.html">Все статьи блога</a>
+          <a href="../#exchange">Обмен на карту</a>
+          <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-header-cta">Открыть кошелек</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="article-wrap">
+    <div class="container">
+      <span class="article-badge">🔄 Обмен и вывод</span>
+      <h1 class="article-title">Как вывести криптовалюту на карту любого банка РФ через СБП без посредников</h1>
+      <div class="article-meta">
+        <span>📅 3 февраля 2026</span>
+        <span>⏱️ 4 мин чтения</span>
+        <span>🛡️ Без P2P и блокировок 115-ФЗ</span>
+      </div>
+
+      <article class="article-body">
+        <p>Вывод криптовалюты на карты российских банков в последние годы стал сопряжен с серьезными сложностями: P2P-площадки заполнены сомнительными счетами и дропами, что регулярно приводит к заморозке карт по 115-ФЗ, а комиссии обменников доходят до 10-15%.</p>
+
+        <h2>Почему P2P стал небезопасен для вывода крипты</h2>
+        <p>При P2P-обмене перевод вам отправляет неизвестное физическое лицо. Если этот счет фигурировал в мошеннических схемах или дроп-цепочках, банк мгновенно блокирует карту получателя до выяснения обстоятельств. Вы рискуете потерять не только сумму перевода, но и доступ к своим счетам в банке.</p>
+
+        <div class="article-box">
+          <h3 style="color:#4ADE80; margin-top:0;">Прямой вывод через PGON Wallet</h3>
+          <p style="margin-bottom:0;">PGON Wallet работает по технологии прямого автоматизированного шлюза: вы отправляете USDT или TON со своего кошелька, а рубли поступают на ваш счет через официальный межбанковский эквайринг СБП за 15-30 секунд с гарантией легальности источника средств.</p>
+        </div>
+
+        <h2>Пошаговый алгоритм вывода</h2>
+        <ol>
+          <li><strong>Откройте PGON Wallet в Telegram</strong> — перейдите в раздел «Обмен на карту».</li>
+          <li><strong>Выберите криптовалюту</strong> — поддерживаются USDT (TRC-20, BEP-20, TON) и монета TON.</li>
+          <li><strong>Укажите банк и номер телефона / карты</strong> — Сбер, Т-Банк, Альфа, ВТБ, Райффайзен или любой другой банк РФ с поддержкой СБП.</li>
+          <li><strong>Подтвердите курс</strong> — сумма в рублях фиксируется до отправки транзакции. Никаких скрытых списаний.</li>
+          <li><strong>Получите средства</strong> — автоматическое зачисление на ваш счет происходит мгновенно.</li>
+        </ol>
+
+        <h2>Лимиты и комиссии</h2>
+        <p>Минимальная сумма обмена составляет всего 1 500 рублей, а разовый лимит доходит до 500 000 рублей. Курс фиксируется перед совершением сделки, что гарантирует прозрачность и спокойствие.</p>
+
+        <div style="margin-top: 2.5rem; text-align: center;">
+          <a href="https://t.me/pgon_wallet_bot" target="_blank" rel="noopener noreferrer" class="btn-header-cta" style="font-size: 1rem; padding: 0.85rem 2rem; display: inline-block;">Попробовать вывод в Telegram →</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center; color: var(--text-dim); font-size: 0.85rem;">
+      <p>© 2026 PGON Wallet. Все права защищены.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -22,6 +22,8 @@ export default defineConfig({
         blogSbp: resolve(__dirname, 'blog/kak-oplachivat-po-qr-sbp-kriptovalyutoy.html'),
         blog115Fz: resolve(__dirname, 'blog/kak-izbezhat-blokirovok-115-fz-pri-rabote-s-kriptoy.html'),
         blogSteamAppstore: resolve(__dirname, 'blog/virtualnaya-karta-dlya-app-store-i-steam.html'),
+        blogVyvodSbp: resolve(__dirname, 'blog/kak-vyvesti-kriptovalyutu-na-kartu-rf-cherez-sbp.html'),
+        blogLimityNalogi: resolve(__dirname, 'blog/limity-nalogi-i-zakonnost-raschetov-kriptoy-rf-2026.html'),
       }
     }
   }
